@@ -44,3 +44,33 @@
   width: 100%;
   max-width: 500px;
 }
+
+.label {
+  border: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 600; /* 글자를 조금 더 굵게 */
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+.label .left,
+.label .right {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  vertical-align: middle;
+  border-top: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
+  border-left: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
+  border-right: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
+}
+
+.label .center {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+  padding: 0 6px;
+}

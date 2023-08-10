@@ -239,6 +239,28 @@ const MapOrder = () => {
           image: markerImage,
         });
         marker.setMap(map);
+    
+        // 커스텀 오버레이에 표시할 내용입니다
+        const content = `<div class ="label">
+          <span class="left"></span>
+          <span class="center">${hospital.name}: ${congestionValue} 혼잡도</span>
+          <span class="right"></span>
+        </div>`;
+    
+        const customOverlay = new kakao.maps.CustomOverlay({
+          position: position,
+          content: content
+        });
+    
+        // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+          customOverlay.setMap(map);
+        });
+    
+        // 지도를 클릭했을 때 커스텀 오버레이를 숨깁니다
+        kakao.maps.event.addListener(map, 'click', function() {
+          customOverlay.setMap(null);
+        });
       });
     };
 

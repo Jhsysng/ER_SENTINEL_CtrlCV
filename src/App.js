@@ -6,6 +6,7 @@ import Main from './screen/Main';
 import CongestionLevelOrder from './screen/CongestionLevelOrder';
 import DistanceOrder from './screen/DistanceOrder'; 
 import MapOrder from './screen/MapOrder'; 
+import HInfo from './screen/HInfo';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/CongestionLevelOrder" element={<CongestionLevelOrder />} />
         <Route path="/DistanceOrder" element={<DistanceOrder />} />
         <Route path="/MapOrder" element={<MapOrder />} />
+        <Route path="/HInfo" element={<HInfo />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,92 @@
+/* HInfo.css */
+
+.hospital-details-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+.hospital-name {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 26px;
+  color: #ff7f50;
+  font-weight: bold;
+}
+
+.hospital-info-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.info-icon {
+  width: 45px;
+  height: 45px;
+  margin-right: 25px;
+}
+
+.info-content h3 {
+  margin-bottom: 12px;
+  font-size: 19px;
+  color: #ff7f50;
+  font-weight: 600;
+}
+
+.info-content p {
+  font-size: 17px;
+  color: #444;
+}
+
+.hospital-info-section.emergency-section {
+  background-color: #fff7f0;
+  border: 2px solid #ff6b00;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.hospitalbed-icon {
+  width: 70px;
+  height: 70px;
+  margin-right: 25px;
+  object-fit: cover;
+}
+
+.emergency-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #ff6b00;
+  text-align: center;
+  width: 100%;
+}
+
+.emergency-content {
+  font-size: 20px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.emergency-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ff6b00;
+}
+
+.emergency-icon {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 5px;
+}
