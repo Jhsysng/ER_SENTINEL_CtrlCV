@@ -26,7 +26,9 @@ public class Hospital {
 
     private String latitude;
 
-    private String address;
+    private String firstAddress;
+
+    private String secondAddress;
 
     @UpdateTimestamp
     private LocalDateTime updateTime;
@@ -44,13 +46,18 @@ public class Hospital {
     private EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo;
 
     @Builder
-    public Hospital(String dutyId, String name, String phoneNumber, String longitude, String latitude, String address, LocalDateTime updateTime) {
+    public Hospital(String dutyId, String name, String phoneNumber, String longitude, String latitude, String firstAddress, String secondAddress, LocalDateTime updateTime, List<EmergencyMessage> emergencyMessage, EmergencyRoom emergencyRoom, HospitalEquipment hospitalEquipment, EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo) {
         this.dutyId = dutyId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.address = address;
+        this.firstAddress = firstAddress;
+        this.secondAddress = secondAddress;
         this.updateTime = updateTime;
+        this.emergencyMessage = emergencyMessage;
+        this.emergencyRoom = emergencyRoom;
+        this.hospitalEquipment = hospitalEquipment;
+        this.emergencyRoomSevereCapacityInfo = emergencyRoomSevereCapacityInfo;
     }
 }
