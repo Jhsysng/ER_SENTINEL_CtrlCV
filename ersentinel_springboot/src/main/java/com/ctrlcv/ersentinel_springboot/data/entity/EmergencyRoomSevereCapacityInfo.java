@@ -1,22 +1,20 @@
 package com.ctrlcv.ersentinel_springboot.data.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class EmergencyRoomSevereCapacityInfo {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dutyId")
     private Hospital hospital;
@@ -24,137 +22,137 @@ public class EmergencyRoomSevereCapacityInfo {
     /**
      * 심근경색
      */
-    private boolean myocardialInfarction;
+    private Boolean myocardialInfarction;
 
     /**
      * 뇌경색
      */
-    private boolean cerebralInfarction;
+    private Boolean cerebralInfarction;
 
     /**
      * 뇌출혈[거미막하]
      */
-    private boolean subarachnoidHemorrhage;
+    private Boolean subarachnoidHemorrhage;
 
     /**
      * 뇌출혈[그 외]
      */
-    private boolean otherBrainHemorrhage;
+    private Boolean otherBrainHemorrhage;
 
     /**
      * 대동맥 흉부
      */
-    private boolean thoracicAorta;
+    private Boolean thoracicAorta;
 
     /**
      * 대동맥 복부
      */
-    private boolean abdominalAorta;
+    private Boolean abdominalAorta;
 
     /**
      * 담낭질환
      */
-    private boolean gallbladderDisease;
+    private Boolean gallbladderDisease;
 
     /**
      * 담도포함질환
      */
-    private boolean bileDuctDisease;
+    private Boolean bileDuctDisease;
 
     /**
      * 복부응급 비외상
      */
-    private boolean nonTraumaticAbdominalEmergency;
+    private Boolean nonTraumaticAbdominalEmergency;
 
     /**
      * 장중첩/폐색 영유아
      */
-    private boolean infantIntestinalObstruction;
+    private Boolean infantIntestinalObstruction;
 
     /**
      * 위장관 응급내시경 성인
      */
-    private boolean emergencyGastrointestinalEndoscopy;
+    private Boolean emergencyGastrointestinalEndoscopy;
 
     /**
      * 위장관 응급내시경 영유아
      */
-    private boolean emergencyGastrointestinalEndoscopyForChildren;
+    private Boolean emergencyGastrointestinalEndoscopyForChildren;
 
     /**
      * 기관지 응급내시경 성인
      */
-    private boolean emergencyBronchoscopy;
+    private Boolean emergencyBronchoscopy;
 
     /**
      * 기관지 응급내시경 영유아
      */
-    private boolean emergencyBronchoscopyForChildren;
+    private Boolean emergencyBronchoscopyForChildren;
 
     /**
      * 저출생체중아
      */
-    private boolean lowBirthWeightInfant;
+    private Boolean lowBirthWeightInfant;
 
     /**
      * 산부인과 분만
      */
-    private boolean obstetricDelivery;
+    private Boolean obstetricDelivery;
 
     /**
      * 산부인과 산과수술
      */
-    private boolean obstetricSurgery;
+    private Boolean obstetricSurgery;
 
     /**
      * 산부인과응급 부인과수술
      */
-    private boolean emergencyGynecologicalSurgery;
+    private Boolean emergencyGynecologicalSurgery;
 
     /**
      * 중증화상
      */
-    private boolean severeBurns;
+    private Boolean severeBurns;
 
     /**
      * 사지접합 수족지접합
      */
-    private boolean limbReattachmentExtremities;
+    private Boolean limbReattachmentExtremities;
 
     /**
      * 사지접합 그외
      */
-    private boolean limbReattachmentOther;
+    private Boolean limbReattachmentOther;
 
     /**
      * 응급투석 HD
      */
-    private boolean emergencyDialysisHD;
+    private Boolean emergencyDialysisHD;
 
     /**
      * 응급투석 CRRT
      */
-    private boolean emergencyDialysisCRRT;
+    private Boolean emergencyDialysisCRRT;
 
     /**
      * 정신과
      */
-    private boolean psychiatry;
+    private Boolean psychiatry;
 
     /**
      * 안과적수술
      */
-    private boolean ophthalmicSurgery;
+    private Boolean ophthalmicSurgery;
 
     /**
      * 영상의학혈관중재 성인
      */
-    private boolean radiologyVascularIntervention;
+    private Boolean radiologyVascularIntervention;
 
     /**
      * 영상의학혈관중재 영유아
      */
-    private boolean radiologyVascularInterventionForChildren;
+    private Boolean radiologyVascularInterventionForChildren;
 
     /**
      * 장중첩영유아 연령
@@ -188,7 +186,8 @@ public class EmergencyRoomSevereCapacityInfo {
     private LocalDateTime updateTime;
 
     @Builder
-    public EmergencyRoomSevereCapacityInfo(Hospital hospital, boolean myocardialInfarction, boolean cerebralInfarction, boolean subarachnoidHemorrhage, boolean otherBrainHemorrhage, boolean thoracicAorta, boolean abdominalAorta, boolean gallbladderDisease, boolean bileDuctDisease, boolean nonTraumaticAbdominalEmergency, boolean infantIntestinalObstruction, boolean emergencyGastrointestinalEndoscopy, boolean emergencyGastrointestinalEndoscopyForChildren, boolean emergencyBronchoscopy, boolean emergencyBronchoscopyForChildren, boolean lowBirthWeightInfant, boolean obstetricDelivery, boolean obstetricSurgery, boolean emergencyGynecologicalSurgery, boolean severeBurns, boolean limbReattachmentExtremities, boolean limbReattachmentOther, boolean emergencyDialysisHD, boolean emergencyDialysisCRRT, boolean psychiatry, boolean ophthalmicSurgery, boolean radiologyVascularIntervention, boolean radiologyVascularInterventionForChildren, String infantIntestinalAge, String gastrointestinalEndoscopyAge, String bronchoscopyAge, String lowBirthWeightAge, String radiologyAge, LocalDateTime updateTime) {
+    public EmergencyRoomSevereCapacityInfo(int id, Hospital hospital, boolean myocardialInfarction, boolean cerebralInfarction, boolean subarachnoidHemorrhage, boolean otherBrainHemorrhage, boolean thoracicAorta, boolean abdominalAorta, boolean gallbladderDisease, boolean bileDuctDisease, boolean nonTraumaticAbdominalEmergency, boolean infantIntestinalObstruction, boolean emergencyGastrointestinalEndoscopy, boolean emergencyGastrointestinalEndoscopyForChildren, boolean emergencyBronchoscopy, boolean emergencyBronchoscopyForChildren, boolean lowBirthWeightInfant, boolean obstetricDelivery, boolean obstetricSurgery, boolean emergencyGynecologicalSurgery, boolean severeBurns, boolean limbReattachmentExtremities, boolean limbReattachmentOther, boolean emergencyDialysisHD, boolean emergencyDialysisCRRT, boolean psychiatry, boolean ophthalmicSurgery, boolean radiologyVascularIntervention, boolean radiologyVascularInterventionForChildren, String infantIntestinalAge, String gastrointestinalEndoscopyAge, String bronchoscopyAge, String lowBirthWeightAge, String radiologyAge, LocalDateTime updateTime) {
+        this.id = id;
         this.hospital = hospital;
         this.myocardialInfarction = myocardialInfarction;
         this.cerebralInfarction = cerebralInfarction;

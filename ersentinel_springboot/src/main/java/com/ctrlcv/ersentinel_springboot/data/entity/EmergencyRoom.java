@@ -1,22 +1,22 @@
 package com.ctrlcv.ersentinel_springboot.data.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
 public class EmergencyRoom {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dutyId")
     private Hospital hospital;
@@ -26,30 +26,24 @@ public class EmergencyRoom {
     private String phoneNumber;
 
     /**
-     * 소아 가용 병상
+     * 소아 가용 병상 -> 응급실 실시간 가용병상정보 조회 : 소아 (hv28)
      */
     private int pediatricAvailableBeds;
 
     /**
-     * 소아 기준 병상
+     * 소아 기준 병상 -> 응급실 실시간 가용병상정보 조회 : 소아_기준 (HVS02)
      */
     private int pediatricStandardBeds;
 
     /**
-     * 성인 가용 병상
+     * 성인 가용 병상 -> 응급실 실시간 가용병상정보 조회 : 일반 (hvec)
      */
     private int adultAvailableBeds;
 
     /**
-     * 성인 기준 병상
+     * 성인 기준 병상 -> 응급실 실시간 가용병상정보 조회 : 일반_기준 (HVS01)
      */
     private int adultStandardBeds;
-
-    private String emgMessage1;
-
-    private String emgMessage2;
-
-    private String emgMessage3;
 
     private LocalDateTime apiUpdateTime;
 
@@ -57,7 +51,8 @@ public class EmergencyRoom {
     private LocalDateTime updateTime;
 
     @Builder
-    public EmergencyRoom(Hospital hospital, String name, String phoneNumber, int pediatricAvailableBeds, int pediatricStandardBeds, int adultAvailableBeds, int adultStandardBeds, String emgMessage1, String emgMessage2, String emgMessage3, LocalDateTime apiUpdateTime, LocalDateTime updateTime) {
+    public EmergencyRoom(int id, Hospital hospital, String name, String phoneNumber, int pediatricAvailableBeds, int pediatricStandardBeds, int adultAvailableBeds, int adultStandardBeds, LocalDateTime apiUpdateTime, LocalDateTime updateTime) {
+        this.id = id;
         this.hospital = hospital;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -65,9 +60,6 @@ public class EmergencyRoom {
         this.pediatricStandardBeds = pediatricStandardBeds;
         this.adultAvailableBeds = adultAvailableBeds;
         this.adultStandardBeds = adultStandardBeds;
-        this.emgMessage1 = emgMessage1;
-        this.emgMessage2 = emgMessage2;
-        this.emgMessage3 = emgMessage3;
         this.apiUpdateTime = apiUpdateTime;
         this.updateTime = updateTime;
     }

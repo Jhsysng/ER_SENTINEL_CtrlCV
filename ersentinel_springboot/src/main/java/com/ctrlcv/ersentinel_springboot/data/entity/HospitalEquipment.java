@@ -1,22 +1,20 @@
 package com.ctrlcv.ersentinel_springboot.data.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class HospitalEquipment {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dutyId")
     private Hospital hospital;
@@ -24,57 +22,53 @@ public class HospitalEquipment {
     /**
      * CT
      */
-    private boolean CT;
+    private Boolean CT;
 
     /**
      * MRI
      */
-    private boolean MRI;
+    private Boolean MRI;
 
     /**
      * 인공호흡기
      */
-    private boolean ventilator;
+    private Boolean ventilator;
 
     /**
      * 인공호흡기조산아
      */
-    private boolean ventilatorForChildren;
+    private Boolean ventilatorForChildren;
 
     /**
      * 혈관촬영기
      */
-    private boolean angiographyMachine;
+    private Boolean angiographyMachine;
 
-    /**
-     * 혈관촬영기조산아
-     */
-    private boolean angiographyMachineForChildren;
 
     /**
      * CRRT
      */
-    private boolean CRRT;
+    private Boolean CRRT;
 
     /**
      * ECMO
      */
-    private boolean ECMO;
+    private Boolean ECMO;
 
     /**
      * 고압산소치료기
      */
-    private boolean hyperbaricOxygenTherapyUnit;
+    private Boolean hyperbaricOxygenTherapyUnit;
 
     /**
      * 중심체온기가능
      */
-    private boolean centralTemperatureManagementCapable;
+    private Boolean centralTemperatureManagementCapable;
 
     /**
      * 구급차
      */
-    private boolean ambulance;
+    private Boolean ambulance;
 
     /**
      * 업데이트 시간
@@ -83,14 +77,14 @@ public class HospitalEquipment {
     private LocalDateTime updateTime;
 
     @Builder
-    public HospitalEquipment(Hospital hospital, boolean CT, boolean MRI, boolean ventilator, boolean ventilatorForChildren, boolean angiographyMachine, boolean angiographyMachineForChildren, boolean CRRT, boolean ECMO, boolean hyperbaricOxygenTherapyUnit, boolean centralTemperatureManagementCapable, boolean ambulance, LocalDateTime updateTime) {
+    public HospitalEquipment(int id, Hospital hospital, Boolean CT, Boolean MRI, Boolean ventilator, Boolean ventilatorForChildren, Boolean angiographyMachine, Boolean CRRT, Boolean ECMO, Boolean hyperbaricOxygenTherapyUnit, Boolean centralTemperatureManagementCapable, Boolean ambulance, LocalDateTime updateTime) {
+        this.id = id;
         this.hospital = hospital;
         this.CT = CT;
         this.MRI = MRI;
         this.ventilator = ventilator;
         this.ventilatorForChildren = ventilatorForChildren;
         this.angiographyMachine = angiographyMachine;
-        this.angiographyMachineForChildren = angiographyMachineForChildren;
         this.CRRT = CRRT;
         this.ECMO = ECMO;
         this.hyperbaricOxygenTherapyUnit = hyperbaricOxygenTherapyUnit;
