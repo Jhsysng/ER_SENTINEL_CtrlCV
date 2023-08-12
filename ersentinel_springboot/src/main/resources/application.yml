@@ -1,8 +1,18 @@
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/ersentinel
+    url: jdbc:mariadb://localhost:3306/ersentinel?allowPublicKeyRetrieval=true&useSSL=false
     driver-class-name: org.mariadb.jdbc.Driver
     # 본인 mariaDB 계정
     username: root
     # 본인 mariaDB 비밀번호
     password: WjdWodnr#&33
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        format_sql: true
+
+    show-sql: true
