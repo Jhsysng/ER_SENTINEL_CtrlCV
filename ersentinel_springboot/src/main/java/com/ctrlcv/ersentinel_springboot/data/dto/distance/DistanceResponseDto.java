@@ -13,7 +13,7 @@ public class DistanceResponseDto {
     private String longitude;
     private String latitude;
     private String hospitalName;
-    private String hospitalNumber;
-    private int pediatriccongestion;
-    private int adultcongestion;
+    private String hospitalCallNumber;
+    private int pediatricCongestion;
+    private int adultCongestion;
 }

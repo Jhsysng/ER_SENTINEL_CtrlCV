@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserDistanceController {
     @PostMapping("/distance")
-    public
-
+    public String getDistance() {
+        return "distance";
+    }
 
 }

@@ -17,3 +17,6 @@ spring:
 
     show-sql: false
 
+
+public-api:
+  key: AQMJP1XKe1ttjCoK3gBx7HFBqvEH5CenCFRMX5VsW20Um56SnjPVDNn8U%2FQKimxiH%2ByDw7S4chGD8iJ8vZHrOQ%3D%3D
