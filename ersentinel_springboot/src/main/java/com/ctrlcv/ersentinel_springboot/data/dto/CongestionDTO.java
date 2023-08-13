@@ -1,6 +1,7 @@
 package com.ctrlcv.ersentinel_springboot.data.dto;
 
-import com.ctrlcv.ersentinel_springboot.data.entity.CongestionEntity;
+import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
+import com.ctrlcv.ersentinel_springboot.data.entity.EmergencyRoom;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,21 +19,22 @@ public class CongestionDTO {
     private String latitude;
     private String phoneNumber;    // 응급실 전번
 
-    public CongestionDTO(final CongestionEntity entity){
-        this.name = entity.name;
-        if(entity.adultAvailableBeds == null || entity.adultStandardBeds == null){
+    public CongestionDTO(final Hospital hospital, final EmergencyRoom emergencyRoom){
+        this.name = hospital.getName();
+        if(emergencyRoom.getAdultAvailableBeds() == -1 || emergencyRoom.getAdultStandardBeds() == -1){
+        //TODO: 여기도 재욱이형한테 물어봐야함.
             this.adultpercent = -1;
         }else{
-            this.adultpercent = (entity.adultStandardBeds - entity.adultAvailableBeds) / entity.adultStandardBeds * 100;
+            this.adultpercent = (int)(((double) emergencyRoom.getAdultStandardBeds() - emergencyRoom.getAdultAvailableBeds()) / emergencyRoom.getAdultStandardBeds() * 100);
         }
-        if(entity.pediatricAvailableBeds == null || entity.pediatricStandardBeds == null){
+        if(emergencyRoom.getPediatricAvailableBeds() == -1 || emergencyRoom.getPediatricStandardBeds() == -1){
             this.pediatricpercent = -1;
         }else{
-            this.pediatricpercent = (entity.pediatricStandardBeds - entity.pediatricAvailableBeds) / entity.pediatricStandardBeds * 100;
+            this.pediatricpercent = (int)(((double)emergencyRoom.getPediatricStandardBeds() - emergencyRoom.getPediatricAvailableBeds()) / emergencyRoom.getPediatricStandardBeds() * 100);
         }
-        this.longitude = entity.longitude;
-        this.latitude = entity.latitude;
-        this.phoneNumber = entity.phoneNumber;
+        this.longitude = hospital.getLongitude();
+        this.latitude = hospital.getLatitude();
+        this.phoneNumber = hospital.getPhoneNumber();
 
     }
 
