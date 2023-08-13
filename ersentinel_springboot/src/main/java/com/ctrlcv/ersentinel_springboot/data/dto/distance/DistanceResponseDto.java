@@ -1,4 +1,4 @@
-package com.ctrlcv.ersentinel_springboot.data.dto;
+package com.ctrlcv.ersentinel_springboot.data.dto.distance;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
