@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "../css/DistanceOrder.css";
+import axios from "axios";
 
 const sampleHospitals = [
   {
@@ -91,39 +92,89 @@ const sampleHospitals = [
 ];
 
 const DistanceOrder = () => {
-    const location = useLocation();
-    const userLocation = location.state ? location.state.userLocation : "Default Location"; 
-    const [sortedHospitals, setSortedHospitals] = useState([]);
-  
-    useEffect(() => {
-      const sorted = [...sampleHospitals].sort(
-        (a, b) => parseFloat(a.distance) - parseFloat(b.distance)
+  const [sortedHospitals, setSortedHospitals] = useState([]);
+  const [userLocation, setUserLocation] = useState("Fetching location...");
+
+  useEffect(() => {
+    // 사용자 위치 가져오기
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          try {
+            const response = await fetch(
+              `https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${longitude}&y=${latitude}`,
+              {
+                headers: {
+                  Authorization: "KakaoAK e66ae55f0df11d36b2b954ae39f001eb", // 'KakaoAK'를 사용하여 API 키를 지정합니다.
+                  "Content-Type":
+                    "application/x-www-form-urlencoded;charset=utf-8", // 이 헤더도 추가합니다.
+                },
+              }
+            );
+            const data = await response.json();
+            console.log(data);
+            if (data.documents && data.documents.length > 0) {
+              const address = data.documents[0].address;
+
+              // const addressComponents = address.address_name.split(" ");
+              // const first_address = addressComponents[0];
+              // const second_address = addressComponents[1];
+              // DB 연결 및 데이터 전송 로직
+              // axios
+              //   .post("YOUR_DB_ENDPOINT", {
+              //     first_address: first_address,
+              //     second_address: second_address,
+              //   })
+              //   .then((response) => {
+              //     console.log(response.data); // 성공적으로 데이터를 보냈을 때의 응답을 출력
+              //   })
+              //   .catch((error) => {
+              //     console.log("Error sending data to DB: ", error);
+              //   });
+
+              setUserLocation(address.address_name);
+            } else {
+              setUserLocation("Cannot find address for this location");
+            }
+          } catch (error) {
+            setUserLocation("Error fetching address");
+          }
+        },
+        () => {
+          setUserLocation("Unable to retrieve your location");
+        }
       );
-      setSortedHospitals(sorted);
-    }, []);
-  
-    return (
-      <div className="distance-container">
-        <h2>{userLocation}</h2>
-  
-        <ul className="hospital-list">
-          {sortedHospitals.map((hospital) => (
-            <li key={hospital.id} className="hospital-item">
-              <span className="hospital-name">{hospital.name}</span>
-              <span className="hospital-distance">{hospital.distance} km</span>
-              <div className="congestion-info">
-                <span style={{ display: "block" }}>
-                  성인 혼잡도: {hospital.Acongestion}
-                </span>
-                <span style={{ display: "block" }}>
-                  소아 혼잡도: {hospital.Bcongestion}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+    } else {
+      setUserLocation("Geolocation is not supported by this browser");
+    }
+
+    const sorted = [...sampleHospitals].sort(
+      (a, b) => parseFloat(a.distance) - parseFloat(b.distance)
     );
-  };
-  
-  export default DistanceOrder;
+    setSortedHospitals(sorted);
+  }, []);
+
+  return (
+    <div className="Distance-distance-container">
+      <h2 className="Distance-h2">{userLocation}</h2>
+
+      <ul className="Distance-hospital-list">
+        {sortedHospitals.map((hospital) => (
+          <li key={hospital.id} className="Distance-hospital-item">
+            <span className="Distance-hospital-name">{hospital.name}</span>
+            <div className="Distance-congestion-info">
+              <span>성인: {hospital.Acongestion}</span>
+            </div>
+            <div className="Distance-congestion-info">
+              <span>소아: {hospital.Bcongestion}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default DistanceOrder;

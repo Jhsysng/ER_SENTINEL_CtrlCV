@@ -1,16 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Main.css";
-
-const sampleHospital = {
-  id: 1,
-  name: "Gangnam General Hospital",
-  address: "123 Gangnam-daero, Gangnam-gu, Seoul",
-  location: "123 Gangnam-daero, Gangnam-gu, Seoul",
-  phone: "02-1234-5678",
-  Acongestion: 10,
-  Pcongestion: 8,
-};
+import CongestionLevelOrder from "../components/CongestionLevelOrder.png";
+import maporder from "../components/maporder.png";
+import Distanceorder from "../components/Distanceorder.png";
 
 const Main = () => {
   return (
@@ -18,24 +11,30 @@ const Main = () => {
       <Link
         to={{
           pathname: "/DistanceOrder",
-          state: { userLocation: "서울특별시 강남구" },
         }}
       >
-        <button className="main-button">거리순 기준 선택</button>
+        <button className="main-button">
+          <img src={Distanceorder} alt="거리순 아이콘" /> 
+        </button>
       </Link>
       <Link to="/CongestionLevelOrder">
-        <button className="main-button">혼잡도 기준 선택</button>
+        <button className="main-button">
+          <img src={CongestionLevelOrder} alt="혼잡도 아이콘" /> 
+        </button>
       </Link>
       <Link to="/MapOrder">
-        <button className="main-button">지도 기준 선택</button>
+        <button className="main-button">
+          <img src={maporder} alt="지도 아이콘" /> 
+        </button>
       </Link>
       <Link
         to={{
-          pathname: "/HInfo",
-          state: { hospital: sampleHospital },
+          pathname: "/HInfo"
         }}
       >
-        <button className="main-button">병원 상세 정보(테스트)</button>
+        <button className="main-button">
+          <img src="path_to_your_png_icon" alt="병원 정보 아이콘" />
+        </button>
       </Link>
     </div>
   );

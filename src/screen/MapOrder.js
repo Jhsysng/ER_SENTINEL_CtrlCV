@@ -307,7 +307,7 @@ const MapOrder = () => {
               : "buttonDefault"
           }`}
         >
-          성인 혼잡도 기준
+          성인 혼잡도
         </button>
         <button
           onClick={() => setCongestionType("Pcongestion")}
@@ -317,7 +317,7 @@ const MapOrder = () => {
               : "buttonDefault"
           }`}
         >
-          소아 혼잡도 기준
+          소아 혼잡도
         </button>
       </div>
       <div className="map" id="map"></div>

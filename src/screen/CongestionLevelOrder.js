@@ -12,12 +12,15 @@ const sampleData = [
 
 const CongestionLevelOrder = () => {
   const [sortedData, setSortedData] = useState([...sampleData]);
+  const [activeButton, setActiveButton] = useState(""); // 활성화된 버튼을 추적하기 위한 state 추가
 
   const handleSort = (type) => {
     const sorted = [...sampleData].sort((a, b) => {
       if (type === "adult") {
+        setActiveButton("adult");
         return parseInt(a.Acongestion) - parseInt(b.Acongestion);
       } else {
+        setActiveButton("child");
         return parseInt(a.Bcongestion) - parseInt(b.Bcongestion);
       }
     });
@@ -25,16 +28,33 @@ const CongestionLevelOrder = () => {
   };
 
   return (
-    <div className="congestion-container">
-      <div className="button-group">
-        <button onClick={() => handleSort("adult")}>성인</button>
-        <button onClick={() => handleSort("child")}>소아</button>
+    <div className="CongestionLevelOrder-container">
+      <h2 className="CongestionLevelOrder-h2">혼잡도 기준</h2>
+      <div className="CongestionLevelOrder-button-group">
+        <button
+          onClick={() => handleSort("adult")}
+          className={activeButton === "adult" ? "active" : ""}
+        >
+          성인 혼잡도
+        </button>
+        <button
+          onClick={() => handleSort("child")}
+          className={activeButton === "child" ? "active" : ""}
+        >
+          소아 혼잡도
+        </button>
       </div>
 
-      <ul className="list">
+      <ul className="CongestionLevelOrder-list">
         {sortedData.map((item) => (
-          <li key={item.id}>
-            {item.name} - 성인: {item.Acongestion} / 소아: {item.Bcongestion}
+          <li key={item.id} className="CongestionLevelOrder-item">
+            <span className="CongestionLevelOrder-name">{item.name}</span>
+            <span className="CongestionLevelOrder-congestion-info">
+              성인: {item.Acongestion}
+            </span>
+            <span className="CongestionLevelOrder-congestion-info">
+              소아: {item.Bcongestion}
+            </span>
           </li>
         ))}
       </ul>

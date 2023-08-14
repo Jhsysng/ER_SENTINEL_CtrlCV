@@ -1,49 +1,90 @@
-.congestion-container {
-    width: 90%; /* 화면의 90% 차지 */
-    max-width: 400px; 
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    border-radius: 10px;
+.CongestionLevelOrder-container {
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.button-group {
-    display: flex;
-    justify-content: space-between; /* 버튼들 사이에 공간 배분 */
-    margin-bottom: 20px; /* 버튼 그룹과 리스트 사이에 마진 추가 */
+.CongestionLevelOrder-h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 26px;
 }
 
-.button-group button {
-    width: 48%; /* 버튼 너비 설정 */
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px; /* 둥근 테두리 */
-    cursor: pointer;
-    transition: background-color 0.3s;
+.CongestionLevelOrder-list {
+  list-style-type: none;
+  padding: 0;
 }
 
-.button-group button:hover {
-    background-color: #0056b3;
+.CongestionLevelOrder-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.list {
-    list-style-type: none; /* 목록 표시기 제거 */
-    padding: 0; /* 기본 패딩 제거 */
+.CongestionLevelOrder-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.list li {
-    padding: 15px;
-    border: 1px solid #e0e0e0; /* 경계선 추가 */
-    border-radius: 5px; /* 둥근 테두리 */
-    margin-bottom: 10px; /* 항목들 사이의 간격 */
-    background-color: #f8f8f8; /* 항목 배경색 */
-    font-size: 16px; /* 폰트 크기 설정 */
+.CongestionLevelOrder-name {
+  flex: 2;
+  font-size: 20px;
+  font-weight: bold;
+  color: #34495e;
 }
 
-.list li:last-child {
-    margin-bottom: 0; /* 마지막 항목의 마진 제거 */
+.CongestionLevelOrder-distance {
+  flex: 1;
+  font-size: 18px;
+  color: #7f8c8d;
+  margin-left: 12px;
+  text-align: right;
+}
+
+.CongestionLevelOrder-congestion-info {
+  flex: 1;
+  font-size: 16px;
+  color: #555;
+  text-align: right;
+}
+
+.CongestionLevelOrder-congestion-info span {
+  display: block;
+}
+
+.CongestionLevelOrder-button-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: 2px solid #ff5733; /* 주황색 테두리 */
+  border-radius: 5px; /* 둥근 모서리 */
+  cursor: pointer;
+  color: #ff5733; /* 주황색 글씨 */
+  background-color: #fff; /* 흰색 배경 */
+  transition: background-color 0.2s, color 0.2s; /* 부드러운 전환 효과 */
+  margin-right: 10px;
+  font-weight: bold; /* 글자를 조금 더 굵게 */
+}
+
+button.active {
+  background-color: #ff5733; /* 주황색 배경 */
+  color: #fff; /* 흰색 글씨 */
+}
+
+/* 마지막 버튼의 오른쪽 margin 제거 */
+button:last-child {
+  margin-right: 0;
 }
