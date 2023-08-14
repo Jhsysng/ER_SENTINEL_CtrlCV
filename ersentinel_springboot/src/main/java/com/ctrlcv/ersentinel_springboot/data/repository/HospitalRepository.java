@@ -22,5 +22,6 @@ public interface HospitalRepository extends JpaRepository<Hospital, String> {
     List<Object[]> findHospitalAndEmgRoomByFirstAddress(@Param("firstAddress") String firstAddress);
 
     @Query("SELECT h, e FROM Hospital h JOIN EmergencyRoom e ON h.dutyId = e.hospital.dutyId WHERE h.secondAddress = :secondAddress")
-    List<Object[]> findHospitalAndEmgRoomBySecondAddress(@Param("firstAddress") String secondAddress);
+    List<Object[]> findHospitalAndEmgRoomBySecondAddress(@Param("secondAddress") String secondAddress);
+    // TODO : 재욱이형한테 secondAddress 오타바꾼거 알려주기
 }
