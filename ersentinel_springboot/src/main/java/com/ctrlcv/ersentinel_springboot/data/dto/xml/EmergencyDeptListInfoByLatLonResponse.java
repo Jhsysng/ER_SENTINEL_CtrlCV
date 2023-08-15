@@ -4,23 +4,19 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.With;
 
 import java.util.List;
 
 /**
- * 응급의료기관 목록정보 조회
+ * 응급의료기관 위치정보 조회
  */
 @Getter
 @Setter
-@With
-@AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "response")
-public class EmergencyDeptListInfoResponse {
+public class EmergencyDeptListInfoByLatLonResponse {
     @XmlElement(name = "header")
     public Header header;
     @XmlElement(name = "body")
@@ -55,16 +51,19 @@ public class EmergencyDeptListInfoResponse {
         @XmlRootElement(name = "item")
         public static class Item {
             private String rnum; // 일련번호
-            private String hpid; // 기관ID
-            private String phpid; // 기관ID(OLD)
-            private String dutyEmcls; // 응급의료기관분류
-            private String dutyEmclsName; // 응급의료기관분류명
+            private String cnt; // 건수
+            private String distance; // 거리
             private String dutyAddr; // 주소
+            private String dutyDiv; // 병원분류
+            private String dutyDivName; // 병원분류명
+            private String dutyFax; // 팩스번호
             private String dutyName; // 기관명
             private String dutyTel1; // 대표전화1
-            private String dutyTel3; // 응급실전화
-            private String wgs84Lon; // 병원경도
-            private String wgs84Lat; // 병원위도
+            private String startTime; // 시작시간
+            private String endTime; // 종료시간
+            private String hpid; // 기관ID
+            private String latitude; // 위도
+            private String longitude; // 경도
         }
     }
 }
