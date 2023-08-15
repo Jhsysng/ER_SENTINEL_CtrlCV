@@ -1,19 +1,16 @@
 package com.ctrlcv.ersentinel_springboot.service;
 
 import com.ctrlcv.ersentinel_springboot.component.ApiURLs;
-import com.ctrlcv.ersentinel_springboot.data.dto.xml.EmergencyDeptListInfoResponse;
-import com.ctrlcv.ersentinel_springboot.data.dto.xml.EmergencyMessageInfoResponse;
-import com.ctrlcv.ersentinel_springboot.data.dto.xml.EmergencyRoomRealTimeAvlBedInfoResponse;
-import com.ctrlcv.ersentinel_springboot.data.dto.xml.SevereDiseaseAcceptancePosblInfoResponse;
+import com.ctrlcv.ersentinel_springboot.data.dto.xml.*;
 import com.ctrlcv.ersentinel_springboot.data.entity.*;
 import com.ctrlcv.ersentinel_springboot.data.repository.*;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.UnmarshalException;
 import jakarta.xml.bind.Unmarshaller;
 import lombok.extern.slf4j.Slf4j;
-import org.antlr.v4.runtime.tree.pattern.TokenTagToken;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -24,6 +21,8 @@ import java.io.StringReader;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -52,7 +51,7 @@ public class PublicDataApiService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    @Scheduled(cron = "0 0/1 * * * *")
+    @Scheduled(cron = "* * 0/1 * * *")
     @Transactional
     public void apiRequest() {
         log.info("공공 데이터 포털 API 요청 시작");
@@ -61,10 +60,85 @@ public class PublicDataApiService {
         getSevereDiseaseAcceptancePossibleInfo();
         getEmergencyRoomAndSevereDiseaseMessageInfo();
         log.info("공공 데이터 포털 API 요청 종료");
-
-
     }
 
+    /**
+     * 응급의료기관 위치정보 조회
+     */
+    @Transactional
+    public List<Hospital> getEmergencyDeptListInfoByLonLat(double lon, double lat) {
+        log.info("응급의료기관 위치정보 조회 API 요청 시작 : getEmergecyDeptListInfoByLatLot");
+        String url = ApiURLs.EmergencyDeptListByLonLatInfo.getDefaultUrlWithLonLat(1, numOfRows, serviceKey, lon, lat);
+        Optional<String> xmlData = getXmlDataByApi(url);
+
+        int totalCount = 0;
+
+        List<Hospital> hospitalList = new ArrayList<Hospital>();
+
+        EmergencyDeptListInfoByLatLonResponse response = null;
+
+        if (xmlData.isPresent()) {
+            response = parsingEmergencyDeptListInfoByLonLat(xmlData.get());
+            if (response != null) {
+                totalCount = response.getBody().getTotalCount();
+                hospitalList.addAll(getHospitalListFromLonLatReq(response));
+            } else {
+                return hospitalList;
+            }
+        }
+
+        int nowCount = numOfRows;
+        for (int pageNum = 2; nowCount <= totalCount; pageNum++) {
+            url = ApiURLs.EmergencyDeptListByLonLatInfo.getDefaultUrlWithLonLat(pageNum, numOfRows, serviceKey, lon, lat);
+            xmlData = getXmlDataByApi(url);
+
+            if (xmlData.isPresent()) {
+                response = parsingEmergencyDeptListInfoByLonLat(xmlData.get());
+                if (response != null) {
+                    hospitalList.addAll(getHospitalListFromLonLatReq(response));
+                }
+            }
+            nowCount += numOfRows;
+        }
+        return hospitalList;
+    }
+
+    @Transactional
+    private EmergencyDeptListInfoByLatLonResponse parsingEmergencyDeptListInfoByLonLat(String xmlData) {
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(EmergencyDeptListInfoByLatLonResponse.class);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            return (EmergencyDeptListInfoByLatLonResponse) unmarshaller.unmarshal(new StringReader(xmlData));
+        } catch (UnmarshalException unmarshalException) {
+            unmarshalException.printStackTrace();
+            log.error("parsingEmergencyDeptListInfoByLonLat : Response Xml Data 파싱 오류입니다.");
+            return null;
+        } catch (IllegalArgumentException illegalArgumentException) {
+            log.error("parsingEmergencyDeptListInfoByLonLat : Response Xml Data 이 Null 입니다.");
+            return null;
+        } catch (JAXBException e) {
+            log.error("parsingEmergencyDeptListInfoByLonLat : JAXBContext 를 생성할 수 없습니다.");
+            return null;
+        }
+    }
+
+    @Transactional
+    private List<Hospital> getHospitalListFromLonLatReq(EmergencyDeptListInfoByLatLonResponse response) {
+        List<Hospital> hospitalList = new ArrayList<Hospital>();
+        List<EmergencyDeptListInfoByLatLonResponse.Items.Item> itemList = response.getBody().getItems().getItem();
+        if (itemList != null && !itemList.isEmpty()) {
+            itemList.forEach(item -> {
+                Hospital hospital = hospitalRepository.findById(item.getHpid())
+                        .orElseThrow(() -> {
+                            log.error("기관코드 : {} 에 해당하는 병원이 존재하지 않습니다.", item.getHpid());
+                            throw new EntityNotFoundException("해당 병원이 존재하지 않습니다.");
+                        });
+
+                hospitalList.add(hospital);
+            });
+        }
+        return hospitalList;
+    }
 
     /**
      * 응급의료기관 목록정보 조회
@@ -127,10 +201,13 @@ public class PublicDataApiService {
                         }
                     });
                 }
-            } catch (JAXBException e) {
-                // TODO: Exception 종류 찾아보고 예외처리
-                throw new RuntimeException(e);
-            }
+        } catch (UnmarshalException unmarshalException) {
+            log.error("parsingEmergencyDeptListInfo : Response Xml Data 파싱 오류입니다.");
+        } catch (IllegalArgumentException illegalArgumentException) {
+            log.error("parsingEmergencyDeptListInfo : Response Xml Data 이 Null 입니다.");
+        } catch (JAXBException e) {
+            log.error("parsingEmergencyDeptListInfo : JAXBContext 를 생성할 수 없습니다.");
+        }
         });
 
         return totalCount.get();
@@ -156,7 +233,7 @@ public class PublicDataApiService {
     }
 
     @Transactional
-    public int parsingSevereDiseaseAcceptancePossibleInfo(Optional<String> xmlData) {
+    private int parsingSevereDiseaseAcceptancePossibleInfo(Optional<String> xmlData) {
         AtomicInteger totalCount = new AtomicInteger(0);
         xmlData.ifPresent(data -> {
             try {
@@ -251,9 +328,12 @@ public class PublicDataApiService {
                         }
                     });
                 }
+            } catch (UnmarshalException unmarshalException) {
+                log.error("parsingSevereDiseaseAcceptancePossibleInfo : Response Xml Data 파싱 오류입니다.");
+            } catch (IllegalArgumentException illegalArgumentException) {
+                log.error("parsingSevereDiseaseAcceptancePossibleInfo : Response Xml Data 이 Null 입니다.");
             } catch (JAXBException e) {
-                // TODO: Exception 종류 찾아보고 예외처리
-                e.printStackTrace();
+                log.error("parsingSevereDiseaseAcceptancePossibleInfo : JAXBContext 를 생성할 수 없습니다.");
             }
         });
 
@@ -335,10 +415,10 @@ public class PublicDataApiService {
                                     .hospital(hospital)
                                     .name(item.getDutyName() != null ? item.getDutyName() : "No Name")
                                     .phoneNumber(item.getDutyTel3() != null ? item.getDutyTel3() : "No Phone Number")
-                                    .pediatricAvailableBeds(Integer.parseInt(item.getHv28() != null ? item.getHv28() : "0"))
-                                    .pediatricStandardBeds(Integer.parseInt(item.getHvs02() != null ? item.getHvs02() : "0"))
-                                    .adultAvailableBeds(Integer.parseInt(item.getHvec() != null ? item.getHvec() : "0"))
-                                    .adultStandardBeds(Integer.parseInt(item.getHvs01() != null ? item.getHvs01() : "0"))
+                                    .pediatricAvailableBeds(item.getHv28() != null ? Integer.parseInt(item.getHv28()) : Integer.MIN_VALUE)
+                                    .pediatricStandardBeds(item.getHvs02() != null ? Integer.parseInt(item.getHvs02()) : Integer.MIN_VALUE)
+                                    .adultAvailableBeds(item.getHvec() != null ? Integer.parseInt(item.getHvec()) : Integer.MIN_VALUE)
+                                    .adultStandardBeds(item.getHvs01() != null ? Integer.parseInt(item.getHvs01()) : Integer.MIN_VALUE)
                                     .apiUpdateTime(LocalDateTime.parse(item.getHvidate(), DateTimeFormatter.ofPattern("yyyyMMddHHmmss")))
                                     .build();
                             emergencyRoomRepository.save(emergencyRoom);
@@ -346,18 +426,20 @@ public class PublicDataApiService {
                             EmergencyRoom emergencyRoom = isEmergencyRoomExist.get();
                             emergencyRoom.setName(item.getDutyName() != null ? item.getDutyName() : "No Name");
                             emergencyRoom.setPhoneNumber(item.getDutyTel3() != null ? item.getDutyTel3() : "No Phone Number");
-                            emergencyRoom.setPediatricAvailableBeds(Integer.parseInt(item.getHv28() != null ? item.getHv28() : "0"));
-                            emergencyRoom.setPediatricStandardBeds(Integer.parseInt(item.getHvs02() != null ? item.getHvs02() : "0"));
-                            emergencyRoom.setAdultAvailableBeds(Integer.parseInt(item.getHvec() != null ? item.getHvec() : "0"));
-                            emergencyRoom.setAdultStandardBeds(Integer.parseInt(item.getHvs01() != null ? item.getHvs01() : "0"));
+                            emergencyRoom.setPediatricAvailableBeds(item.getHv28() != null ? Integer.parseInt(item.getHv28()) : Integer.MIN_VALUE);
+                            emergencyRoom.setPediatricStandardBeds(item.getHvs02() != null ? Integer.parseInt(item.getHvs02()) : Integer.MIN_VALUE);
+                            emergencyRoom.setAdultAvailableBeds(item.getHvec() != null ? Integer.parseInt(item.getHvec()) : Integer.MIN_VALUE);
+                            emergencyRoom.setAdultStandardBeds(item.getHvs01() != null ? Integer.parseInt(item.getHvs01()) : Integer.MIN_VALUE);
                             emergencyRoom.setApiUpdateTime(LocalDateTime.parse(item.getHvidate(), DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
                         }
                     });
                 }
-
+            } catch (UnmarshalException unmarshalException) {
+                log.error("parsingEmergencyRoomRealTimeAvlBedInfo : Response Xml Data 파싱 오류입니다.");
+            } catch (IllegalArgumentException illegalArgumentException) {
+                log.error("parsingEmergencyRoomRealTimeAvlBedInfo : Response Xml Data 이 Null 입니다.");
             } catch (JAXBException e) {
-                // TODO: Exception 종류 찾아보고 예외처리
-                e.printStackTrace();
+                log.error("parsingEmergencyRoomRealTimeAvlBedInfo : JAXBContext 를 생성할 수 없습니다.");
             }
         });
 
@@ -429,9 +511,12 @@ public class PublicDataApiService {
                                 }
                             });
                         }
+                    } catch (UnmarshalException unmarshalException) {
+                        log.error("parsingEmergencyRoomAndSevereDiseaseMessageInfo : Response Xml Data 파싱 오류입니다.");
+                    } catch (IllegalArgumentException illegalArgumentException) {
+                        log.error("parsingEmergencyRoomAndSevereDiseaseMessageInfo : Response Xml Data 이 Null 입니다.");
                     } catch (JAXBException e) {
-                        // TODO: Exception 종류 찾아보고 예외처리
-                        throw new RuntimeException(e);
+                        log.error("parsingEmergencyRoomAndSevereDiseaseMessageInfo : JAXBContext 를 생성할 수 없습니다.");
                     }
                 }
         );
