@@ -7,22 +7,27 @@ public enum ApiURLs {
     /**
      * 응급의료기관 목록정보 조회
      */
-    EmergencyDeptListInfo("http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytListInfoInqire"),
+    EmergencyDeptListInfo("http://27.101.215.194/B552657/ErmctInfoInqireService/getEgytListInfoInqire"),
+
+    /**
+     * 응급의료기관 위치정보 조회
+     */
+    EmergencyDeptListByLonLatInfo("http://27.101.215.194/B552657/ErmctInfoInqireService/getEgytLcinfoInqire"),
 
     /**
      * 응급실 실시간 가용병상정보 조회
      */
-    EmergencyRoomRealTimeAvlBedInfo("http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire"),
+    EmergencyRoomRealTimeAvlBedInfo("http://27.101.215.194/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire"),
 
     /**
      * 중증질환자 수용가능정보 조회
      */
-    SevereDiseaseAcceptancePossibleInfo("http://apis.data.go.kr/B552657/ErmctInfoInqireService/getSrsillDissAceptncPosblInfoInqire"),
+    SevereDiseaseAcceptancePossibleInfo("http://27.101.215.194/B552657/ErmctInfoInqireService/getSrsillDissAceptncPosblInfoInqire"),
 
     /**
      * 응급실 및 중증질환 메시지 조회
      */
-    EmergencyMessageInfoResponse("http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmSrsillDissMsgInqire");
+    EmergencyMessageInfoResponse("http://27.101.215.194/B552657/ErmctInfoInqireService/getEmrrmSrsillDissMsgInqire");
 
     private final String url;
     ApiURLs(String url) {
@@ -36,13 +41,13 @@ public enum ApiURLs {
                 "&numOfRows=" + numOfRows;
     }
 
-    public String getDefaultUrlWithAddr(int pageNum, int numOfRows, String serviceKey, String addr1, String addr2) {
+    public String getDefaultUrlWithLonLat(int pageNum, int numOfRows, String serviceKey, double Lon, double Lat) {
         return url +
                 "?serviceKey=" + serviceKey +
                 "&pageNo=" + pageNum +
                 "&numOfRows=" + numOfRows +
-                "&STAGE1=" + addr1 +
-                "&STAGE2=" + addr2;
+                "&WGS84_LON=" + Lon +
+                "&WGS84_LAT=" + Lat;
     }
 
 }
