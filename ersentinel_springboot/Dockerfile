@@ -8,7 +8,7 @@ COPY src src
 RUN chmod +X ./gradlew
 RUN ./gradlew bootJar
 
-COPY --from=builder build/libs/*.jar a.jar
+COPY --from=builder build/libs/*.jar er_sentinel.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=dev", "/a.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=dev", "/er_sentinel.jar"]
