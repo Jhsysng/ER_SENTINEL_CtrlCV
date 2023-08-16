@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import "../css/HInfo.css";
 import hospitalbed from "../components/hospitalbed.png";
 import reset from "../components/reset.png";
@@ -12,62 +12,103 @@ import yellowHInfo from "../components/yellowHInfo.png";
 import orangeHInfo from "../components/orangeHInfo.png";
 import redHInfo from "../components/redHInfo.png";
 
-// Todo: 이거 나중에 지워야됨
-const hospital = {
-  id: 1,
-  name: "Gangnam General Hospital",
-  address: "123 Gangnam-daero, Gangnam-gu, Seoul",
-  location: "123 Gangnam-daero, Gangnam-gu, Seoul",
-  phoneNumber: "02-1234-5678",
-  adultpercent: 1,
-  pediatricpercent: 8,
-  procedures: [
-    "뇌출혈",
-    "뇌경색의재관류",
-    "심근경색의재관류",
-    "복부손상의수술",
-    "사지접합의수술",
-    "응급내시경",
-    "응급투석",
-    "조산산모",
-    "신생아",
-    "중증화상",
+
+// Todo: 이거 나중에 지워야함
+const Ahospital = {
+  error: false,
+  data: [
+    {
+      adultpercent: 80,
+      pediatricpercent: 33,
+    },
   ],
-  Available_Beds: [
-    "응급실성인병상",
-    "응급실소아병상",
-    "수술실",
-    "신경과중환자실",
-    "신생아중환자실",
-    "흉부외과중환자실",
-    "일반중환자실",
-    "내과중환자실",
-    "외과중환자실",
-    "신경외과중환자실",
-    "CT",
-    "MRI",
-    "혈관촬영기",
-    "인공호흡기",
-    "CRRT",
+};
+
+const Bhospital = {
+  error: false,
+  data: [
+    {
+      eqlist: [
+        "CT",
+        "MRI",
+        "인공호흡기",
+        "인공호흡기조산아",
+        "혈관촬영기",
+        "CRRT",
+        "ECMO",
+        "중심체온기",
+        "구급차",
+      ],
+      updateTime: "2023-08-14T23:07:14.825436",
+    },
   ],
-  ERS: [
-    "심근경색증",
-    "중증화상",
-    "허혈성뇌졸중",
-    "조산아",
-    "출혈성뇌졸중",
-    "저체중아",
-    "대동맥박리",
-    "간질지속상태",
-    "폐혈증",
-    "뇌수막염",
+};
+
+const Chospital = {
+  error: false,
+  data: [
+    {
+      ersclist: [
+        "심근경색",
+        "뇌경색",
+        "뇌출혈[거미막하]",
+        "뇌출혈[그 외]",
+        "대동맥 흉부",
+        "대동맥 복부",
+        "담낭질환",
+        "담도포함질환",
+        "복부응급 비외상",
+        "위장관 응급내시경 성인",
+        "위장관 응급내시경 영유아 (1day)",
+        "기관지 응급내시경 성인",
+        "산부인과 산과수술",
+        "산부인과응급 부인과수술",
+        "응급투석 HD",
+        "응급투석 CRRT",
+        "정신과",
+        "안과적수술",
+        "영상의학혈관중재 성인",
+        "영상의학혈관중재 영유아 (1day)",
+      ],
+      updateTime: "2023-08-14T23:07:26.432791",
+    },
   ],
-  pro_lastUpdated: "2023-08-08 14:30",
-  beds_lastUpdated: "2023-08-07 13:30",
-  Notice: [
-    "응급실 진료 순서는 중증도 분류 체계에 따라 신속한 치료가 필요한 환자 우선입니다.",
-    "심혈관질환 전용 핫라인: 010-XXXX-XXXX",
-    "소아외과 부재로 수용불가능, 이송 및 전원 시 참고바랍니다.",
+};
+
+const Dhospital = {
+  error: false,
+  data: [
+    {
+      name: "경상국립대학교병원",
+      address: "경상남도 진주시 강남로 79 (칠암동)",
+      phoneNumber: "055-750-8282",
+    },
+  ],
+};
+
+const Ehospital = {
+  error: false,
+  data: [
+    {
+      emgMessage: "소아청소년과 당직의사 부재",
+      emgMsgType: "응급",
+      lasttime: "2023-08-15T18:00:00",
+    },
+    {
+      emgMessage: "비뇨기과 진료불가",
+      emgMsgType: "응급",
+      lasttime: "2023-08-15T18:00:00",
+    },
+    {
+      emgMessage: "CRRT 부족",
+      emgMsgType: "응급",
+      lasttime: "2023-08-15T18:00:00",
+    },
+    {
+      emgMessage: "소아과 진료 불가 (당직의사 부재)",
+      emgMsgType: "응급",
+      lasttime: "2023-08-16T18:00:00",
+    },
   ],
 };
 
@@ -85,19 +126,22 @@ const getCongestionImage = (congestionValue) => {
 };
 
 const HInfo = () => {
-  const { dutyID } = useParams(); 
-  console.log(dutyID);
+  const { dutyId } = useParams();
   // Todo : 나중에 백 연결하고 이거 주석 풀기
-  // const [hospital, setHospital] = useState(null);
+  // const [Ahospital, setAHospital] = useState(null); // 혼잡도
+  // const [Bhospital, setBHospital] = useState(null); //
+  // const [Chospital, setCHospital] = useState(null);
+  // const [Dhospital, setDHospital] = useState(null);
+  // const [Ehospital, setEHospital] = useState(null);
   // Todo: 백 Api 연결하기
   const BackAPI = "";
 
-  // Todo: 나중에 백 연결하고 이거 주석 풀기
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 1. 혼잡도
   // useEffect(() => {
   //   const fetchHospitalData = async () => {
   //     try {
   //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
-  //       setHospital(response.data);
+  //       setAHospital(response.data);
   //     } catch (error) {
   //       console.error("Failed to fetch hospital data", error);
   //     }
@@ -105,13 +149,65 @@ const HInfo = () => {
   //   fetchHospitalData();
   // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
 
-  if (!hospital) {
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 2. 실시간 가용 장비
+  // useEffect(() => {
+  //   const fetchHospitalData = async () => {
+  //     try {
+  //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
+  //       setBHospital(response.data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch hospital data", error);
+  //     }
+  //   };
+  //   fetchHospitalData();
+  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 3. 중증 질환별
+  // useEffect(() => {
+  //   const fetchHospitalData = async () => {
+  //     try {
+  //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
+  //       setCHospital(response.data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch hospital data", error);
+  //     }
+  //   };
+  //   fetchHospitalData();
+  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 4. 길찾기 / 전화하기
+  // useEffect(() => {
+  //   const fetchHospitalData = async () => {
+  //     try {
+  //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
+  //       setDHospital(response.data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch hospital data", error);
+  //     }
+  //   };
+  //   fetchHospitalData();
+  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 1. 혼잡도
+  // useEffect(() => {
+  //   const fetchHospitalData = async () => {
+  //     try {
+  //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
+  //       setEHospital(response.data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch hospital data", error);
+  //     }
+  //   };
+  //   fetchHospitalData();
+  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+
+  if (!Ahospital || !Bhospital || !Chospital || !Dhospital || !Ehospital) {
     return <div>Error: No hospital information available.</div>;
   }
 
   return (
     <div className="HInfo-hospital-details-container">
-      <h1 className="HInfo-hospital-name">{hospital.name}</h1>
+      <h1 className="HInfo-hospital-name">{Dhospital.data[0].name}</h1>
 
       <div className="HInfo-hospital-info-section HInfo-emergency-section">
         <div className="HInfo-emergency-header">
@@ -135,23 +231,23 @@ const HInfo = () => {
           <div className="HInfo-emergency-content">
             <span className="HInfo-emergency-label">성인 진료</span>
             <img
-              src={getCongestionImage(hospital.adultpercent)}
+              src={getCongestionImage(Ahospital.data[0].adultpercent)}
               alt="Adult Congestion"
               className="HInfo-emergency-icon"
             />
             <span className="HInfo-congestion-text">
-              성인: {hospital.adultpercent}
+              성인: {Ahospital.data[0].adultpercent}
             </span>
           </div>
           <div className="HInfo-emergency-content">
             <span className="HInfo-emergency-label">소아 진료</span>
             <img
-              src={getCongestionImage(hospital.pediatricpercent)}
+              src={getCongestionImage(Ahospital.data[0].pediatricpercent)}
               alt="Pediatric Congestion"
               className="HInfo-emergency-icon"
             />
             <span className="HInfo-congestion-text">
-              소아: {hospital.pediatricpercent}
+              소아: {Ahospital.data[0].pediatricpercent}
             </span>
           </div>
         </div>
@@ -160,48 +256,12 @@ const HInfo = () => {
       <div className="HInfo-hospital-info-section HInfo-procedure-section">
         <div className="HInfo-procedure-header">
           <div className="HInfo-title-container">
-            <h4 className="HInfo-procedure-title">
-              시술명 기준 현재 가능 응급의
-            </h4>
-            <span className="HInfo-subtitle">
-              해당 정보는 20분마다 갱신됩니다.
-            </span>
-            <span className="HInfo-update-time">
-              갱신시각: {hospital.pro_lastUpdated}
-            </span>
-          </div>
-          <div className="HInfo-header-right">
-            <img src={reset} alt="Update" className="HInfo-reset-icon" />
-          </div>
-        </div>
-        <div className="HInfo-congestion-container">
-          <div className="HInfo-procedure-content">
-            <div className="HInfo-procedure-list-container">
-              <ul className="HInfo-procedure-list-left">
-                {hospital.procedures
-                  .slice(0, Math.ceil(hospital.procedures.length))
-                  .map((procedure, index) => (
-                    <li key={index} className="HInfo-procedure-item">
-                      {procedure}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="HInfo-hospital-info-section HInfo-procedure-section">
-        <div className="HInfo-procedure-header">
-          <div className="HInfo-title-container">
-            <h4 className="HInfo-procedure-title">
-              실시간 가용병상 및 가용장비 정보
-            </h4>
+            <h4 className="HInfo-procedure-title">실시간 가용장비 정보</h4>
             <span className="HInfo-subtitle">
               해당 정보는 10분마다 갱신됩니다.
             </span>
             <span className="HInfo-update-time">
-              갱신시각: {hospital.beds_lastUpdated}
+              갱신시각: {Bhospital.data[0].updateTime}
             </span>
           </div>
           <div className="HInfo-header-right">
@@ -212,9 +272,9 @@ const HInfo = () => {
           <div className="HInfo-procedure-content">
             <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {hospital.Available_Beds.map((bed, index) => (
+                {Bhospital.data[0].eqlist.map((data, index) => (
                   <li key={index} className="HInfo-procedure-item">
-                    {bed}
+                    {data}
                   </li>
                 ))}
               </ul>
@@ -233,7 +293,7 @@ const HInfo = () => {
               해당 정보는 20분마다 갱신됩니다.
             </span>
             <span className="HInfo-update-time">
-              갱신시각: {hospital.beds_lastUpdated}
+              갱신시각: {Chospital.data[0].updateTime}
             </span>
           </div>
           <div className="HInfo-header-right">
@@ -244,9 +304,9 @@ const HInfo = () => {
           <div className="HInfo-procedure-content">
             <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {hospital.ERS.map((bed, index) => (
+                {Chospital.data[0].ersclist.map((data, index) => (
                   <li key={index} className="HInfo-procedure-item">
-                    {bed}
+                    {data}
                   </li>
                 ))}
               </ul>
@@ -272,9 +332,9 @@ const HInfo = () => {
             <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
                 <li className="HInfo-procedure-item">
-                  주소: {hospital.address}
+                  주소: {Dhospital.data[0].address}
                   <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${hospital.address}`}
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${Dhospital.data[0].address}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -287,8 +347,10 @@ const HInfo = () => {
                 </li>
                 <li className="HInfo-procedure-item">
                   전화번호:{" "}
-                  <a href={`tel:${hospital.phoneNumber}`}>{hospital.phoneNumber}</a>
-                  <a href={`tel:${hospital.phoneNumber}`}>
+                  <a href={`tel:${Dhospital.data[0].phoneNumber}`}>
+                    {Dhospital.data[0].phoneNumber}
+                  </a>
+                  <a href={`tel:${Dhospital.data[0].phoneNumber}`}>
                     <img
                       src={call}
                       alt="Call Icon"
@@ -310,7 +372,7 @@ const HInfo = () => {
               해당 정보는 60분마다 갱신됩니다.
             </span>
             <span className="HInfo-update-time">
-              갱신시각: {hospital.beds_lastUpdated}
+              갱신시각: {Ehospital.data[Ehospital.data.length - 1].lasttime}
             </span>
           </div>
           <div className="HInfo-header-right">
@@ -321,9 +383,9 @@ const HInfo = () => {
           <div className="HInfo-procedure-content">
             <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {hospital.Notice.map((bed, index) => (
+                {Ehospital.data.map((item, index) => (
                   <li key={index} className="HInfo-procedure-item">
-                    {bed}
+                    {item.emgMessage}
                   </li>
                 ))}
               </ul>
