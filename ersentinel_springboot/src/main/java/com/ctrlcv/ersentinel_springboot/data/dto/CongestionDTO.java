@@ -19,6 +19,8 @@ public class CongestionDTO {
     private String latitude;
     private String phoneNumber;    // 응급실 전번
 
+    private String dutyId;
+
     public CongestionDTO(final Hospital hospital, final EmergencyRoom emergencyRoom){
         this.name = hospital.getName();
         if(emergencyRoom.getAdultAvailableBeds() == -1 || emergencyRoom.getAdultStandardBeds() == -1){
@@ -35,6 +37,7 @@ public class CongestionDTO {
         this.longitude = hospital.getLongitude();
         this.latitude = hospital.getLatitude();
         this.phoneNumber = hospital.getPhoneNumber();
+        this.dutyId = hospital.getDutyId();
 
     }
 
