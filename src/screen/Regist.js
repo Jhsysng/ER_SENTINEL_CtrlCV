@@ -1,18 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../css/Regist.css";
-
-// Mock function to simulate API call for registration
-const mockRegisterAPI = (name, email, password, confirmPassword) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (password === confirmPassword) {
-        resolve({ success: true });
-      } else {
-        reject({ success: false, message: "Passwords do not match" });
-      }
-    }, 1000);
-  });
-};
 
 const Regist = () => {
   const [name, setName] = useState("");
@@ -20,21 +9,32 @@ const Regist = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const Navigate = useNavigate(); 
+
+  // Todo: 백 API로 변경하기
+  const BackAPI = "";
 
   const handleRegister = async () => {
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
     try {
-      const response = await mockRegisterAPI(
-        name,
-        email,
-        password,
-        confirmPassword
-      );
-      if (response.success) {
-        // Redirect to login or display success message
+      const response = await axios.post(BackAPI, {
+        name: name,
+        email: email,
+        password: password,
+      });
+
+      if (response.data.success) {
         console.log("Registration successful!");
+        Navigate.push("/"); 
+      } else {
+        setError(response.data.message || "Registration failed");
       }
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "An error occurred");
     }
   };
 

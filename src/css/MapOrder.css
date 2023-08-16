@@ -15,7 +15,7 @@
   margin-right: 10px;
 }
 
-.buttonAcongestion {
+.buttonadultpercent {
   background-color: #ff5733;
 }
 
@@ -46,13 +46,13 @@
 }
 
 .label {
-  border: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
+  border: 2px solid #ff6347;
   background-color: #fff;
   padding: 8px 12px;
   border-radius: 4px;
   white-space: nowrap;
-  font-weight: 600; /* 글자를 조금 더 굵게 */
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  font-weight: 600;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 .label .left,
@@ -62,9 +62,9 @@
   height: 8px;
   background-color: #fff;
   vertical-align: middle;
-  border-top: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
-  border-left: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
-  border-right: 2px solid #FF6347; /* 테두리를 주황색으로 설정 */
+  border-top: 2px solid #ff6347;
+  border-left: 2px solid #ff6347;
+  border-right: 2px solid #ff6347;
 }
 
 .label .center {

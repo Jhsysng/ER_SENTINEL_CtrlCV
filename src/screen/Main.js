@@ -1,40 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Main.css";
-import CongestionLevelOrder from "../components/CongestionLevelOrder.png";
-import maporder from "../components/maporder.png";
-import Distanceorder from "../components/Distanceorder.png";
+import CongestionLevelOrderIcon from "../components/CongestionLevelOrder.png";
+import MapOrderIcon from "../components/maporder.png";
+import DistanceOrderIcon from "../components/Distanceorder.png";
+
+// Todo: main css 좀 더 만지기
+// Todo: main에 있는 병원 상세 정보 경로 나중에 연결시키고 여긴 삭제하기
 
 const Main = () => {
   return (
     <div className="main-container">
-      <Link
-        to={{
-          pathname: "/DistanceOrder",
-        }}
-      >
-        <button className="main-button">
-          <img src={Distanceorder} alt="거리순 아이콘" /> 
-        </button>
+      <Link to="/DistanceOrder">
+        <img
+          className="main-button"
+          src={DistanceOrderIcon}
+          alt="거리순 아이콘"
+        />
       </Link>
       <Link to="/CongestionLevelOrder">
-        <button className="main-button">
-          <img src={CongestionLevelOrder} alt="혼잡도 아이콘" /> 
-        </button>
+        <img
+          className="main-button"
+          src={CongestionLevelOrderIcon}
+          alt="혼잡도 아이콘"
+        />
       </Link>
       <Link to="/MapOrder">
-        <button className="main-button">
-          <img src={maporder} alt="지도 아이콘" /> 
-        </button>
-      </Link>
-      <Link
-        to={{
-          pathname: "/HInfo"
-        }}
-      >
-        <button className="main-button">
-          <img src="path_to_your_png_icon" alt="병원 정보 아이콘" />
-        </button>
+        <img className="main-button" src={MapOrderIcon} alt="지도 아이콘" />
       </Link>
     </div>
   );

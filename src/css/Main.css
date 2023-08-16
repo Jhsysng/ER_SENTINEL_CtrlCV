@@ -2,52 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  position: relative; /* 자식 요소들의 위치를 조절하기 위해 relative 포지셔닝을 사용 */
-  height: 300px; /* 적절한 높이값을 설정하세요 */
-}
-
-.main-button:nth-child(1) {
-  align-self: flex-start;
-}
-
-.main-button:nth-child(2),
-.main-button:nth-child(3) {
-  position: absolute; /* 절대 위치를 사용하여 버튼 위치 조절 */
-  bottom: 50%; /* 부모의 중앙에 위치 */
-}
-
-.main-button:nth-child(2) {
-  left: 25%; /* 부모의 왼쪽에서 25% 위치 */
-}
-
-.main-button:nth-child(3) {
-  right: 25%; /* 부모의 오른쪽에서 25% 위치 */
-}
-
-.main-button:nth-child(4) {
-  align-self: flex-end;
+  gap: 20px; /* 이미지 간의 간격 */
 }
 
 .main-button {
-  padding: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.main-button img {
-  max-width: 90%;
+  max-width: 100%; /* 이미지의 최대 크기를 설정 (필요에 따라 조절) */
   height: auto;
-}
-
-.main-button:hover {
-  background-color: #ff5733;
+  cursor: pointer; /* 이미지 위에 마우스를 가져다 놓으면 손가락 모양으로 변경 */
+  transition: transform 0.1s ease; /* 클릭 효과를 부드럽게 만듭니다. */
 }
 
 .main-button:active {
-  transform: scale(0.95);
+  transform: scale(0.95); /* 이미지를 약간 축소하여 클릭되었다는 것을 표시 */
 }

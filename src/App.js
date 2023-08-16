@@ -18,7 +18,7 @@ function App() {
         <Route path="/CongestionLevelOrder" element={<CongestionLevelOrder />} />
         <Route path="/DistanceOrder" element={<DistanceOrder />} />
         <Route path="/MapOrder" element={<MapOrder />} />
-        <Route path="/HInfo" element={<HInfo />} />
+        <Route path="/HInfo/:dutyID" element={<HInfo />} />
       </Routes>
     </Router>
   );

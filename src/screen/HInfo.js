@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from 'axios';
 import "../css/HInfo.css";
 import hospitalbed from "../components/hospitalbed.png";
 import reset from "../components/reset.png";
@@ -10,14 +12,15 @@ import yellowHInfo from "../components/yellowHInfo.png";
 import orangeHInfo from "../components/orangeHInfo.png";
 import redHInfo from "../components/redHInfo.png";
 
+// Todo: 이거 나중에 지워야됨
 const hospital = {
   id: 1,
   name: "Gangnam General Hospital",
   address: "123 Gangnam-daero, Gangnam-gu, Seoul",
   location: "123 Gangnam-daero, Gangnam-gu, Seoul",
-  phone: "02-1234-5678",
-  Acongestion: 1,
-  Pcongestion: 8,
+  phoneNumber: "02-1234-5678",
+  adultpercent: 1,
+  pediatricpercent: 8,
   procedures: [
     "뇌출혈",
     "뇌경색의재관류",
@@ -68,6 +71,7 @@ const hospital = {
   ],
 };
 
+// Todo: 이거 나중에 기준 바꿔야 됨
 const getCongestionImage = (congestionValue) => {
   if (congestionValue < 5) {
     return greenHInfo;
@@ -81,6 +85,26 @@ const getCongestionImage = (congestionValue) => {
 };
 
 const HInfo = () => {
+  const { dutyID } = useParams(); 
+  console.log(dutyID);
+  // Todo : 나중에 백 연결하고 이거 주석 풀기
+  // const [hospital, setHospital] = useState(null);
+  // Todo: 백 Api 연결하기
+  const BackAPI = "";
+
+  // Todo: 나중에 백 연결하고 이거 주석 풀기
+  // useEffect(() => {
+  //   const fetchHospitalData = async () => {
+  //     try {
+  //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
+  //       setHospital(response.data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch hospital data", error);
+  //     }
+  //   };
+  //   fetchHospitalData();
+  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+
   if (!hospital) {
     return <div>Error: No hospital information available.</div>;
   }
@@ -111,23 +135,23 @@ const HInfo = () => {
           <div className="HInfo-emergency-content">
             <span className="HInfo-emergency-label">성인 진료</span>
             <img
-              src={getCongestionImage(hospital.Acongestion)}
+              src={getCongestionImage(hospital.adultpercent)}
               alt="Adult Congestion"
               className="HInfo-emergency-icon"
             />
             <span className="HInfo-congestion-text">
-              성인: {hospital.Acongestion}
+              성인: {hospital.adultpercent}
             </span>
           </div>
           <div className="HInfo-emergency-content">
             <span className="HInfo-emergency-label">소아 진료</span>
             <img
-              src={getCongestionImage(hospital.Pcongestion)}
+              src={getCongestionImage(hospital.pediatricpercent)}
               alt="Pediatric Congestion"
               className="HInfo-emergency-icon"
             />
             <span className="HInfo-congestion-text">
-              소아: {hospital.Pcongestion}
+              소아: {hospital.pediatricpercent}
             </span>
           </div>
         </div>
@@ -263,8 +287,8 @@ const HInfo = () => {
                 </li>
                 <li className="HInfo-procedure-item">
                   전화번호:{" "}
-                  <a href={`tel:${hospital.phone}`}>{hospital.phone}</a>
-                  <a href={`tel:${hospital.phone}`}>
+                  <a href={`tel:${hospital.phoneNumber}`}>{hospital.phoneNumber}</a>
+                  <a href={`tel:${hospital.phoneNumber}`}>
                     <img
                       src={call}
                       alt="Call Icon"

@@ -1,31 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../css/Login.css'; // 스타일 시트 추가
-
-// Mock function to simulate API call for login
-const mockLoginAPI = (email, password) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email === "test@example.com" && password === "password123") {
-        resolve({ success: true });
-      } else {
-        reject({ success: false, message: "Invalid email or password" });
-      }
-    }, 1000);
-  });
-};
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../css/Login.css";
+import axios from "axios"; 
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const Navigate = useNavigate(); 
+  // Todo: 백 API로 변경하기
+  const BackAPI = "";
+
   const handleLogin = async () => {
     try {
-      const response = await mockLoginAPI(email, password);
-      if (response.success) {
+      const response = await axios.post(BackAPI, {
+        email: email,
+        password: password,
+      });
+
+      if (response.data.success) {
         console.log("Logged in successfully!");
-        // 여기서 필요한 로직을 추가하십시오.
+        Navigate.push("/Main"); 
+      } else {
+        setError(response.data.message || "Login failed");
       }
     } catch (err) {
       setError(err.message);
@@ -48,8 +46,12 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleLogin}>Login</button>
-      <Link to="/Regist"><button>Regist</button></Link>
-      <Link to="/Main"><button>Main</button></Link> 
+      <Link to="/Regist">
+        <button>Regist</button>
+      </Link>
+      <Link to="/Main">
+        <button>Main</button>
+      </Link>
       {error && <p>{error}</p>}
     </div>
   );
