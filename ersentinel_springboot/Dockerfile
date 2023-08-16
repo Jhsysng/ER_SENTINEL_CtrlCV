@@ -1,14 +1,22 @@
-FROM openjdk:17-alpine
+# Debian 기반의 openjdk 이미지를 사용
+FROM openjdk:17-buster AS builder
 
+# 필요한 패키지 설치
+RUN apt-get update && apt-get install -y findutils && rm -rf /var/lib/apt/lists/*
+
+# 프로젝트 파일 복사
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
 COPY src src
-RUN chmod +X ./gradlew
-RUN ./gradlew bootJar
 
-COPY --from=builder build/libs/*.jar er_sentinel.jar
+# 실행 권한 설정 및 빌드
+RUN chmod +x ./gradlew
+RUN ./gradlew clean bootJar
 
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=dev", "/er_sentinel.jar"]
+# 최종 이미지 생성
+FROM openjdk:17-buster
+COPY --from=builder build/libs/*.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]

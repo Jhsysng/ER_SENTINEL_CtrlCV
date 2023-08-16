@@ -16,8 +16,6 @@ import java.util.List;
  */
 @Getter
 @Setter
-@With
-@AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "response")
 public class EmergencyDeptListInfoResponse {
