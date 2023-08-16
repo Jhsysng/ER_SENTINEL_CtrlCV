@@ -16,8 +16,6 @@ public class CongestionInfoDTO {
     private int adultpercent;      // 혼잡도
     private int pediatricpercent;  // 혼잡도
 
-
-
     public CongestionInfoDTO(final EmergencyRoom emergencyRoom){
 
         if(emergencyRoom.getAdultAvailableBeds() == Integer.MIN_VALUE || emergencyRoom.getAdultStandardBeds() < 1){
@@ -30,6 +28,7 @@ public class CongestionInfoDTO {
         }else{
             this.pediatricpercent = (int)(((double)emergencyRoom.getPediatricStandardBeds() - emergencyRoom.getPediatricAvailableBeds()) / emergencyRoom.getPediatricStandardBeds() * 100);
         }
+
 
 
 

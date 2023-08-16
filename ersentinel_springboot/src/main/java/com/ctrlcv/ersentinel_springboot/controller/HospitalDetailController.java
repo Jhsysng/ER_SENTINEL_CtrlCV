@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.time.LocalDateTime;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -161,8 +162,13 @@ public class HospitalDetailController {
 
             List<EmergencyMessageDTO> dtos = new ArrayList<>();
 
+            LocalDateTime temp = messages[0].getEmgMsgEndTime();
             for(EmergencyMessage message : messages) {
-                dtos.add(new EmergencyMessageDTO(message));
+                if(temp.isBefore(message.getEmgMsgEndTime())){
+                    temp = message.getEmgMsgEndTime();
+                }
+
+                dtos.add(new EmergencyMessageDTO(message,temp));
             }
 
 

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class RoadMapDTO {
 
+    private String name;
     private String address;
     private String phoneNumber;
 
@@ -20,6 +21,7 @@ public class RoadMapDTO {
     public RoadMapDTO(final EmergencyRoom emergencyRoom){
 
         //TODO : null 검사
+        this.name = emergencyRoom.getHospital().getName();
         this.address = emergencyRoom.getHospital().getAddress();
         this.phoneNumber = emergencyRoom.getPhoneNumber();
 

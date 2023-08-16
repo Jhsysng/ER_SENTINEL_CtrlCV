@@ -16,19 +16,16 @@ public class EmergencyMessageDTO {
 
     private String emgMessage;
 
-    private LocalDateTime emgMsgStartTime;
-
-    private LocalDateTime emgMsgEndTime;
-
     private String emgMsgType;
 
+    private LocalDateTime lasttime;
 
 
-    public EmergencyMessageDTO(final EmergencyMessage emergencyMessage){
+
+    public EmergencyMessageDTO(final EmergencyMessage emergencyMessage, final LocalDateTime lasttime){
         this.emgMessage = emergencyMessage.getEmgMessage();
-        this.emgMsgStartTime = emergencyMessage.getEmgMsgStartTime();
-        this.emgMsgEndTime = emergencyMessage.getEmgMsgEndTime();;
         this.emgMsgType = emergencyMessage.getEmgMsgType();
+        this.lasttime = lasttime;
     }
 
 
