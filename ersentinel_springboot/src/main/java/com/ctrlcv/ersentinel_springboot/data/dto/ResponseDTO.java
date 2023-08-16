@@ -10,6 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 public class ResponseDTO<T> {
-    private String error;
+    private boolean error;
     private List<T> data;
 }
