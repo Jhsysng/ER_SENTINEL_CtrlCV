@@ -1,0 +1,17 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* 이미지 간의 간격 */
+}
+
+.main-button {
+  max-width: 100%; /* 이미지의 최대 크기를 설정 (필요에 따라 조절) */
+  height: auto;
+  cursor: pointer; /* 이미지 위에 마우스를 가져다 놓으면 손가락 모양으로 변경 */
+  transition: transform 0.1s ease; /* 클릭 효과를 부드럽게 만듭니다. */
+}
+
+.main-button:active {
+  transform: scale(0.95); /* 이미지를 약간 축소하여 클릭되었다는 것을 표시 */
+}
