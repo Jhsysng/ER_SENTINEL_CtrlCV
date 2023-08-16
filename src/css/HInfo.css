@@ -1,0 +1,226 @@
+.HInfo-hospital-details-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+}
+
+.HInfo-hospital-name {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 26px;
+  color: #ff7f50;
+  font-weight: bold;
+  width: 100%;
+}
+
+.HInfo-hospital-info-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.HInfo-info-icon {
+  width: 45px;
+  height: 45px;
+  margin-right: 25px;
+}
+
+.HInfo-reset-icon {
+  width: 45px;
+  height: 45px;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.HInfo-info-content h3 {
+  margin-bottom: 12px;
+  font-size: 19px;
+  color: #ff7f50;
+  font-weight: 600;
+}
+
+.HInfo-info-content p {
+  font-size: 17px;
+  color: #444;
+}
+
+.HInfo-hospital-info-section.HInfo-emergency-section {
+  background-color: #fff7f0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+
+.HInfo-emergency-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.HInfo-header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
+}
+
+.HInfo-hospitalbed-icon {
+  width: 45px;
+  height: 55px;
+  object-fit: cover;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.HInfo-emergency-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ff6b00;
+  text-align: center;
+  width: 100%;
+}
+
+.HInfo-congestion-container {
+  display: flex;
+  width: 80%;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.HInfo-emergency-content {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.HInfo-emergency-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ff6b00;
+}
+
+.HInfo-emergency-icon {
+  width: 120%;
+  height: 100%;
+  margin-bottom: 8px;
+}
+
+.HInfo-congestion-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.HInfo-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.HInfo-subtitle {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.HInfo-header-right {
+  align-self: flex-start;
+}
+
+.HInfo-header-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+.HInfo-procedure-section {
+  background-color: #fff7f0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+
+.HInfo-procedure-header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.HInfo-procedure-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ff6b00;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.HInfo-update-container {
+  text-align: right;
+  width: 100%;
+}
+
+.HInfo-update-text {
+  font-size: 12px;
+  color: #888;
+}
+
+.HInfo-procedure-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.HInfo-procedure-list-left,
+.HInfo-procedure-list-right {
+  width: 100%;
+  text-align: left;
+}
+
+.HInfo-procedure-item {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+  flex-basis: calc(50% - 10px);
+  box-sizing: border-box;
+}
+
+.HInfo-procedure-list-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.HInfo-container {
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

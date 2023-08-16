@@ -1,0 +1,90 @@
+.CongestionLevelOrder-container {
+  padding: 30px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.CongestionLevelOrder-h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 26px;
+}
+
+.CongestionLevelOrder-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.CongestionLevelOrder-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.CongestionLevelOrder-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.CongestionLevelOrder-name {
+  flex: 2;
+  font-size: 20px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.CongestionLevelOrder-distance {
+  flex: 1;
+  font-size: 18px;
+  color: #7f8c8d;
+  margin-left: 12px;
+  text-align: right;
+}
+
+.CongestionLevelOrder-congestion-info {
+  flex: 1;
+  font-size: 16px;
+  color: #555;
+  text-align: right;
+}
+
+.CongestionLevelOrder-congestion-info span {
+  display: block;
+}
+
+.CongestionLevelOrder-button-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: 2px solid #ff5733; /* 주황색 테두리 */
+  border-radius: 5px; /* 둥근 모서리 */
+  cursor: pointer;
+  color: #ff5733; /* 주황색 글씨 */
+  background-color: #fff; /* 흰색 배경 */
+  transition: background-color 0.2s, color 0.2s; /* 부드러운 전환 효과 */
+  margin-right: 10px;
+  font-weight: bold; /* 글자를 조금 더 굵게 */
+}
+
+button.active {
+  background-color: #ff5733; /* 주황색 배경 */
+  color: #fff; /* 흰색 글씨 */
+}
+
+/* 마지막 버튼의 오른쪽 margin 제거 */
+button:last-child {
+  margin-right: 0;
+}

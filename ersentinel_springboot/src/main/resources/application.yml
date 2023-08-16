@@ -6,6 +6,8 @@ spring:
   datasource:
     url: jdbc:mariadb://localhost:3306/ersentinel?allowPublicKeyRetrieval=true&useSSL=false
     driver-class-name: org.mariadb.jdbc.Driver
+    username: ersentinel
+    password: 1q2w3e4r!
 
   jpa:
     hibernate:
