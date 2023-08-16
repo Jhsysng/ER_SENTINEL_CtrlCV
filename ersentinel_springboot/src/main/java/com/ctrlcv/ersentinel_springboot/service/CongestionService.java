@@ -26,5 +26,4 @@ public class CongestionService {
     public List<Object[]> retrieveHospitalAndEmgRoomBySecondAddress(final String secondAddress){ // sa으로 필터링 해서 반환
         return repository.findHospitalAndEmgRoomBySecondAddress(secondAddress);
     }
-
 }

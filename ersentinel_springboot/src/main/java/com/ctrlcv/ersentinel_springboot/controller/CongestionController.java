@@ -1,6 +1,7 @@
 package com.ctrlcv.ersentinel_springboot.controller;
 
 import com.ctrlcv.ersentinel_springboot.data.dto.CongestionDTO;
+import com.ctrlcv.ersentinel_springboot.data.dto.CongestionInfoDTO;
 import com.ctrlcv.ersentinel_springboot.data.dto.ResponseDTO;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
 import com.ctrlcv.ersentinel_springboot.data.entity.EmergencyRoom;
@@ -86,13 +87,13 @@ public class CongestionController {
                 // 데이터가 없다고 예외처리 한것이 아님. 애초에 대한민국 팔도에 없는 지역이 입력으로 들어옴 (혹은 팔도인데 사전에 정의되지 않은 방법으로 들어옴)
                 log.info("wrong address");
                 String error = "wrong address";
-                ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(error).build();
+                ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(true).build();
                 return ResponseEntity.badRequest().body(response);
             }
             if (objs == null){
                 log.info("result of query is null");
                 String error = "result of query is null";
-                ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(error).build();
+                ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(true).build();
                 return ResponseEntity.badRequest().body(response);
             }else if (objs.isEmpty()){ // 여기는 도단위로 다시 매핑해준다.
                 log.info("there is no hospital in location");
@@ -126,7 +127,7 @@ public class CongestionController {
             if (sortlist.isEmpty()){
                 log.info("nothing to show");
                 String error = "nothing to show";
-                ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(error).build();
+                ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(true).build();
                 return ResponseEntity.badRequest().body(response);
             }
 
@@ -141,12 +142,11 @@ public class CongestionController {
             return ResponseEntity.ok().body(response);
         } catch (Exception e){
             String error = e.getMessage();
-            ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(error).build();
+            log.info(error);
+            ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(true).build();
             return ResponseEntity.badRequest().body(response);
         }
     }
-
-
 
 }
 
