@@ -7,14 +7,16 @@ import CongestionLevelOrder from './screen/CongestionLevelOrder';
 import DistanceOrder from './screen/DistanceOrder'; 
 import MapOrder from './screen/MapOrder'; 
 import HInfo from './screen/HInfo';
+import LoginCallbackPage from './screen/LoginCallbackPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/login/callback" element={<LoginCallbackPage />} />
         <Route path="/Regist" element={<Regist />} />
-        <Route path="/Main" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/CongestionLevelOrder" element={<CongestionLevelOrder />} />
         <Route path="/DistanceOrder" element={<DistanceOrder />} />
         <Route path="/MapOrder" element={<MapOrder />} />

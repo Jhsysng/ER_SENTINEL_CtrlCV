@@ -114,11 +114,11 @@ const Ehospital = {
 
 // Todo: 이거 나중에 기준 바꿔야 됨
 const getCongestionImage = (congestionValue) => {
-  if (congestionValue < 5) {
+  if (congestionValue < 50) {
     return greenHInfo;
-  } else if (congestionValue < 10) {
+  } else if (congestionValue < 100) {
     return yellowHInfo;
-  } else if (congestionValue < 15) {
+  } else if (congestionValue < 150) {
     return orangeHInfo;
   } else {
     return redHInfo;
@@ -188,7 +188,7 @@ const HInfo = () => {
   //   fetchHospitalData();
   // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
 
-  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 1. 혼잡도
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 5. 공지사항
   // useEffect(() => {
   //   const fetchHospitalData = async () => {
   //     try {
