@@ -6,16 +6,8 @@ import "../css/Login.css";
 import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const Navigate = useNavigate();
-  const REST_API_KEY = "";
-  const REDIRECT_URI = "";
-  const Kakaolink = `http://localhost:8080/oauth2/authorization/kakao`;
-  const Naverlink = `http://localhost:8080/oauth2/authorization/naver`;
-  const Googlelink = `http://localhost:8080/oauth2/authorization/google`;
-
   // Todo: 백 API로 변경하기
   const BackAPI = "";
 
@@ -43,39 +35,19 @@ const Login = () => {
     color: black;
   `;
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post(BackAPI, {
-        email: email,
-        password: password,
-      });
+  const RegularButton = styled(StyledButton)`
+    background-color: #007bff;
+    color: white;
+  `;
 
-      if (response.data.success) {
-        console.log("Logged in successfully!");
-        Navigate.push("/Main");
-      } else {
-        setError(response.data.message || "Login failed");
-      }
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  const SignUpButton = styled(StyledButton)`
+    background-color: #333;
+    color: white;
+  `;
 
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
 
       <a href="http://localhost:8080/oauth2/authorization/naver">
         <NaverButton>네이버 로그인</NaverButton>
@@ -86,10 +58,6 @@ const Login = () => {
       <a href="http://localhost:8080/oauth2/authorization/kakao">
         <KakaoButton>카카오 로그인</KakaoButton>
       </a>
-
-      <Link to="/Regist">
-        <button>Regist</button>
-      </Link>
       <Link to="/Main">
         <button>Main</button>
       </Link>

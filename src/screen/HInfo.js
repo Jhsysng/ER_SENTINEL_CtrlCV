@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Cookies } from "react-cookie";
+import { parseJwt } from "../utils/JwtUtils";
+import { config } from "../utils/Constants";
 import axios from "axios";
 import "../css/HInfo.css";
+import "../utils/ApiUtils.js";
 import hospitalbed from "../components/hospitalbed.png";
 import reset from "../components/reset.png";
 import choose from "../components/choose.png";
@@ -11,7 +15,8 @@ import greenHInfo from "../components/greenHInfo.png";
 import yellowHInfo from "../components/yellowHInfo.png";
 import orangeHInfo from "../components/orangeHInfo.png";
 import redHInfo from "../components/redHInfo.png";
-
+import star from "../components/star.png";
+import AuthContext from "./AuthContext";
 
 // Todo: 이거 나중에 지워야함
 const Ahospital = {
@@ -126,7 +131,14 @@ const getCongestionImage = (congestionValue) => {
 };
 
 const HInfo = () => {
+  // AuthContext : 전역적인 변수.
+  // Auth.getUser().accessToken : 토큰을 가져오는 것
+  // header에 Authorization: Bearer {accessToken} 이거 넣어주기.
+
+  const Auth = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { dutyId } = useParams();
+
   // Todo : 나중에 백 연결하고 이거 주석 풀기
   // const [Ahospital, setAHospital] = useState(null); // 혼잡도
   // const [Bhospital, setBHospital] = useState(null); //
@@ -147,7 +159,7 @@ const HInfo = () => {
   //     }
   //   };
   //   fetchHospitalData();
-  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+  // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
 
   // Todo: 나중에 백 연결하고 이거 주석 풀기 - 2. 실시간 가용 장비
   // useEffect(() => {
@@ -160,7 +172,7 @@ const HInfo = () => {
   //     }
   //   };
   //   fetchHospitalData();
-  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+  // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
 
   // Todo: 나중에 백 연결하고 이거 주석 풀기 - 3. 중증 질환별
   // useEffect(() => {
@@ -173,7 +185,7 @@ const HInfo = () => {
   //     }
   //   };
   //   fetchHospitalData();
-  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+  // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
 
   // Todo: 나중에 백 연결하고 이거 주석 풀기 - 4. 길찾기 / 전화하기
   // useEffect(() => {
@@ -186,7 +198,7 @@ const HInfo = () => {
   //     }
   //   };
   //   fetchHospitalData();
-  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+  // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
 
   // Todo: 나중에 백 연결하고 이거 주석 풀기 - 5. 공지사항
   // useEffect(() => {
@@ -199,7 +211,21 @@ const HInfo = () => {
   //     }
   //   };
   //   fetchHospitalData();
-  // }, [dutyID]);  // dutyID가 변경될 때마다 백엔드 API 호출
+  // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
+
+  // Todo: 나중에 백 연결하고 이거 주석 풀기 - 5. 공지사항
+  // useEffect(() => {
+  // setIsLoggedIn(Auth.userIsAuthenticated());
+  //   const fetchHospitalData = async () => {
+  //     try {
+  //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
+  //       setEHospital(response.data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch hospital data", error);
+  //     }
+  //   };
+  //   fetchHospitalData();
+  // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
 
   if (!Ahospital || !Bhospital || !Chospital || !Dhospital || !Ehospital) {
     return <div>Error: No hospital information available.</div>;
@@ -393,6 +419,63 @@ const HInfo = () => {
           </div>
         </div>
       </div>
+
+      <div className="HInfo-hospital-info-section HInfo-procedure-section">
+        {isLoggedIn ? (
+          <div className="HInfo-hospital-info-section HInfo-procedure-section">
+            <div className="HInfo-procedure-header">
+              <div className="HInfo-title-container">
+                <h4 className="HInfo-procedure-title">별점</h4>
+                <span className="HInfo-subtitle">병원에 대해 별점을 남겨보세요!</span>
+              </div>
+              <div className="HInfo-header-right">
+                <img src={star} alt="Update" className="HInfo-reset-icon" />
+              </div>
+            </div>
+            <div className="HInfo-congestion-container">
+              <div className="HInfo-procedure-content">
+                <div className="HInfo-procedure-list-container">
+                  <ul className="HInfo-procedure-list-left">
+                    {Ehospital.data.map((item, index) => (
+                      <li key={index} className="HInfo-procedure-item">
+                        {item.emgMessage}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="HInfo-hospital-info-section HInfo-procedure-section">
+            <div className="HInfo-procedure-header">
+              <div className="HInfo-title-container">
+                <span className="HInfo-subtitle"></span>
+                <span className="HInfo-update-time"></span>
+              </div>
+              <div className="HInfo-header-right">
+                <img src={star} alt="Update" className="HInfo-star-icon" />
+                <img src={star} alt="Update" className="HInfo-star-icon" />
+                <img src={star} alt="Update" className="HInfo-star-icon" />
+                <img src={star} alt="Update" className="HInfo-star-icon" />
+                <img src={star} alt="Update" className="HInfo-star-icon" />
+              </div>
+            </div>
+            <div className="HInfo-congestion-container">
+              <div className="HInfo-procedure-content">
+                <div className="HInfo-procedure-list-container">
+                  <ul className="HInfo-procedure-list-left">
+                    <h4 className="HInfo-procedure-title">
+                      로그인을 하면 병원에 대한 별점을 남길 수 있어요!
+                    </h4>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };
