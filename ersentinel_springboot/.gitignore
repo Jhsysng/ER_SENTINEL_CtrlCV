@@ -39,3 +39,6 @@ out/
 ### BY USER ###
 src/main/resources/application.yml
 api.yml
+app.yml
+oauth2.yml
+/node_modules

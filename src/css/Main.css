@@ -1,0 +1,17 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; 
+}
+
+.main-button {
+  max-width: 100%; 
+  height: auto;
+  cursor: pointer; 
+  transition: transform 0.1s ease; 
+}
+
+.main-button:active {
+  transform: scale(0.95); 
+}

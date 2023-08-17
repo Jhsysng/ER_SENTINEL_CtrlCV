@@ -1,0 +1,76 @@
+.mapContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s;
+  margin-right: 10px;
+}
+
+.buttonadultpercent {
+  background-color: #ff5733;
+}
+
+.buttonDefault {
+  background-color: #ddd;
+}
+
+.map {
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mapImage {
+  width: 100%;
+  max-width: 500px;
+}
+
+.label {
+  border: 2px solid #ff6347;
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 600;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.label .left,
+.label .right {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  vertical-align: middle;
+  border-top: 2px solid #ff6347;
+  border-left: 2px solid #ff6347;
+  border-right: 2px solid #ff6347;
+}
+
+.label .center {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+  padding: 0 6px;
+}

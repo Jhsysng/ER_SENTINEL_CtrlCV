@@ -22,7 +22,6 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -51,7 +50,7 @@ public class PublicDataApiService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    @Scheduled(cron = "* * 0/1 * * *")
+    @Scheduled(cron = "0 0/1 * * * *")
     @Transactional
     public void apiRequest() {
         log.info("공공 데이터 포털 API 요청 시작");

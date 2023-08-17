@@ -15,10 +15,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @Data
 public class EmergencyRoomSevereCapacityInfoDTO {
-    private List<String> ersclist = new ArrayList<>();
+    private final List<String> ersclist = new ArrayList<>();
     private LocalDateTime updateTime;
-
-
 
     public EmergencyRoomSevereCapacityInfoDTO(final EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo){
         if(emergencyRoomSevereCapacityInfo.getMyocardialInfarction()){
