@@ -56,7 +56,10 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             log.info("카카오 로그인 요청");
             oAuth2UserInfo = new KakaoUserInfo(oAuth2User.getAttributes()) ;
         }
-
+        if (oAuth2UserInfo == null) {
+            log.error("유저 정보 불러오기를 실패했습니다!");
+            throw new OAuth2AuthenticationException("유저 정보 불러오기를 실패했습니다!");
+        }
         SocialType provider = oAuth2UserInfo.getProvider();
         String providerId = oAuth2UserInfo.getProviderId();
         String username = provider.toString() + "_" + providerId;
