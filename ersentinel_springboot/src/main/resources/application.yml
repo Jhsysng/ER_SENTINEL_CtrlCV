@@ -2,12 +2,21 @@ spring:
   config:
     import:
       - api.yml
+      - oauth2.yml
+      - app.yml
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      repositories:
+        enabled: false
 
   datasource:
     url: jdbc:mariadb://localhost:3306/ersentinel?allowPublicKeyRetrieval=true&useSSL=false
     driver-class-name: org.mariadb.jdbc.Driver
-    username: ersentinel
-    password: 1q2w3e4r!
+    username: root
+    password: WjdWodnr#&33
 
   jpa:
     hibernate:

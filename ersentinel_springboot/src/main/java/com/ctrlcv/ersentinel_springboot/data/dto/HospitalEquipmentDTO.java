@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class HospitalEquipmentDTO {
-    private List<String> eqlist = new ArrayList<>();
+    private final List<String> eqlist = new ArrayList<>();
     private LocalDateTime updateTime;
 
 
