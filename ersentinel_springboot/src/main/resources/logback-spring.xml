@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
+
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>Info</level>
@@ -12,9 +14,10 @@
             <totalSizeCap>5GB</totalSizeCap>
         </rollingPolicy>
     </appender>
-    <appender name="MARIADB_DB" class="com.ctrlcv.ersentinel_springboot.component.MariaDBAppender">
+
+    <appender name="MARIA_DB" class="com.ctrlcv.ersentinel_springboot.component.MariaDBAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>Info</level>
+            <level>Error</level>
         </filter>
     </appender>
 
@@ -28,8 +31,8 @@
 
     <root level="Info">
         <appender-ref ref="Console"/>
-        <appender-ref ref="MARIADB_DB" />
+        <appender-ref ref="file"/>
+        <appender-ref ref="MARIA_DB" />
     </root>
 
 </configuration>
-
