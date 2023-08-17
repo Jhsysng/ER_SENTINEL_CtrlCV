@@ -1,0 +1,32 @@
+version : "3"
+services:
+  nginx:
+    build: ./nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/nginx/conf.d
+    depends_on:
+      - spring
+      - react
+  react:
+    build: ./ersentinel_react
+    ports:
+      - "3000:3000"
+  spring:
+    build:
+      context: ./ersentinel_springboot
+      dockerfile: Dockerfile
+    ports:
+        - "8080:8080"
+    depends_on:
+        - db
+  db:
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./.env.db.dev
+    volumes:
+      - ./db:/var/lib/mariadb

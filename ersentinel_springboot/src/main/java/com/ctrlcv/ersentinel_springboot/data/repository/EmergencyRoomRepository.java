@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface EmergencyRoomRepository extends JpaRepository<EmergencyRoom, String> {
     Optional<EmergencyRoom> findByHospitalDutyId(String dutyId);
+
+
 }

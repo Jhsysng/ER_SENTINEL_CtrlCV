@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface EmergencyMessageRepository extends JpaRepository<EmergencyMessage, Integer> {
     Optional<EmergencyMessage> findByEmgMessage(String emgMessage);
+    Optional<EmergencyMessage[]> findByHospitalDutyId(String dutyId);
 }
