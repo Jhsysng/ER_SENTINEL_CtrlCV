@@ -1,9 +1,14 @@
 package com.ctrlcv.ersentinel_springboot.controller;
 
-import com.ctrlcv.ersentinel_springboot.data.dto.manager.UserDto;
+import com.ctrlcv.ersentinel_springboot.data.dto.UserDto;
 import com.ctrlcv.ersentinel_springboot.service.UserManagerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,14 +27,20 @@ public class UserManagerController {
     }
 
     @GetMapping("/manager/user")
-    public ResponseEntity<List<UserDto>> getAllUser() {
+    public ResponseEntity<?> getAllUser() {
+        Map<String, List<UserDto>> body = new HashMap<>();
+
         List<UserDto> userDtoList = userManagerService.getAllUserList().stream()
                 .map(UserDto::new)
                 .toList();
-        return new ResponseEntity<>(userDtoList, HttpStatus.OK);
+        body.put("list",userDtoList);
+
+        return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
-    @DeleteMapping("/manager/user")
+
+
+    @PostMapping("/manager/user")
     public ResponseEntity<String> deleteUser(@RequestBody Map<String, String> unMap) {
         String un = unMap.get("username");
         userManagerService.deleteUserByUserId(un);

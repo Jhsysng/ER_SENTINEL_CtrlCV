@@ -2,6 +2,7 @@ package com.ctrlcv.ersentinel_springboot.service;
 
 import com.ctrlcv.ersentinel_springboot.data.entity.User;
 import com.ctrlcv.ersentinel_springboot.data.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +17,14 @@ public class UserManagerService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     public List<User> getAllUserList() {
-        log.info("[UserManagerService] getAllUserList");
         return userRepository.findAll();
     }
 
-    public void deleteUserByUserId(String username) {
-        log.info("[UserManagerService] deleteUserByUserId"+username);
-        userRepository.deleteByUsername(username);
+    @Transactional
+    public void deleteUserByUserId(String un) {
+        userRepository.deleteByUsername(un);
     }
+
 }
