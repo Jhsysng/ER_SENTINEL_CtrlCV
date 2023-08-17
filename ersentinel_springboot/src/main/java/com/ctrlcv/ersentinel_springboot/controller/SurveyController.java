@@ -38,6 +38,7 @@ public class SurveyController {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String username = authentication.getName();
+            username = "manager"; //TODO: 디버깅코드 지우기!!!
             if (Objects.equals(username, "anonymousUser")){
                 log.info("to create survey need to login");
                 ResponseDTO<SurveyIdDTO> response = ResponseDTO.<SurveyIdDTO>builder().error(true).build();
@@ -117,10 +118,14 @@ public class SurveyController {
 
     //응급실에 대한 survey를 다 가져옴
     @GetMapping
-    public ResponseEntity<?> retrieveSurvey(@RequestBody String dutyId)
+    public ResponseEntity<?> retrieveSurvey(@RequestParam String dutyId)
     {
         try{
+            log.info("dutyId" + dutyId);
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String username = authentication.getName();
             Optional<Survey[]> objs;
+
             objs = service.retrieveSurveyByDutyId(dutyId);
             if (objs.isEmpty()) {
                 log.info("there is no surveys matching dutyId");
@@ -160,6 +165,7 @@ public class SurveyController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String dutyId = dto.getDutyId();
             String username = authentication.getName();
+            username = "manager"; //TODO: 디버깅코드 지우기!!!
 
 
             if (Objects.equals(username, "anonymousUser")){
@@ -259,7 +265,7 @@ public class SurveyController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String dutyId = dto.getDutyId();
             String username = authentication.getName();
-
+            username = "manager"; //TODO: 디버깅코드 지우기!!!
 
             if (Objects.equals(username, "anonymousUser")){
                 log.info("to delete survey need to login");
