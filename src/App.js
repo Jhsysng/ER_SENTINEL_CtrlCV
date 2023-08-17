@@ -12,6 +12,7 @@ import AppUserManager from "./screen/AppUserManager";
 import AppHManager from "./screen/AppHManager";
 import AppManager from "./screen/AppManager";
 import ManagerLogin from "./screen/ManagerLogin";
+import AppLogManager from "./screen/AppLogManager";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/AppUserManager" element={<AppUserManager />} />
         <Route path="/AppHManager" element={<AppHManager />} />
         <Route path="/AppManager" element={<AppManager />} />
+        <Route path="/AppLogManager" element={<AppLogManager />} />
         <Route path="/ManagerLogin" element={<ManagerLogin />} />
         <Route path="/Main" element={<Main />} />
         <Route

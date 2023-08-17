@@ -6,6 +6,7 @@ import "../css/Main.css";
 import CongestionLevelOrderIcon from "../components/CongestionLevelOrder.png";
 import Hospmanager from "../components/Hospmanager.png";
 import Usermanager from "../components/Usermanager.png";
+import Logmanager from "../components/log.png";
 
 // Todo: main css 좀 더 만지기
 
@@ -30,6 +31,9 @@ const AppManager = () => {
         <Link to="/AppUserManager">
           <img className="main-button" src={Usermanager} alt="유저 매니저" />
         </Link>
+          <Link to="/AppLogManager">
+              <img className="main-button" src={Logmanager} alt="로그 매니저" />
+          </Link>
       </div>
     </div>
   );

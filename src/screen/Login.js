@@ -58,9 +58,6 @@ const Login = () => {
       <a href="http://localhost:8080/oauth2/authorization/kakao">
         <KakaoButton>카카오 로그인</KakaoButton>
       </a>
-      <Link to="/Main">
-        <button>Main</button>
-      </Link>
       {error && <p>{error}</p>}
     </div>
   );

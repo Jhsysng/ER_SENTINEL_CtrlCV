@@ -35,13 +35,12 @@ const LoginCallBackPage = () => {
         alert(accessToken)
         console.log(accessToken)
 
-        window.location.href = "/";
+        window.location.href = "/Main";
     }, []);
 
     return (
         <div>
             Login Callback Page...
-
         </div>
     );
 };

@@ -13,14 +13,5 @@ public class SurveyDTO {
     private String shortMessage;
     private String dutyId;
 
-    public SurveyDTO(final Survey entity){
 
-        //TODO : null 검사
-        this.dutyId = entity.getHospital().getDutyId();
-        this.star = entity.getStar();
-        this.shortMessage = entity.getShortMessage();
-
-
-
-    }
 }

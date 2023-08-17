@@ -24,8 +24,10 @@ import org.springframework.stereotype.Service;
 public class MariaDBAppender extends UnsynchronizedAppenderBase<ILoggingEvent> implements ApplicationContextAware {
     @Autowired
     private LogRepository logRepository;
+
     @Autowired
     private LogManagerService logManagerService;
+
 
     @Override
     protected void append(ILoggingEvent eventObject){

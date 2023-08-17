@@ -150,13 +150,13 @@ public class HospitalDetailController {
             objs = service.retrieveEmergencyMessageByDutyId(dutyId);
             if (objs.isEmpty()) {
                 log.info("there is no messages matching dutyId");
-                ResponseDTO<EmergencyMessageDTO> response = ResponseDTO.<EmergencyMessageDTO>builder().data(new ArrayList<>()).build();
+                ResponseDTO<EmergencyMessageDTO> response = ResponseDTO.<EmergencyMessageDTO>builder().data(new ArrayList<>()).error(true).build();
                 return ResponseEntity.ok().body(response);
             }
             EmergencyMessage[] messages = objs.get();
             if(messages.length==0){
                 log.info("there is no messages matching dutyId");
-                ResponseDTO<EmergencyMessageDTO> response = ResponseDTO.<EmergencyMessageDTO>builder().data(new ArrayList<>()).build();
+                ResponseDTO<EmergencyMessageDTO> response = ResponseDTO.<EmergencyMessageDTO>builder().data(new ArrayList<>()).error(true).build();
                 return ResponseEntity.ok().body(response);
             }
 
@@ -183,13 +183,6 @@ public class HospitalDetailController {
             return ResponseEntity.badRequest().body(response);
         }
     }
-
-
-
-
-
-
-
 }
 
 

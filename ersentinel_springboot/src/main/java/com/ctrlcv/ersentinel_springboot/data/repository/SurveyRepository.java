@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface SurveyRepository extends JpaRepository<Survey, Integer> {
     //Optional<Survey> findByEmgMessage(String emgMessage);
     Optional<Survey[]> findByHospitalDutyId(String dutyId);
+
+    void deleteByHospitalDutyIdAndShortMessage(String dutyId, String shortMessage);
 }
