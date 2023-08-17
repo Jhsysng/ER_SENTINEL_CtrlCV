@@ -15,13 +15,12 @@ public class Survey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dutyId")
     private Hospital hospital;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "userid")
     private User user;
 
     private String shortMessage;
