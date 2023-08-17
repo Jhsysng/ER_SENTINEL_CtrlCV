@@ -23,16 +23,18 @@ public class Survey {
     private int Star;
 
     private LocalDateTime UploadTime;
+    private LocalDateTime ModifyTime;
 
 
 
     @Builder
-    public Survey(int id, Hospital hospital, String shortMessage, int Star, LocalDateTime UploadTime) {
+    public Survey(int id, Hospital hospital, String shortMessage, int Star, LocalDateTime UploadTime, LocalDateTime UpdateTime, LocalDateTime ModifyTime) {
         this.id = id;
         this.hospital = hospital;
         this.shortMessage = shortMessage;
         this.Star = Star;
         this.UploadTime = UploadTime;
+        this.ModifyTime = ModifyTime;
 
     }
 }

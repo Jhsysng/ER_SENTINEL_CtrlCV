@@ -3,10 +3,12 @@ package com.ctrlcv.ersentinel_springboot.service;
 
 import com.ctrlcv.ersentinel_springboot.data.entity.Survey;
 import com.ctrlcv.ersentinel_springboot.data.repository.SurveyRepository;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 import java.util.List;
+import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -51,10 +53,9 @@ public class SurveyService {
 
         original.ifPresent(survey -> {
             survey.setStar(entity.getStar());
-            todo.setDone(entity.isDone());
-
-            // (4) 데이터베이스에 새 값을 저장한다.
-            repository.save(todo);
+            survey.setShortMessage(entity.getShortMessage());
+            survey.setModifyTime(LocalDateTime.now());
+            surveyRepository.save(survey);
         });
 
         // 2.3.2 Retrieve Todo에서 만든 메서드를 이용해 유저의 모든 Todo 리스트를 리턴한다.
