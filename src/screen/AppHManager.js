@@ -251,7 +251,7 @@ const AppHManager = () => {
                   </li>
                 ))}
               </ul>
-              <div className="deletebutton">
+              <div className="HInfo-procedure-list">
                 <button>삭제하기</button>
               </div>
             </div>

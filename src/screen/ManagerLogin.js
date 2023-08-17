@@ -15,7 +15,7 @@ const ManagerLogin = () => {
   const Navigate = useNavigate();
   const Auth = useAuth();
   // Todo: 백 API로 변경하기
-  const BackAPI = "/manager/singIn";
+  const BackAPI = "localhost:8080/manager/signIn";
 
   const handleLogin = async () => {
     try {

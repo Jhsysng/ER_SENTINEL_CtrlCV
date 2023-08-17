@@ -27,7 +27,7 @@ const Main = () => {
       <Link to="/MapOrder">
         <img className="main-button" src={MapOrderIcon} alt="지도 아이콘" />
       </Link>
-      <Link to="/Login">
+      <Link to="/">
         <img className="main-button" alt="로그인" />
       </Link>
     </div>
