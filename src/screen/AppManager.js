@@ -14,12 +14,12 @@ const AppManager = () => {
   const [isManager, setisManager] = useState(false);
   const Navigate = useNavigate();
 
-//   useEffect(() => {
-//     if (Auth.getUser().data.role !== "MANAGER") {
-//         alert("Only the manager has access!!!!");
-//         Navigate('/Main');
-//     };
-//   }, []);
+  useEffect(() => {
+    if (Auth.getUser().data.role !== "MANAGER") {
+        alert("Only the manager has access!!!!");
+        Navigate('/Main');
+    };
+  }, []);
 
   return (
     <div className="main-container">
