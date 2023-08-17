@@ -230,6 +230,86 @@ const MapOrder = () => {
   // Todo: 백 API랑 연결하기
   const BackAPI = "";
 
+  const displayHospitalsOnMap = (hospitals) => {
+    var mapContainer = document.getElementById("map");
+
+    var mapOption = {
+      center: new kakao.maps.LatLng(37.5665, 126.978),
+      level: 10,
+    };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    kakao.maps.event.addListener(map, "zoom_changed", function () {
+      const zoomLevel = map.getLevel();
+      const size = new kakao.maps.Size(40 - zoomLevel * 2, 40 - zoomLevel * 2);
+    });
+
+    hospitals.forEach((hospital) => {
+      const position = new kakao.maps.LatLng(
+          hospital.latitude,
+          hospital.longitude
+      );
+      let iconSrc;
+      const congestionValue = hospital[congestionType];
+      if (congestionValue >= 150) {
+        iconSrc = redSign;
+      } else if (congestionValue >= 100) {
+        iconSrc = orangeSign;
+      } else if (congestionValue >= 50) {
+        iconSrc = yellowSign;
+      } else if (congestionValue >= 0) {
+        iconSrc = greenSign;
+      }
+      const imageSize = new kakao.maps.Size(40, 40);
+      const imageOption = { offset: new kakao.maps.Point(27, 69) };
+      const markerImage = new kakao.maps.MarkerImage(
+          iconSrc,
+          imageSize,
+          imageOption
+      );
+      const marker = new kakao.maps.Marker({
+        position: position,
+        image: markerImage,
+      });
+      marker.setMap(map);
+
+      // 커스텀 오버레이에 표시할 내용입니다
+      const content = `<div class ="label">
+          <span class="left"></span>
+          <span class="center">${hospital.name}: ${congestionValue} 혼잡도</span>
+          <span class="right"></span>
+          </div>`;
+
+      const customOverlay = new kakao.maps.CustomOverlay({
+        position: position,
+        content: content,
+      });
+
+      // 마커를 클릭했을 때 커스텀 오버레이를 표시하거나 병원 페이지로 이동
+      kakao.maps.event.addListener(marker, "click", function () {
+        if (currentOverlay === customOverlay) {
+          // 현재 클릭한 마커와 연관된 오버레이가 이미 열려있는 경우
+          Navigate(`/HInfo`, {state: {dutyId: hospital.dutyId}});
+        } else {
+          if (currentOverlay) {
+            currentOverlay.setMap(null); // 이전 오버레이 숨기기
+          }
+          customOverlay.setMap(map);
+          currentOverlay = customOverlay; // 현재 오버레이 업데이트
+        }
+      });
+
+      // 지도를 클릭했을 때 커스텀 오버레이를 숨깁니다
+      kakao.maps.event.addListener(map, "click", function () {
+        if (currentOverlay) {
+          currentOverlay.setMap(null);
+          currentOverlay = null;
+        }
+      });
+    });
+  };
+
   useEffect(() => {
     var mapContainer = document.getElementById("map");
 
@@ -245,72 +325,6 @@ const MapOrder = () => {
       const size = new kakao.maps.Size(40 - zoomLevel * 2, 40 - zoomLevel * 2);
     });
 
-    // Todo: 이거 나중에 혼잡도 숫자 맞춰주기
-    const displayHospitalsOnMap = (hospitals) => {
-      hospitals.forEach((hospital) => {
-        const position = new kakao.maps.LatLng(
-          hospital.latitude,
-          hospital.longitude
-        );
-        let iconSrc;
-        const congestionValue = hospital[congestionType];
-        if (congestionValue >= 20) {
-          iconSrc = redSign;
-        } else if (congestionValue >= 10) {
-          iconSrc = orangeSign;
-        } else if (congestionValue >= 5) {
-          iconSrc = yellowSign;
-        } else if (congestionValue >= 0) {
-          iconSrc = greenSign;
-        }
-        const imageSize = new kakao.maps.Size(40, 40);
-        const imageOption = { offset: new kakao.maps.Point(27, 69) };
-        const markerImage = new kakao.maps.MarkerImage(
-          iconSrc,
-          imageSize,
-          imageOption
-        );
-        const marker = new kakao.maps.Marker({
-          position: position,
-          image: markerImage,
-        });
-        marker.setMap(map);
-
-        // 커스텀 오버레이에 표시할 내용입니다
-        const content = `<div class ="label">
-          <span class="left"></span>
-          <span class="center">${hospital.name}: ${congestionValue} 혼잡도</span>
-          <span class="right"></span>
-          </div>`;
-
-        const customOverlay = new kakao.maps.CustomOverlay({
-          position: position,
-          content: content,
-        });
-
-        // 마커를 클릭했을 때 커스텀 오버레이를 표시하거나 병원 페이지로 이동
-        kakao.maps.event.addListener(marker, "click", function () {
-          if (currentOverlay === customOverlay) {
-            // 현재 클릭한 마커와 연관된 오버레이가 이미 열려있는 경우
-            window.location.href = `/HInfo/${hospital.dutyId}`;
-          } else {
-            if (currentOverlay) {
-              currentOverlay.setMap(null); // 이전 오버레이 숨기기
-            }
-            customOverlay.setMap(map);
-            currentOverlay = customOverlay; // 현재 오버레이 업데이트
-          }
-        });
-
-        // 지도를 클릭했을 때 커스텀 오버레이를 숨깁니다
-        kakao.maps.event.addListener(map, "click", function () {
-          if (currentOverlay) {
-            currentOverlay.setMap(null);
-            currentOverlay = null;
-          }
-        });
-      });
-    };
     // Todo: 이거 나중에 sample도 빼줘야 됨 -> 실제 리스트로
     displayHospitalsOnMap(sampleHospitals);
 
@@ -365,23 +379,22 @@ const MapOrder = () => {
   }, [congestionType]);
 
   const handleSort = async (type) => {
-    /* Todo: 백 연결하고 이거 주석 처리 풀기
     try {
-      const response = await axios.get(BackAPI, {
+      const response = await axios.get(`http://localhost:8080/congestion/congestionlist`, {
         params: {
-          firstaddress: firstAddress,
-          secondaddress: secondAddress,
+          firstAddress: firstAddress,
+          secondAddress: secondAddress,
           isadult: type === "adult",
         },
       });
 
       if (response.data) {
-        displayHospitalsOnMap(response.data);
+        displayHospitalsOnMap(response.data.data);
       }
     } catch (error) {
       console.error("Error fetching sorted hospitals", error);
     }
-    */
+
   };
 
   return (
@@ -389,11 +402,11 @@ const MapOrder = () => {
       <div className="mapContainer">
         <button
           onClick={() => {
-            setCongestionType("adultpercent");
+            setCongestionType("pediatricpercent");
             handleSort("adult");
           }}
           className={`button ${
-            congestionType === "adultpercent"
+            congestionType === "pediatricpercent"
               ? "buttonadultpercent"
               : "buttonDefault"
           }`}
@@ -402,11 +415,11 @@ const MapOrder = () => {
         </button>
         <button
           onClick={() => {
-            setCongestionType("pediatricpercent");
+            setCongestionType("adultpercent");
             handleSort("child");
           }}
           className={`button ${
-            congestionType === "pediatricpercent"
+            congestionType === "adultpercent"
               ? "buttonadultpercent"
               : "buttonDefault"
           }`}

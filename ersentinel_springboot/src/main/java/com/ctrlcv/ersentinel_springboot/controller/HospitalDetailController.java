@@ -49,6 +49,7 @@ public class HospitalDetailController {
 
 
             ResponseDTO<CongestionInfoDTO> response = ResponseDTO.<CongestionInfoDTO>builder().data(dtos).build();
+            log.info("here!");
             return ResponseEntity.ok().body(response);
         } catch (Exception e){
             String error = e.getMessage();
@@ -149,14 +150,14 @@ public class HospitalDetailController {
             objs = service.retrieveEmergencyMessageByDutyId(dutyId);
             if (objs.isEmpty()) {
                 log.info("there is no messages matching dutyId");
-                ResponseDTO<RoadMapDTO> response = ResponseDTO.<RoadMapDTO>builder().error(true).build();
-                return ResponseEntity.badRequest().body(response);
+                ResponseDTO<EmergencyMessageDTO> response = ResponseDTO.<EmergencyMessageDTO>builder().data(new ArrayList<>()).build();
+                return ResponseEntity.ok().body(response);
             }
             EmergencyMessage[] messages = objs.get();
             if(messages.length==0){
                 log.info("there is no messages matching dutyId");
-                ResponseDTO<RoadMapDTO> response = ResponseDTO.<RoadMapDTO>builder().error(true).build();
-                return ResponseEntity.badRequest().body(response);
+                ResponseDTO<EmergencyMessageDTO> response = ResponseDTO.<EmergencyMessageDTO>builder().data(new ArrayList<>()).build();
+                return ResponseEntity.ok().body(response);
             }
 
 

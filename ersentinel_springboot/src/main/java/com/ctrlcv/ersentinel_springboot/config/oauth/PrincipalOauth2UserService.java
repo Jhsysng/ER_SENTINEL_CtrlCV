@@ -11,6 +11,10 @@ import com.ctrlcv.ersentinel_springboot.data.type.RoleType;
 import com.ctrlcv.ersentinel_springboot.data.type.SocialType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -29,7 +33,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     private String p;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public PrincipalOauth2UserService(BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -39,7 +43,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User oAuth2User = super.loadUser(userRequest);
-        System.out.println("getAttributes(): " + oAuth2User.getAttributes());
 
         Oauth2UserInfo oAuth2UserInfo = null;
 
@@ -76,6 +79,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         } else {
             user = userEntity.get();
         }
+
         return new PrincipalDetails(user, oAuth2User.getAttributes());
     }
 }

@@ -1,6 +1,7 @@
 package com.ctrlcv.ersentinel_springboot.config.jwt;
 
 import com.ctrlcv.ersentinel_springboot.config.auth.PrincipalDetails;
+import com.ctrlcv.ersentinel_springboot.config.auth.PrincipalDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
@@ -26,11 +27,11 @@ public class JWTTokenAuthenticationFilter extends OncePerRequestFilter {
 
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String TOKEN_HEADER = "Authorization";
-    private final UserDetailsService userDetailsService;
+    private final PrincipalDetailsService principalDetailsService;
     private final TokenProvider tokenProvider;
 
-    public JWTTokenAuthenticationFilter(UserDetailsService userDetailsService, TokenProvider tokenProvider) {
-        this.userDetailsService = userDetailsService;
+    public JWTTokenAuthenticationFilter(PrincipalDetailsService principalDetailsService, TokenProvider tokenProvider) {
+        this.principalDetailsService = principalDetailsService;
         this.tokenProvider = tokenProvider;
     }
 
@@ -45,7 +46,7 @@ public class JWTTokenAuthenticationFilter extends OncePerRequestFilter {
                 log.info("Token Type : " + tokenType);
                 if (tokenType.equals("ACCESS")) {
                     String username = tokenProvider.getUsernameByToken(token);
-                    PrincipalDetails principalDetails = (PrincipalDetails) userDetailsService.loadUserByUsername(username);
+                    PrincipalDetails principalDetails = (PrincipalDetails) principalDetailsService.loadUserByUsername(username);
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(principalDetails, null);
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }

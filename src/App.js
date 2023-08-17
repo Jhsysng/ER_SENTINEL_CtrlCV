@@ -31,7 +31,7 @@ function App() {
         />
         <Route path="/DistanceOrder" element={<DistanceOrder />} />
         <Route path="/MapOrder" element={<MapOrder />} />
-        <Route path="/HInfo/:dutyID" element={<HInfo />} />
+        <Route path="/HInfo" element={<HInfo />} />
       </Routes>
     </Router>
   );
