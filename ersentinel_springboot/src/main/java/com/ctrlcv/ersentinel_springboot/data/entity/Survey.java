@@ -20,9 +20,9 @@ public class Survey {
     @JoinColumn(name = "dutyId")
     private Hospital hospital;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "dutyId")
-//    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private User user;
 
     private String shortMessage;
 
@@ -36,13 +36,14 @@ public class Survey {
 
 
     @Builder
-    public Survey(int id, Hospital hospital, String shortMessage, int star, LocalDateTime UploadTime, LocalDateTime UpdateTime, LocalDateTime ModifyTime) {
+    public Survey(int id, Hospital hospital, String shortMessage, int star, LocalDateTime UploadTime, LocalDateTime UpdateTime, LocalDateTime ModifyTime, User user) {
         this.id = id;
         this.hospital = hospital;
         this.shortMessage = shortMessage;
         this.star = star;
         this.UploadTime = UploadTime;
         this.ModifyTime = ModifyTime;
+        this.user = user;
 
     }
 }

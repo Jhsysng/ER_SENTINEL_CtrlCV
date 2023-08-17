@@ -2,8 +2,10 @@ package com.ctrlcv.ersentinel_springboot.service;
 
 import com.ctrlcv.ersentinel_springboot.data.entity.Survey;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
+import com.ctrlcv.ersentinel_springboot.data.entity.User;
 import com.ctrlcv.ersentinel_springboot.data.repository.HospitalRepository;
 import com.ctrlcv.ersentinel_springboot.data.repository.SurveyRepository;
+import com.ctrlcv.ersentinel_springboot.data.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,6 +22,9 @@ public class SurveyService {
 
     @Autowired
     private SurveyRepository surveyRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public Optional<Survey[]> create(final Survey entity) {
 
@@ -87,6 +92,14 @@ public class SurveyService {
     public Optional<Survey[]> retrieveSurveyByDutyId(final String dutyId){
         return surveyRepository.findByHospitalDutyId(dutyId);
 
+    }
+
+    public Optional<User> retrieveUserByUsername(final String username){
+        return userRepository.findByUsername(username);
+    }
+
+    public Optional<Survey> retrieveSurveyById(final int id){
+        return surveyRepository.findById(id);
     }
 
 
