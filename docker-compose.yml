@@ -1,32 +1,36 @@
 version : "3"
 services:
-  nginx:
-    build: ./nginx
-    image: nginx:latest
+  react:
+    container_name: ersentinel_react
+    build: .
+    restart: always
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/nginx/conf.d
     depends_on:
       - spring
-      - react
-  react:
-    build: ./ersentinel_react
-    ports:
-      - "3000:3000"
   spring:
+    container_name: ersentinel_springboot
     build:
       context: ./ersentinel_springboot
       dockerfile: Dockerfile
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://database:3306/ersentinel?allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=ersentinel
+      - SPRING_DATASOURCE_PASSWORD=1q2w3e4r!
     ports:
         - "8080:8080"
     depends_on:
-        - db
-  db:
+        - database
+    extra_hosts:
+      - host.docker.io.internal:host-gateway
+  database:
     image: mariadb:latest
     ports:
       - "3306:3306"
     env_file:
-      - ./.env.db.dev
+      - ./.env.dev.db
     volumes:
-      - ./db:/var/lib/mariadb
+      - mariadb:/var/lib/mariadb
+
+volumes:
+  mariadb:

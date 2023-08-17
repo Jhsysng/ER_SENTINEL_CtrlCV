@@ -51,7 +51,7 @@ public class PublicDataApiService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    @Scheduled(cron = "* * 0/1 * * *")
+    @Scheduled(cron = "0 0-10 0/1 * * *")
     @Transactional
     public void apiRequest() {
         log.info("공공 데이터 포털 API 요청 시작");
