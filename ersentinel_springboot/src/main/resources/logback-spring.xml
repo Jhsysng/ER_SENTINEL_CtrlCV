@@ -9,7 +9,7 @@
             <pattern>%d %-5level %logger{35} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./log/local/%d{yyyy-MM-dd}/server.log</fileNamePattern>
+            <fileNamePattern>./ersentinel_springboot/src/main/java/com/ctrlcv/ersentinel_springboot/log/%d{yyyy-MM-dd}/server.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>5GB</totalSizeCap>
         </rollingPolicy>
@@ -17,7 +17,7 @@
 
     <appender name="MARIA_DB" class="com.ctrlcv.ersentinel_springboot.component.MariaDBAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>Error</level>
+            <level>Info</level>
         </filter>
     </appender>
 

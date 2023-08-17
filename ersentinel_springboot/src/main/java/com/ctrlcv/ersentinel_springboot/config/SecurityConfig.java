@@ -37,7 +37,7 @@ public class SecurityConfig {
 
                 .addFilterBefore(jwtTokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 
-//                // TODO: 잘 돌아가는지 확인해야 함
+                // TODO: 잘 돌아가는지 확인해야 함
 //                .authorizeHttpRequests((authorizeHttpRequests) ->
 //                        authorizeHttpRequests
 //                                .requestMatchers("/manager").hasRole("MANAGER")

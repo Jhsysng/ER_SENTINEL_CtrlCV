@@ -1,0 +1,888 @@
+2023-08-18 06:45:59,110 INFO  c.c.e.ErsentinelSpringbootApplication - Starting ErsentinelSpringbootApplication using Java 17.0.4.1 with PID 61649 (/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/build/classes/java/main started by alex in /Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th)
+2023-08-18 06:45:59,111 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,111 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting ErsentinelSpringbootApplication using Java 17.0.4.1 with PID 61649 (/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/build/classes/java/main started by alex in /Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th)
+2023-08-18 06:45:59,112 INFO  c.c.e.ErsentinelSpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2023-08-18 06:45:59,112 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,112 INFO  c.c.e.component.MariaDBAppender - [getlog]No active profile set, falling back to 1 default profile: "default"
+2023-08-18 06:45:59,525 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-08-18 06:45:59,525 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,525 INFO  c.c.e.component.MariaDBAppender - [getlog]Multiple Spring Data modules found, entering strict repository configuration mode
+2023-08-18 06:45:59,526 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-18 06:45:59,526 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,526 INFO  c.c.e.component.MariaDBAppender - [getlog]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-18 06:45:59,619 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 8 JPA repository interfaces.
+2023-08-18 06:45:59,619 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,619 INFO  c.c.e.component.MariaDBAppender - [getlog]Finished Spring Data repository scanning in 89 ms. Found 8 JPA repository interfaces.
+2023-08-18 06:45:59,963 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-08-18 06:45:59,963 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,963 INFO  c.c.e.component.MariaDBAppender - [getlog]Tomcat initialized with port(s): 8080 (http)
+2023-08-18 06:45:59,967 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:45:59,967 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,967 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:45:59,968 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-18 06:45:59,968 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,969 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting service [Tomcat]
+2023-08-18 06:45:59,969 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-18 06:45:59,969 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:45:59,969 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-18 06:46:00,013 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-18 06:46:00,013 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,013 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Spring embedded WebApplicationContext
+2023-08-18 06:46:00,013 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 880 ms
+2023-08-18 06:46:00,013 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,013 INFO  c.c.e.component.MariaDBAppender - [getlog]Root WebApplicationContext: initialization completed in 880 ms
+2023-08-18 06:46:00,088 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-18 06:46:00,089 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,089 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-18 06:46:00,111 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-18 06:46:00,111 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,111 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-18 06:46:00,113 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-08-18 06:46:00,113 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,113 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000406: Using bytecode reflection optimizer
+2023-08-18 06:46:00,179 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:46:00,179 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,179 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:46:00,253 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-18 06:46:00,254 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,254 INFO  c.c.e.component.MariaDBAppender - [getlog]No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-18 06:46:00,263 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-08-18 06:46:00,263 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,263 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Starting...
+2023-08-18 06:46:00,303 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@76134b9b
+2023-08-18 06:46:00,303 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,303 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Added connection org.mariadb.jdbc.Connection@76134b9b
+2023-08-18 06:46:00,304 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-08-18 06:46:00,304 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,304 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Start completed.
+2023-08-18 06:46:00,449 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:46:00,449 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,449 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:46:00,826 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-18 06:46:00,826 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:00,826 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-18 06:46:01,486 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:46:01,486 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:01,486 INFO  c.c.e.component.MariaDBAppender - [getlog]Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:46:01,673 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] set log
+2023-08-18 06:46:01,673 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:01,673 INFO  c.c.e.component.MariaDBAppender - [getlog][MariaDBAppender] set log
+2023-08-18 06:46:02,086 INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-18 06:46:02,086 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,086 INFO  c.c.e.component.MariaDBAppender - [getlog]Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-18 06:46:02,337 INFO  c.c.e.config.CorsConfig - ===== CorsFilter 적용 =====
+2023-08-18 06:46:02,338 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,338 INFO  c.c.e.component.MariaDBAppender - [getlog]===== CorsFilter 적용 =====
+2023-08-18 06:46:02,365 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-18 06:46:02,365 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,365 INFO  c.c.e.component.MariaDBAppender - [getlog]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-18 06:46:02,426 INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23ac3788, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52e296c0, org.springframework.security.web.context.SecurityContextHolderFilter@4a0b1701, org.springframework.security.web.header.HeaderWriterFilter@23f4aaeb, org.springframework.web.filter.CorsFilter@1d77762f, org.springframework.security.web.authentication.logout.LogoutFilter@1a177f2c, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@46092840, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@57082d16, com.ctrlcv.ersentinel_springboot.config.jwt.JWTTokenAuthenticationFilter@2dc72c0c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@60e83cb9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20de9df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60610a2b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e2bd635, org.springframework.security.web.session.SessionManagementFilter@22726bc7, org.springframework.security.web.access.ExceptionTranslationFilter@32bff23d]
+2023-08-18 06:46:02,426 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,426 INFO  c.c.e.component.MariaDBAppender - [getlog]Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23ac3788, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52e296c0, org.springframework.security.web.context.SecurityContextHolderFilter@4a0b1701, org.springframework.security.web.header.HeaderWriterFilter@23f4aaeb, org.springframework.web.filter.CorsFilter@1d77762f, org.springframework.security.web.authentication.logout.LogoutFilter@1a177f2c, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@46092840, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@57082d16, com.ctrlcv.ersentinel_springboot.config.jwt.JWTTokenAuthenticationFilter@2dc72c0c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@60e83cb9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20de9df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60610a2b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e2bd635, org.springframework.security.web.session.SessionManagementFilter@22726bc7, org.springframework.security.web.access.ExceptionTranslationFilter@32bff23d]
+2023-08-18 06:46:02,521 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: ServletContext resource [/index.html]
+2023-08-18 06:46:02,521 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,521 INFO  c.c.e.component.MariaDBAppender - [getlog]Adding welcome page: ServletContext resource [/index.html]
+2023-08-18 06:46:02,633 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:46:02,633 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,633 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:46:02,640 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-18 06:46:02,640 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,640 INFO  c.c.e.component.MariaDBAppender - [getlog]Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-18 06:46:02,647 INFO  c.c.e.ErsentinelSpringbootApplication - Started ErsentinelSpringbootApplication in 3.786 seconds (process running for 4.015)
+2023-08-18 06:46:02,648 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:02,648 INFO  c.c.e.component.MariaDBAppender - [getlog]Started ErsentinelSpringbootApplication in 3.786 seconds (process running for 4.015)
+2023-08-18 06:46:03,669 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:46:03,669 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:03,669 INFO  c.c.e.component.MariaDBAppender - [getlog]Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:46:03,670 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-08-18 06:46:03,670 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:03,670 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Shutdown initiated...
+2023-08-18 06:46:03,672 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-08-18 06:46:03,672 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:46:03,672 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Shutdown completed.
+2023-08-18 06:47:55,536 INFO  c.c.e.ErsentinelSpringbootApplication - Starting ErsentinelSpringbootApplication using Java 17.0.4.1 with PID 61813 (/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/build/classes/java/main started by alex in /Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th)
+2023-08-18 06:47:55,537 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:55,538 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting ErsentinelSpringbootApplication using Java 17.0.4.1 with PID 61813 (/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/build/classes/java/main started by alex in /Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th)
+2023-08-18 06:47:55,542 INFO  c.c.e.ErsentinelSpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2023-08-18 06:47:55,543 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:55,543 INFO  c.c.e.component.MariaDBAppender - [getlog]No active profile set, falling back to 1 default profile: "default"
+2023-08-18 06:47:56,037 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-08-18 06:47:56,037 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,037 INFO  c.c.e.component.MariaDBAppender - [getlog]Multiple Spring Data modules found, entering strict repository configuration mode
+2023-08-18 06:47:56,038 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-18 06:47:56,038 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,038 INFO  c.c.e.component.MariaDBAppender - [getlog]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-18 06:47:56,162 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 119 ms. Found 8 JPA repository interfaces.
+2023-08-18 06:47:56,162 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,162 INFO  c.c.e.component.MariaDBAppender - [getlog]Finished Spring Data repository scanning in 119 ms. Found 8 JPA repository interfaces.
+2023-08-18 06:47:56,487 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-08-18 06:47:56,487 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,487 INFO  c.c.e.component.MariaDBAppender - [getlog]Tomcat initialized with port(s): 8080 (http)
+2023-08-18 06:47:56,491 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:47:56,491 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,491 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:47:56,492 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-18 06:47:56,492 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,492 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting service [Tomcat]
+2023-08-18 06:47:56,492 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-18 06:47:56,492 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,492 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-18 06:47:56,533 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-18 06:47:56,533 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,533 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Spring embedded WebApplicationContext
+2023-08-18 06:47:56,533 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 948 ms
+2023-08-18 06:47:56,533 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,533 INFO  c.c.e.component.MariaDBAppender - [getlog]Root WebApplicationContext: initialization completed in 948 ms
+2023-08-18 06:47:56,603 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-18 06:47:56,603 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,603 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-18 06:47:56,630 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-18 06:47:56,630 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,630 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-18 06:47:56,632 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-08-18 06:47:56,632 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,632 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000406: Using bytecode reflection optimizer
+2023-08-18 06:47:56,699 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:47:56,699 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,699 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:47:56,776 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-18 06:47:56,776 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,776 INFO  c.c.e.component.MariaDBAppender - [getlog]No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-18 06:47:56,786 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-08-18 06:47:56,786 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,786 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Starting...
+2023-08-18 06:47:56,830 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7d977a20
+2023-08-18 06:47:56,830 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,830 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7d977a20
+2023-08-18 06:47:56,831 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-08-18 06:47:56,831 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,831 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Start completed.
+2023-08-18 06:47:56,977 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:47:56,977 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:56,977 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:47:57,364 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-18 06:47:57,364 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:57,364 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-18 06:47:57,998 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:47:57,998 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:57,998 INFO  c.c.e.component.MariaDBAppender - [getlog]Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:47:58,190 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] set log
+2023-08-18 06:47:58,190 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:58,190 INFO  c.c.e.component.MariaDBAppender - [getlog][MariaDBAppender] set log
+2023-08-18 06:47:58,673 INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-18 06:47:58,674 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:58,674 INFO  c.c.e.component.MariaDBAppender - [getlog]Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-18 06:47:58,919 INFO  c.c.e.config.CorsConfig - ===== CorsFilter 적용 =====
+2023-08-18 06:47:58,919 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:58,919 INFO  c.c.e.component.MariaDBAppender - [getlog]===== CorsFilter 적용 =====
+2023-08-18 06:47:58,948 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-18 06:47:58,948 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:58,948 INFO  c.c.e.component.MariaDBAppender - [getlog]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-18 06:47:59,004 INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a1eb893, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35daccb8, org.springframework.security.web.context.SecurityContextHolderFilter@294a150c, org.springframework.security.web.header.HeaderWriterFilter@32bff23d, org.springframework.web.filter.CorsFilter@23ac3788, org.springframework.security.web.authentication.logout.LogoutFilter@6be93728, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@75d454a4, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@42cf08a1, com.ctrlcv.ersentinel_springboot.config.jwt.JWTTokenAuthenticationFilter@2738a1fc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ba0c0e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a0b1701, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@451f08ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e296c0, org.springframework.security.web.session.SessionManagementFilter@23f4aaeb, org.springframework.security.web.access.ExceptionTranslationFilter@4cb1af3f]
+2023-08-18 06:47:59,004 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:59,004 INFO  c.c.e.component.MariaDBAppender - [getlog]Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a1eb893, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35daccb8, org.springframework.security.web.context.SecurityContextHolderFilter@294a150c, org.springframework.security.web.header.HeaderWriterFilter@32bff23d, org.springframework.web.filter.CorsFilter@23ac3788, org.springframework.security.web.authentication.logout.LogoutFilter@6be93728, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@75d454a4, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@42cf08a1, com.ctrlcv.ersentinel_springboot.config.jwt.JWTTokenAuthenticationFilter@2738a1fc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ba0c0e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a0b1701, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@451f08ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e296c0, org.springframework.security.web.session.SessionManagementFilter@23f4aaeb, org.springframework.security.web.access.ExceptionTranslationFilter@4cb1af3f]
+2023-08-18 06:47:59,092 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: ServletContext resource [/index.html]
+2023-08-18 06:47:59,092 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:59,092 INFO  c.c.e.component.MariaDBAppender - [getlog]Adding welcome page: ServletContext resource [/index.html]
+2023-08-18 06:47:59,209 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:47:59,210 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:59,210 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:47:59,217 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-18 06:47:59,217 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:59,217 INFO  c.c.e.component.MariaDBAppender - [getlog]Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-18 06:47:59,224 INFO  c.c.e.ErsentinelSpringbootApplication - Started ErsentinelSpringbootApplication in 3.964 seconds (process running for 4.365)
+2023-08-18 06:47:59,224 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:47:59,224 INFO  c.c.e.component.MariaDBAppender - [getlog]Started ErsentinelSpringbootApplication in 3.964 seconds (process running for 4.365)
+2023-08-18 06:48:07,151 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-18 06:48:07,151 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:07,152 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-18 06:48:07,152 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-08-18 06:48:07,152 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:07,152 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Servlet 'dispatcherServlet'
+2023-08-18 06:48:07,152 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2023-08-18 06:48:07,152 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:07,152 INFO  c.c.e.component.MariaDBAppender - [getlog]Completed initialization in 0 ms
+2023-08-18 06:48:07,159 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:48:07,159 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:07,159 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:48:07,170 INFO  c.c.e.controller.MainController - main
+2023-08-18 06:48:07,170 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:07,170 INFO  c.c.e.component.MariaDBAppender - [getlog]main
+2023-08-18 06:48:19,045 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:48:19,046 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:19,046 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:48:19,050 INFO  c.c.e.c.LogManagerController - [getServerLog] called
+2023-08-18 06:48:19,050 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:48:19,050 INFO  c.c.e.component.MariaDBAppender - [getlog][getServerLog] called
+2023-08-18 06:50:15,590 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:50:15,590 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:15,590 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:50:15,591 INFO  c.c.e.controller.MainController - main
+2023-08-18 06:50:15,591 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:15,591 INFO  c.c.e.component.MariaDBAppender - [getlog]main
+2023-08-18 06:50:16,258 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:50:16,259 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:16,259 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:50:16,261 INFO  c.c.e.c.LogManagerController - [getServerLog] called
+2023-08-18 06:50:16,261 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:16,261 INFO  c.c.e.component.MariaDBAppender - [getlog][getServerLog] called
+2023-08-18 06:50:48,087 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:50:48,087 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:48,087 INFO  c.c.e.component.MariaDBAppender - [getlog]Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:50:48,088 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-08-18 06:50:48,088 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:48,088 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Shutdown initiated...
+2023-08-18 06:50:48,091 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-08-18 06:50:48,091 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:50:48,091 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Shutdown completed.
+2023-08-18 06:52:13,843 INFO  c.c.e.ErsentinelSpringbootApplication - Starting ErsentinelSpringbootApplication using Java 17.0.4.1 with PID 62471 (/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/build/classes/java/main started by alex in /Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th)
+2023-08-18 06:52:13,844 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:13,844 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting ErsentinelSpringbootApplication using Java 17.0.4.1 with PID 62471 (/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/build/classes/java/main started by alex in /Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th)
+2023-08-18 06:52:13,845 INFO  c.c.e.ErsentinelSpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2023-08-18 06:52:13,845 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:13,845 INFO  c.c.e.component.MariaDBAppender - [getlog]No active profile set, falling back to 1 default profile: "default"
+2023-08-18 06:52:14,253 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-08-18 06:52:14,253 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,253 INFO  c.c.e.component.MariaDBAppender - [getlog]Multiple Spring Data modules found, entering strict repository configuration mode
+2023-08-18 06:52:14,254 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-18 06:52:14,254 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,254 INFO  c.c.e.component.MariaDBAppender - [getlog]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-18 06:52:14,343 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 8 JPA repository interfaces.
+2023-08-18 06:52:14,343 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,343 INFO  c.c.e.component.MariaDBAppender - [getlog]Finished Spring Data repository scanning in 86 ms. Found 8 JPA repository interfaces.
+2023-08-18 06:52:14,628 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-08-18 06:52:14,629 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,629 INFO  c.c.e.component.MariaDBAppender - [getlog]Tomcat initialized with port(s): 8080 (http)
+2023-08-18 06:52:14,632 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:52:14,632 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,632 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:52:14,633 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-18 06:52:14,633 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,634 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting service [Tomcat]
+2023-08-18 06:52:14,634 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-18 06:52:14,634 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,634 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-18 06:52:14,671 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-18 06:52:14,671 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,671 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Spring embedded WebApplicationContext
+2023-08-18 06:52:14,671 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 807 ms
+2023-08-18 06:52:14,671 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,671 INFO  c.c.e.component.MariaDBAppender - [getlog]Root WebApplicationContext: initialization completed in 807 ms
+2023-08-18 06:52:14,732 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-18 06:52:14,733 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,733 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-18 06:52:14,752 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-18 06:52:14,753 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,753 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-18 06:52:14,754 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-08-18 06:52:14,754 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,754 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000406: Using bytecode reflection optimizer
+2023-08-18 06:52:14,816 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:52:14,816 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,816 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:52:14,880 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-18 06:52:14,880 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,880 INFO  c.c.e.component.MariaDBAppender - [getlog]No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-18 06:52:14,888 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-08-18 06:52:14,888 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,888 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Starting...
+2023-08-18 06:52:14,929 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@76134b9b
+2023-08-18 06:52:14,929 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,929 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Added connection org.mariadb.jdbc.Connection@76134b9b
+2023-08-18 06:52:14,930 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-08-18 06:52:14,930 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:14,930 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Start completed.
+2023-08-18 06:52:15,056 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:52:15,056 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:15,056 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000021: Bytecode provider name : bytebuddy
+2023-08-18 06:52:15,419 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-18 06:52:15,419 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:15,419 INFO  c.c.e.component.MariaDBAppender - [getlog]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-18 06:52:16,054 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:52:16,054 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:16,054 INFO  c.c.e.component.MariaDBAppender - [getlog]Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:52:16,235 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] set log
+2023-08-18 06:52:16,235 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:16,235 INFO  c.c.e.component.MariaDBAppender - [getlog][MariaDBAppender] set log
+2023-08-18 06:52:16,703 INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-18 06:52:16,703 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:16,703 INFO  c.c.e.component.MariaDBAppender - [getlog]Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-18 06:52:16,946 INFO  c.c.e.config.CorsConfig - ===== CorsFilter 적용 =====
+2023-08-18 06:52:16,946 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:16,946 INFO  c.c.e.component.MariaDBAppender - [getlog]===== CorsFilter 적용 =====
+2023-08-18 06:52:16,975 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-18 06:52:16,975 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:16,975 INFO  c.c.e.component.MariaDBAppender - [getlog]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-18 06:52:17,017 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: ServletContext resource [/index.html]
+2023-08-18 06:52:17,017 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:17,017 INFO  c.c.e.component.MariaDBAppender - [getlog]Adding welcome page: ServletContext resource [/index.html]
+2023-08-18 06:52:17,117 INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@222b4ab1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7df09f55, org.springframework.security.web.context.SecurityContextHolderFilter@2cf7ada5, org.springframework.security.web.header.HeaderWriterFilter@2adb532c, org.springframework.web.filter.CorsFilter@178be8fc, org.springframework.security.web.authentication.logout.LogoutFilter@720da195, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5d5822bc, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2bf5f4, com.ctrlcv.ersentinel_springboot.config.jwt.JWTTokenAuthenticationFilter@2dc72c0c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@21dfec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c2cc406, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ec3b5dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f0952cf, org.springframework.security.web.session.SessionManagementFilter@6c8a806c, org.springframework.security.web.access.ExceptionTranslationFilter@32a37d12, org.springframework.security.web.access.intercept.AuthorizationFilter@4678e08e]
+2023-08-18 06:52:17,117 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:17,117 INFO  c.c.e.component.MariaDBAppender - [getlog]Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@222b4ab1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7df09f55, org.springframework.security.web.context.SecurityContextHolderFilter@2cf7ada5, org.springframework.security.web.header.HeaderWriterFilter@2adb532c, org.springframework.web.filter.CorsFilter@178be8fc, org.springframework.security.web.authentication.logout.LogoutFilter@720da195, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5d5822bc, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2bf5f4, com.ctrlcv.ersentinel_springboot.config.jwt.JWTTokenAuthenticationFilter@2dc72c0c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@21dfec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c2cc406, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ec3b5dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f0952cf, org.springframework.security.web.session.SessionManagementFilter@6c8a806c, org.springframework.security.web.access.ExceptionTranslationFilter@32a37d12, org.springframework.security.web.access.intercept.AuthorizationFilter@4678e08e]
+2023-08-18 06:52:17,250 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:52:17,250 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:17,250 INFO  c.c.e.component.MariaDBAppender - [getlog]Starting ProtocolHandler ["http-nio-8080"]
+2023-08-18 06:52:17,256 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-18 06:52:17,256 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:17,256 INFO  c.c.e.component.MariaDBAppender - [getlog]Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-18 06:52:17,263 INFO  c.c.e.ErsentinelSpringbootApplication - Started ErsentinelSpringbootApplication in 3.666 seconds (process running for 3.883)
+2023-08-18 06:52:17,263 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:17,263 INFO  c.c.e.component.MariaDBAppender - [getlog]Started ErsentinelSpringbootApplication in 3.666 seconds (process running for 3.883)
+2023-08-18 06:52:18,153 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-18 06:52:18,153 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,153 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-18 06:52:18,153 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-08-18 06:52:18,154 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,154 INFO  c.c.e.component.MariaDBAppender - [getlog]Initializing Servlet 'dispatcherServlet'
+2023-08-18 06:52:18,154 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2023-08-18 06:52:18,154 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,154 INFO  c.c.e.component.MariaDBAppender - [getlog]Completed initialization in 0 ms
+2023-08-18 06:52:18,161 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,161 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,161 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,172 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,172 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,172 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,178 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,178 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,178 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,182 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,182 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,182 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,185 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,185 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,186 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,188 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,188 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,188 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,191 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,191 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,191 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,194 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,194 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,194 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,196 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,196 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,196 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,199 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,199 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,199 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,202 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,202 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,202 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,204 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,204 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,204 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,206 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,206 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,206 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,208 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,208 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,208 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,210 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,210 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,210 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,212 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,212 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,212 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,214 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,214 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,214 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,217 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,217 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,217 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,219 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,219 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,219 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:18,221 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:18,221 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:18,221 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,248 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,248 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,248 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,251 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,251 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,251 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,253 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,253 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,253 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,256 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,256 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,256 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,257 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,258 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,258 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,259 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,260 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,260 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,261 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,261 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,261 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,263 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,263 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,263 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,265 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,265 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,265 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,267 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,267 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,267 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,269 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,269 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,269 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,271 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,271 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,271 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,273 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,273 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,273 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,276 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,276 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,276 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,278 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,278 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,278 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,280 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,280 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,280 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,282 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,282 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,282 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,285 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,285 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,285 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,286 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,286 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,286 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:19,288 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:19,288 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:19,288 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,302 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,303 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,303 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,308 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,309 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,309 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,317 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,318 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,318 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,326 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,326 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,326 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,330 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,330 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,330 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,332 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,332 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,332 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,334 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,334 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,334 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,337 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,337 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,337 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,341 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,341 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,341 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,344 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,344 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,344 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,346 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,346 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,346 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,349 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,349 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,349 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,351 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,351 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,351 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,353 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,353 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,353 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,355 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,355 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,355 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,357 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,357 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,357 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,360 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,360 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,360 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,366 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,366 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,366 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,368 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,368 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,368 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:24,370 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:24,370 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:24,370 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,493 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,494 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,495 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,500 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,500 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,500 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,503 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,503 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,503 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,506 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,506 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,506 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,509 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,510 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,510 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,521 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,521 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,521 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,525 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,525 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,525 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,528 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,528 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,528 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,532 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,533 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,533 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,536 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,536 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,536 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,539 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,539 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,539 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,542 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,542 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,542 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,544 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,544 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,544 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,556 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,558 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,558 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,560 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,560 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,560 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,562 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,562 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,562 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,564 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,564 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,564 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,571 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,571 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,571 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,578 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,578 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,578 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:32,582 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:32,582 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:32,582 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,608 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,608 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,608 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,612 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,612 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,612 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,617 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,617 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,617 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,620 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,620 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,620 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,623 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,623 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,623 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,626 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,626 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,626 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,631 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,631 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,631 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,636 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,636 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,636 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,640 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,640 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,640 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,644 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,644 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,644 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,653 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,653 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,653 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,655 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,656 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,656 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,659 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,659 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,659 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,662 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,662 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,662 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,668 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,668 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,668 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,672 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,672 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,672 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,677 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,677 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,677 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,686 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,686 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,686 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,689 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,689 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,689 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:33,691 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:33,691 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:33,691 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,744 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,744 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,744 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,754 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,754 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,754 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,757 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,758 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,758 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,761 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,761 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,761 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,770 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,770 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,770 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,773 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,774 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,774 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,778 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,778 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,780 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,786 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,786 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,786 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,789 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,789 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,789 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,792 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,792 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,792 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,796 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,796 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,796 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,803 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,804 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,804 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,807 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,807 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,807 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,810 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,810 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,810 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,813 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,813 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,813 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,818 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,818 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,818 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,819 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,819 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,819 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,821 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,821 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,821 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,823 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,823 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,823 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:36,827 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:36,827 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:36,827 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,592 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,594 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,594 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,604 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,604 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,604 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,606 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,606 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,606 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,608 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,608 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,608 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,609 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,609 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,609 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,611 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,611 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,611 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,613 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,613 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,613 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,616 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,616 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,616 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,622 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,623 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,623 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,627 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,627 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,627 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,630 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,630 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,630 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,635 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,635 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,635 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,637 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,637 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,637 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,639 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,639 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,639 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,640 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,640 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,640 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,642 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,642 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,642 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,643 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,643 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,643 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,645 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,645 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,645 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,646 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,646 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,646 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:37,648 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:37,648 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:37,648 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,668 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,669 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,669 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,673 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,673 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,673 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,676 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,676 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,677 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,679 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,680 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,680 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,688 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,688 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,688 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,692 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,692 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,692 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,696 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,696 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,696 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,706 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,706 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,706 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,708 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,708 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,708 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,709 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,710 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,710 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,711 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,711 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,711 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,716 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,716 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,716 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,722 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,722 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,722 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,725 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,725 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,725 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,727 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,727 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,727 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,729 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,729 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,729 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,731 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,731 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,731 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,733 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,733 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,733 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,735 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,735 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,735 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:38,736 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:38,737 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:38,737 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,751 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,751 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,751 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,754 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,754 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,754 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,756 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,756 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,756 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,757 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,757 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,757 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,759 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,759 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,759 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,760 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,761 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,761 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,762 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,762 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,762 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,764 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,764 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,764 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,766 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,766 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,766 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,768 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,768 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,768 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,770 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,770 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,770 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,772 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,772 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,772 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,774 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,774 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,774 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,775 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,775 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,775 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,777 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,777 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,777 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,779 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,779 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,779 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,781 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,782 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,782 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,783 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,783 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,783 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,785 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,785 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,785 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:43,787 INFO  c.c.e.c.j.JWTTokenAuthenticationFilter - ===== JWT Authentication Filter =====
+2023-08-18 06:52:43,787 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:43,787 INFO  c.c.e.component.MariaDBAppender - [getlog]===== JWT Authentication Filter =====
+2023-08-18 06:52:46,708 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:52:46,708 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:46,708 INFO  c.c.e.component.MariaDBAppender - [getlog]Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-18 06:52:46,709 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-08-18 06:52:46,709 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:46,709 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Shutdown initiated...
+2023-08-18 06:52:46,711 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-08-18 06:52:46,711 INFO  c.c.e.component.MariaDBAppender - [MariaDBAppender] append
+2023-08-18 06:52:46,711 INFO  c.c.e.component.MariaDBAppender - [getlog]HikariPool-1 - Shutdown completed.

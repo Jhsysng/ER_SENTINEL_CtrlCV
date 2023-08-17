@@ -2,6 +2,7 @@ package com.ctrlcv.ersentinel_springboot.service;
 
 import com.ctrlcv.ersentinel_springboot.data.entity.Log;
 import com.ctrlcv.ersentinel_springboot.data.repository.LogRepository;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,10 @@ public class LogManagerService {
     public List<Log> getLogs(){
         log.info("[LogService] getLogs");
         return logRepository.findAll();
+    }
+    @Transactional
+    public void savelog(Log entity){
+        log.info("[LogService] savelog");
+        logRepository.save(entity);
     }
 }
