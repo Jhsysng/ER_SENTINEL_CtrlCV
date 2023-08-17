@@ -10,84 +10,84 @@ const sampleData = [
     name: "Location A",
     adultpercent: "10",
     pediatricpercent: "10",
-    dutyID: "A000001",
+    dutyId: "A000001",
   },
   {
     id: 2,
     name: "Location B",
     adultpercent: "9",
     pediatricpercent: "6",
-    dutyID: "A000002",
+    dutyId: "A000002",
   },
   {
     id: 3,
     name: "Location C",
     adultpercent: "8",
     pediatricpercent: "7",
-    dutyID: "A000003",
+    dutyId: "A000003",
   },
   {
     id: 4,
     name: "Location D",
     adultpercent: "6",
     pediatricpercent: "1",
-    dutyID: "A000004",
+    dutyId: "A000004",
   },
   {
     id: 5,
     name: "Location E",
     adultpercent: "5",
     pediatricpercent: "4",
-    dutyID: "A000005",
+    dutyId: "A000005",
   },
   {
     id: 6,
     name: "Location F",
     adultpercent: "2",
     pediatricpercent: "5",
-    dutyID: "A000006",
+    dutyId: "A000006",
   },
   {
     id: 7,
     name: "Location D",
     adultpercent: "12",
     pediatricpercent: "11",
-    dutyID: "A000007",
+    dutyId: "A000007",
   },
   {
     id: 8,
     name: "Location E",
     adultpercent: "53",
     pediatricpercent: "41",
-    dutyID: "A000008",
+    dutyId: "A000008",
   },
   {
     id: 9,
     name: "Location F",
     adultpercent: "21",
     pediatricpercent: "51",
-    dutyID: "A000009",
+    dutyId: "A000009",
   },
   {
     id: 10,
     name: "Location D",
     adultpercent: "63",
     pediatricpercent: "12",
-    dutyID: "A000010",
+    dutyId: "A000010",
   },
   {
     id: 11,
     name: "Location E",
     adultpercent: "54",
     pediatricpercent: "43",
-    dutyID: "A000011",
+    dutyId: "A000011",
   },
   {
     id: 12,
     name: "Location F",
     adultpercent: "25",
     pediatricpercent: "53",
-    dutyID: "A000012",
+    dutyId: "A000012",
   },
 ];
 
@@ -120,8 +120,8 @@ const CongestionLevelOrder = () => {
             const data = await response.json();
             if (data.documents && data.documents.length > 0) {
               const address = data.documents[0].address;
-              setFirstAddress(address.region_1depth_name);
-              setSecondAddress(address.region_2depth_name);
+              setFirstAddress(address.region_1depth_name); // 시 
+              setSecondAddress(address.region_2depth_name); // 구
             }
           } catch (error) {
             console.error("Error fetching address", error);
@@ -152,7 +152,7 @@ const CongestionLevelOrder = () => {
 
     /* Todo: 백 연결하고 이거 주석 처리 풀기
     try {
-      const response = await axios.get(BackAPI, {
+      const response = await axios.get(/api/BackAPI, {
         params: {
           Firstaddress: firstAddress,
           secondaddress: secondAddress,
@@ -170,8 +170,8 @@ const CongestionLevelOrder = () => {
     */
   };
 
-  const handleItemClick = (dutyID) => {
-    Navigate(`/HInfo/${dutyID}`);
+  const handleItemClick = (dutyId) => {
+    Navigate(`/HInfo/${dutyId}`);
   };
 
   return (
@@ -198,7 +198,7 @@ const CongestionLevelOrder = () => {
           <li
             key={item.id}
             className="CongestionLevelOrder-item"
-            onClick={() => handleItemClick(item.dutyID)}
+            onClick={() => handleItemClick(item.dutyId)}
           >
             <span className="CongestionLevelOrder-name">{item.name}</span>
             <span className="CongestionLevelOrder-congestion-info">
@@ -215,3 +215,5 @@ const CongestionLevelOrder = () => {
 };
 
 export default CongestionLevelOrder;
+
+// Todo : api 연동, 미션, css 

@@ -6,7 +6,6 @@ import MapOrderIcon from "../components/maporder.png";
 import DistanceOrderIcon from "../components/Distanceorder.png";
 
 // Todo: main css 좀 더 만지기
-// Todo: main에 있는 병원 상세 정보 경로 나중에 연결시키고 여긴 삭제하기
 
 const Main = () => {
   return (
@@ -27,6 +26,9 @@ const Main = () => {
       </Link>
       <Link to="/MapOrder">
         <img className="main-button" src={MapOrderIcon} alt="지도 아이콘" />
+      </Link>
+      <Link to="/Login">
+        <img className="main-button" alt="로그인" />
       </Link>
     </div>
   );
