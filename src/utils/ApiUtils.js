@@ -42,53 +42,6 @@ const instance = axios.create({
   baseURL: config.url.API_BASE_URL,
 });
 
-instance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    const error_msg = error.response.data;
-    const status_code = error.response.status;
-    const refreshToken = cookies.get('refreshToken');
-
-    // 만약, JWT access token 이 유효하지 않아서 오류가 있다면,
-    if (status_code === 401 && error_msg === 'JWT Exception') {
-      if (refreshToken) {
-        // refresh token 을 사용해서 다시 서버에 요청
-        return (
-          getTokenByRefreshToken(refreshToken)
-            // 만약 refresh token 이 유효하다면
-            .then((result) => {
-              // 서버로 부터 새 access token, refresh token 을 발급 받음
-              const { accessToken, refreshToken } = result.data;
-              const data = parseJwt(accessToken);
-              const user = { data, accessToken };
-
-              // refresh token 을 쿠키에 저장
-              cookies.set('refreshToken', refreshToken, {
-                path: '/',
-              });
-
-              // access token 을 이용해서 localStorage 에 user 정보 업데이트
-              localStorage.setItem('user', JSON.stringify(user));
-
-              // 이전에 요청했던 것 수행 (access token 오류로 인해서 실행하지 못했던 것)
-              const originalRequest = error.config;
-              originalRequest.headers['Authorization'] = bearerAccess(user);
-              return axios(originalRequest);
-            })
-            // 만약 refresh token 도 유효하지 않아서 오류가 발생한다면 로그인 페이지로 이동
-            .catch((error) => {
-              window.location.href = '/authentication/sign-in/';
-            })
-        );
-      } else {
-        window.location.href = '/authentication/sign-in/';
-      }
-    }
-    return Promise.reject(error);
-  },
-);
 
 // -- Helper functions
 

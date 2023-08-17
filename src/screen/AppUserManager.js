@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { parseJwt } from "../utils/JwtUtils";
 import { config } from "../utils/Constants";
@@ -19,25 +19,25 @@ const Ahospital = {
   ],
 };
 
-const Bhospital = {
-  error: false,
-  data: [
-    {
-      eqlist: [
-        "CT",
-        "MRI",
-        "인공호흡기",
-        "인공호흡기조산아",
-        "혈관촬영기",
-        "CRRT",
-        "ECMO",
-        "중심체온기",
-        "구급차",
-      ],
-      updateTime: "2023-08-14T23:07:14.825436",
-    },
-  ],
-};
+// const Bhospital = {
+//   error: false,
+//   data: [
+//     {
+//       eqlist: [
+//         "CT",
+//         "MRI",
+//         "인공호흡기",
+//         "인공호흡기조산아",
+//         "혈관촬영기",
+//         "CRRT",
+//         "ECMO",
+//         "중심체온기",
+//         "구급차",
+//       ],
+//       updateTime: "2023-08-14T23:07:14.825436",
+//     },
+//   ],
+// };
 
 const Chospital = {
   error: false,
@@ -112,19 +112,20 @@ const AppUserManager = () => {
   // Auth.getUser().accessToken : 토큰을 가져오는 것
   // header에 Authorization: Bearer {accessToken} 이거 넣어주기.
 
-  //   useEffect(() => {
-  //     if (Auth.getUser().data.role !== "MANAGER") {
-  //         alert("Only the manager has access!!!!");
-  //         Navigate('/Main');
-  //     };
-  //   }, []);
+    useEffect(() => {
+      if (Auth.getUser().data.role !== "ADMIN") {
+          alert("Only the manager has access!!!!");
+          Navigate('/Main');
+      }
+      getAllUserData();
+    }, []);
 
   const Auth = useContext(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Todo : 나중에 백 연결하고 이거 주석 풀기
   // const [Ahospital, setAHospital] = useState(null); // 혼잡도
-  // const [Bhospital, setBHospital] = useState(null); //
+  const [userList, setUserList] = useState([]); //
   // const [Chospital, setCHospital] = useState(null);
   // const [Dhospital, setDHospital] = useState(null);
   // const [Ehospital, setEHospital] = useState(null);
@@ -209,27 +210,23 @@ const AppUserManager = () => {
   //   };
   //   fetchHospitalData();
   // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
+  const getAllUserData = async () => {
+    const response = await axios.get(`http://localhost:8080/manager/user`)
+        .then((result) => {
+          setUserList(result.data.list);
+        });
+  }
 
-  //   useEffect(() => {
-  //     const DeleteData = async () => {
-  //       try {
-  //         const response = await axios.delete(`BackAPI/hospital/${userID}`);
-  //         setAHospital(response.data);
-  //       } catch (error) {
-  //         console.error("Failed to delete hospital data", error);
-  //       }
-  //     };
-  //     DeleteData();
-  //   }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
-
-  //   const DeleteData = async () => {
-  //     try {
-  //       const response = await axios.delete(`BackAPI/hospital/${userID}`);
-  //       setAHospital(response.data);
-  //     } catch (error) {
-  //       console.error("Failed to delete hospital data", error);
-  //     }
-  //   };
+  // const DeleteData = async () => {
+  //   try {
+  //     const response = await axios.post(`http://localhost:8080/manager/user`, {
+  //       username: "manager"
+  //     });
+  //     setUser(response.data);
+  //   } catch (error) {
+  //     console.error("Failed to delete hospital data", error);
+  //   }
+  // };
 
   return (
     <div className="HInfo-hospital-details-container">
@@ -245,78 +242,36 @@ const AppUserManager = () => {
           <div className="HInfo-procedure-content">
             <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {Bhospital.data[0].eqlist.map((data, index) => (
-                  <li key={index} className="HInfo-procedure-item">
-                    {data}
-                  </li>
+                {userList && userList.map((data, index) => (
+                    <li key={index} className="HInfo-procedure-item">
+                      {JSON.stringify(data.id)}
+                    </li>
                 ))}
               </ul>
-              <div className="deletebutton">
-                <button>삭제하기</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="HInfo-hospital-info-section HInfo-procedure-section">
-        <div className="HInfo-procedure-header">
-          <div className="HInfo-title-container">
-            <h4 className="HInfo-procedure-title">실시간 가용장비 정보</h4>
-          </div>
-        </div>
-        <div className="HInfo-congestion-container">
-          <div className="HInfo-procedure-content">
-            <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {Bhospital.data[0].eqlist.map((data, index) => (
-                  <li key={index} className="HInfo-procedure-item">
-                    {data}
-                  </li>
+                {userList && userList.map((data, username) => (
+                    <li key={username} className="HInfo-procedure-item">
+                      {JSON.stringify(data.username)}
+                    </li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="HInfo-hospital-info-section HInfo-procedure-section">
-        <div className="HInfo-procedure-header">
-          <div className="HInfo-title-container">
-            <h4 className="HInfo-procedure-title">실시간 가용장비 정보</h4>
-          </div>
-        </div>
-        <div className="HInfo-congestion-container">
-          <div className="HInfo-procedure-content">
-            <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {Bhospital.data[0].eqlist.map((data, index) => (
-                  <li key={index} className="HInfo-procedure-item">
-                    {data}
-                  </li>
+                {userList && userList.map((data, index) => (
+                    <li key={index} className="HInfo-procedure-item">
+                      {JSON.stringify(data.email)}
+                    </li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="HInfo-hospital-info-section HInfo-procedure-section">
-        <div className="HInfo-procedure-header">
-          <div className="HInfo-title-container">
-            <h4 className="HInfo-procedure-title">실시간 가용장비 정보</h4>
-          </div>
-        </div>
-        <div className="HInfo-congestion-container">
-          <div className="HInfo-procedure-content">
-            <div className="HInfo-procedure-list-container">
               <ul className="HInfo-procedure-list-left">
-                {Bhospital.data[0].eqlist.map((data, index) => (
-                  <li key={index} className="HInfo-procedure-item">
-                    {data}
-                  </li>
+                {userList && userList.map((data, index) => (
+                    <li key={index} className="HInfo-procedure-item">
+                      {JSON.stringify(data.role)}
+                    </li>
                 ))}
               </ul>
+              {/*<div className="deletebutton" onClick={DeleteData}>*/}
+              {/*  <button>삭제하기</button>*/}
+              {/*</div>*/}
             </div>
           </div>
         </div>
