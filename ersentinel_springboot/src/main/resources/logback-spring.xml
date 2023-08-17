@@ -1,0 +1,35 @@
+<configuration>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>Info</level>
+        </filter>
+        <encoder>
+            <pattern>%d %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./log/local/%d{yyyy-MM-dd}/server.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <appender name="MARIADB_DB" class="com.ctrlcv.ersentinel_springboot.component.MariaDBAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>Info</level>
+        </filter>
+    </appender>
+
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d %-5level %logger{35} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="Info">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="MARIADB_DB" />
+    </root>
+
+</configuration>
+

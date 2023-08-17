@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.Charset;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
@@ -34,7 +35,7 @@ public class TokenProvider {
      * @return
      */
     public String generateAccessToken(PrincipalDetails principalDetails) {
-        byte[] signingKey = jwtSecret.getBytes();
+        byte[] signingKey = jwtSecret.getBytes(Charset.forName("UTF-8"));
 
         return Jwts.builder()
                 .signWith(Keys.hmacShaKeyFor(signingKey), SignatureAlgorithm.HS512)
@@ -53,7 +54,7 @@ public class TokenProvider {
      */
 
     public String generateRefreshToken(PrincipalDetails principalDetails) {
-        byte[] signingKey = jwtSecret.getBytes();
+        byte[] signingKey = jwtSecret.getBytes(Charset.forName("UTF-8"));
 
         return Jwts.builder()
                 .signWith(Keys.hmacShaKeyFor(signingKey), SignatureAlgorithm.HS512)
@@ -65,7 +66,7 @@ public class TokenProvider {
     }
 
     public String getUsernameByToken(String token) {
-        byte[] signingKey = jwtSecret.getBytes();
+        byte[] signingKey = jwtSecret.getBytes(Charset.forName("UTF-8"));
 
         return Jwts.parserBuilder()
                 .setSigningKey(signingKey)
@@ -76,7 +77,7 @@ public class TokenProvider {
     }
 
     public String getTokenTypeByToken(String token) {
-        byte[] signingKey = jwtSecret.getBytes();
+        byte[] signingKey = jwtSecret.getBytes(Charset.forName("UTF-8"));
 
         return Jwts.parserBuilder()
                 .setSigningKey(signingKey)
@@ -95,7 +96,7 @@ public class TokenProvider {
      */
     public boolean validateToken(String token) {
         log.info("===== JWT Token validating - TokenProvider ======");
-        byte[] signingKey = jwtSecret.getBytes();
+        byte[] signingKey = jwtSecret.getBytes(Charset.forName("UTF-8"));
         Jwts.parserBuilder()
                 .setSigningKey(signingKey)
                 .build()

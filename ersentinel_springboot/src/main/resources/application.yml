@@ -27,4 +27,5 @@ spring:
         format_sql: true
 
     show-sql: false
-
+logging:
+  config: classpath:logback-spring.xml

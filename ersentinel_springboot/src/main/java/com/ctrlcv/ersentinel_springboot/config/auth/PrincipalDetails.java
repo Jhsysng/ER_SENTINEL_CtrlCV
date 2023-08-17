@@ -26,6 +26,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
         this.attributes = attributes;
     }
 
+    // [getAuthorities] 동작을 위한 Override 함수 미정의시 동작X
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collect = new ArrayList<>();
