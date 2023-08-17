@@ -15,7 +15,7 @@ const AppManager = () => {
   const Navigate = useNavigate();
 
   useEffect(() => {
-    if (Auth.getUser().data.role !== "MANAGER") {
+    if (Auth.getUser().data.role !== "ADMIN") {
         alert("Only the manager has access!!!!");
         Navigate('/Main');
     };

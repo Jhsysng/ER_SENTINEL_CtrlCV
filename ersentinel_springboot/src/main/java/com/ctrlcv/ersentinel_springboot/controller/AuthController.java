@@ -43,20 +43,20 @@ public class AuthController {
         this.userDetailsService = userDetailsService;
     }
 
-    @PostMapping("/auth/signUp")
-    public ResponseEntity<String> signUp(@RequestBody Map<String, String> signUpRequest) {
-        String encPassword = bCryptPasswordEncoder.encode(signUpRequest.get("password"));
-        User user = User.builder()
-                .username(signUpRequest.get("username"))
-                .password(encPassword)
-                .email(signUpRequest.get("email"))
-                .role("USER")
-                .build();
-
-        authService.join(user);
-
-        return new ResponseEntity<>("회원가입 완료", HttpStatus.OK);
-    }
+//    @PostMapping("/auth/signUp")
+//    public ResponseEntity<String> signUp(@RequestBody Map<String, String> signUpRequest) {
+//        String encPassword = bCryptPasswordEncoder.encode(signUpRequest.get("password"));
+//        User user = User.builder()
+//                .username(signUpRequest.get("username"))
+//                .password(encPassword)
+//                .email(signUpRequest.get("email"))
+//                .role("USER")
+//                .build();
+//
+//        authService.join(user);
+//
+//        return new ResponseEntity<>("회원가입 완료", HttpStatus.OK);
+//    }
 
 
     /**
@@ -67,11 +67,11 @@ public class AuthController {
      * @param loginRequestDto
      * @return TokenResponseDto
      */
-    @PostMapping("/auth/signIn")
+    @PostMapping("/manager/signIn")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequestDto) {
         try {
             Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginRequestDto.getUserId(), loginRequestDto.getPassword())
+                    new UsernamePasswordAuthenticationToken(loginRequestDto.getMnid(), loginRequestDto.getMnpw())
             );
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -80,20 +80,6 @@ public class AuthController {
             return new ResponseEntity<String>("잘못된 비밀번호 입니다.", HttpStatus.UNAUTHORIZED);
         } catch (InternalAuthenticationServiceException e) {
             return new ResponseEntity<String>("잘못된 아이디 입니다.", HttpStatus.UNAUTHORIZED);
-        }
-    }
-
-    @PostMapping("/auth/signInWithGoogle")
-    public void loginWithGoogle() {
-        try {
-            WebClient webClient = WebClient.create();
-            webClient.get()
-                    .uri(new URI("http://localhost:8080/oauth2/authorization/google"))
-                    .retrieve()
-                    .bodyToMono(String.class)
-                    .block();
-        } catch (Exception e) {
-            log.error("Exception occurred while getting XML data from API: {}", e.getMessage());
         }
     }
 

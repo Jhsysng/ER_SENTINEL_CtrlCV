@@ -15,36 +15,32 @@ const ManagerLogin = () => {
   const Navigate = useNavigate();
   const Auth = useAuth();
   // Todo: 백 API로 변경하기
-  const BackAPI = "/manager/singIn";
+  const BackAPI = "http://localhost:8080/manager/signIn";
 
   const handleLogin = async () => {
-    try {
       const response = await axios.post(BackAPI, {
         mnid: mnid,
         mnpw: mnpw,
-      });
-      if (response.data.success) {
-        const {accessToken} = response.data;
-        const data = parseJwt(accessToken);
+      }).then((response) => {
+          console.log(response)
+          const {accessToken} = response.data;
+          const data = parseJwt(accessToken);
 
-        const user = {data, accessToken};
-        Auth.userLogin(user);
-        setIsLoggedIn(user);
+          const user = {data, accessToken};
+          Auth.userLogin(user);
+          setIsLoggedIn(user);
 
-        if(data.role === 'USER') {
+          if(data.role === 'USER') {
             alert("Log in with your administrator account");
-            Navigate.push('/Main');
-        }
+            Navigate('/Main');
+          }
 
-        console.log("Manager Logged in successfully!");
-        Navigate.push("/AppManager");
-      } else {
-        setError(response.data.message || "Manager Login failed");
-      }
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+          console.log("Manager Logged in successfully!");
+          Navigate("/AppManager");
+        }).catch((error) => {
+          alert(error.response.data);
+        });
+  }
 
   return (
     <div className="login-container">
