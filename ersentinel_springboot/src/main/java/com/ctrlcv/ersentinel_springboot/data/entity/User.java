@@ -1,9 +1,7 @@
 package com.ctrlcv.ersentinel_springboot.data.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.ctrlcv.ersentinel_springboot.data.type.RoleType;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,14 +16,17 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private String nickname;
     private String email;
-    private String role;
+    @Enumerated(value = EnumType.STRING)
+    private RoleType role;
 
     @Builder
-    public User(int id, String username, String password, String email, String role) {
+    public User(int id, String username, String password, String nickname, String email, RoleType role) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.nickname = nickname;
         this.email = email;
         this.role = role;
     }

@@ -7,8 +7,10 @@ import com.ctrlcv.ersentinel_springboot.config.oauth.provider.NaverUserInfo;
 import com.ctrlcv.ersentinel_springboot.config.oauth.provider.Oauth2UserInfo;
 import com.ctrlcv.ersentinel_springboot.data.entity.User;
 import com.ctrlcv.ersentinel_springboot.data.repository.UserRepository;
+import com.ctrlcv.ersentinel_springboot.data.type.RoleType;
 import com.ctrlcv.ersentinel_springboot.data.type.SocialType;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -23,6 +25,9 @@ import java.util.Optional;
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
+    @Value("spring.security.oauth2.p")
+    private String p;
+
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private UserRepository userRepository;
 
@@ -33,9 +38,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-        System.out.println("getClientRegistration: " + userRequest.getClientRegistration()); // registrationId로 어떤 OAuth로 로그인 했는지 확인가능.
-        System.out.println("getAccessToken: " + userRequest.getAccessToken().getTokenValue());
-
         OAuth2User oAuth2User = super.loadUser(userRequest);
         System.out.println("getAttributes(): " + oAuth2User.getAttributes());
 
@@ -55,7 +57,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         SocialType provider = oAuth2UserInfo.getProvider();
         String providerId = oAuth2UserInfo.getProviderId();
         String username = provider.toString() + "_" + providerId;
-        String password = bCryptPasswordEncoder.encode("TKCompany"); // @value로 바꾸기
+        String password = bCryptPasswordEncoder.encode(p);
         String email = oAuth2UserInfo.getEmail();
         String nickname = oAuth2UserInfo.getNickname();
 
@@ -67,7 +69,8 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
                     .username(username)
                     .password(password)
                     .email(email)
-                    .role("USER")
+                    .role(RoleType.USER)
+                    .nickname(nickname)
                     .build();
             userRepository.save(user);
         } else {
