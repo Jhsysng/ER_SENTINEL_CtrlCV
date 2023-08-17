@@ -64,6 +64,5 @@ public class EmergencyMessageInfoResponse {
             private String symBlkSttDtm; // 차단시작
             private String symBlkEndDtm; // 차단종료
         }
-
     }
 }
