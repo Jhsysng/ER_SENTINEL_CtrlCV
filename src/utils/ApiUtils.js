@@ -6,9 +6,6 @@ import { config } from './Constants';
 export const apiUtils = {
     signIn,
     signUp,
-    googleLogin,
-    naverLogin,
-    kakaoLogin
 };
 
 const cookies = new Cookies();
