@@ -1,11 +1,14 @@
 package com.ctrlcv.ersentinel_springboot.service;
 
+import com.ctrlcv.ersentinel_springboot.data.dto.SurveyDTO;
+import com.ctrlcv.ersentinel_springboot.data.dto.SurveyIdDTO;
 import com.ctrlcv.ersentinel_springboot.data.entity.Survey;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
 import com.ctrlcv.ersentinel_springboot.data.entity.User;
 import com.ctrlcv.ersentinel_springboot.data.repository.HospitalRepository;
 import com.ctrlcv.ersentinel_springboot.data.repository.SurveyRepository;
 import com.ctrlcv.ersentinel_springboot.data.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -76,17 +79,12 @@ public class SurveyService {
     }
 
     public Optional<Hospital> retrieveHospitalByDutyId(final String dutyId){
-        List<Hospital> hospitals = hospitalRepository.findByDutyId(dutyId);
-        if (hospitals.isEmpty()){
-            log.info("no hospital matching dutyId");
-            throw new RuntimeException("error searching hospital entity");
-        }
-        try{
-            return Optional.of(hospitals.get(0));
-        }catch(Exception e) {
-            throw new RuntimeException("error searching hospital entity");
-        }
+        return hospitalRepository.findByDutyId(dutyId);
+    }
 
+    @Transactional
+    public void deleteSurveyByDutyId(SurveyIdDTO dto){
+        surveyRepository.deleteByHospitalDutyIdAndShortMessage(dto.getDutyId(), dto.getShortMessage());
     }
 
     public Optional<Survey[]> retrieveSurveyByDutyId(final String dutyId){

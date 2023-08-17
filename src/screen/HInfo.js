@@ -18,10 +18,12 @@ import orangeHInfo from "../components/orangeHInfo.png";
 import redHInfo from "../components/redHInfo.png";
 import star from "../components/star.png";
 import AuthContext from "./AuthContext";
+import X from "../components/X.png";
 
 const getCongestionImage = (congestionValue) => {
     const v = parseInt(congestionValue)
-    if (v < 50) {
+    if(v < 0) return X;
+    else if (v < 50) {
         return greenHInfo;
     } else if (v < 100) {
         return yellowHInfo;
@@ -48,11 +50,9 @@ const HInfo = () => {
     const [Chospital, setCHospital] = useState(null);
     const [Dhospital, setDHospital] = useState(null);
     const [Ehospital, setEHospital] = useState(null);
-    let Aflag = false;
-    let Bflag = false;
-    let Cflag = false;
-    let Dflag = false;
-    let Eflag = false;
+    const [Star, setStar] = useState(null);
+    const [ID, setID] = useState(null);
+    let count = 0;
 
     useEffect(() => {
         const fetchHospitalData = async () => {
@@ -62,16 +62,14 @@ const HInfo = () => {
                         dutyId: dutyId,
                     }
                 });
-                console.log(response.data.data[0]);
+                console.log("setAHospital");
                 setAHospital(response.data.data[0]);
             } catch (error) {
                 console.error("Failed to fetch hospital data", error);
             }
         };
-
-        const timeoutId = setTimeout(fetchHospitalData, 3000);
+        const timeoutId = setTimeout(fetchHospitalData, 2000);
         return () => clearTimeout(timeoutId);
-        Aflag = true;
     }, [dutyId]);
 
     useEffect(() => {
@@ -82,15 +80,14 @@ const HInfo = () => {
                         dutyId: dutyId,
                     }
                 });
+                console.log("setBHospital");
                 setBHospital(response.data.data[0]);
             } catch (error) {
                 console.error("Failed to fetch hospital data", error);
             }
         };
-
         const timeoutId = setTimeout(fetchHospitalData, 3000);
         return () => clearTimeout(timeoutId);
-        Bflag = true;
     }, [dutyId]);
 
     useEffect(() => {
@@ -101,15 +98,14 @@ const HInfo = () => {
                         dutyId: dutyId,
                     }
                 });
+                console.log("setCHospital");
                 setCHospital(response.data.data[0]);
             } catch (error) {
                 console.error("Failed to fetch hospital data", error);
             }
         };
-
-        const timeoutId = setTimeout(fetchHospitalData, 3000);
+        const timeoutId = setTimeout(fetchHospitalData, 4000);
         return () => clearTimeout(timeoutId);
-        Cflag = true;
     }, [dutyId]);
 
     useEffect(() => {
@@ -121,35 +117,33 @@ const HInfo = () => {
                     }
                 });
                 setDHospital(response.data.data[0]);
-                console.log(response);
+                console.log("setDHospital");
             } catch (error) {
                 console.error("Failed to fetch hospital data", error);
             }
         };
-
-        const timeoutId = setTimeout(fetchHospitalData, 3000);
+        const timeoutId = setTimeout(fetchHospitalData, 5000);
         return () => clearTimeout(timeoutId);
-        Dflag = true;
     }, [dutyId]);
 
-    useEffect(() => {
-        const fetchHospitalData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8080/hospitaldetail/emergencymessage`, {
-                    params: {
-                        dutyId: dutyId,
-                    }
-                });
-                setEHospital(response.data.data);
-            } catch (error) {
-                console.error("Failed to fetch hospital data", error);
-            }
-        };
-
-        const timeoutId = setTimeout(fetchHospitalData, 3000);
-        return () => clearTimeout(timeoutId);
-        Eflag = true;
-    }, [dutyId]);
+    // useEffect(() => {
+    //     const fetchHospitalData = async () => {
+    //         try {
+    //             const response = await axios.get(`http://localhost:8080/hospitaldetail/emergencymessage`, {
+    //                 params: {
+    //                     dutyId: dutyId,
+    //                 }
+    //             });
+    //             setEHospital(response.data.data);
+    //         } catch (error) {
+    //             console.error("Failed to fetch hospital data", error);
+    //         }
+    //     };
+    //
+    //     const timeoutId = setTimeout(fetchHospitalData, 3000);
+    //     return () => clearTimeout(timeoutId);
+    //     Eflag = true;
+    // }, [dutyId]);
 
     // useEffect(() => {
     //   const fetchHospitalData = async () => {
@@ -159,7 +153,8 @@ const HInfo = () => {
     //           dutyId: dutyId,
     //         }
     //       });
-    //       if(!response.data.error) {setEHospital(response.data.data);}
+    //       if(!response.data.error) {setEHospital(response.data.data);
+    //           console.log("setEHospital");}
     //       else {setEHospital({"data" : {
     //         "error": true,
     //         "data": [
@@ -174,23 +169,81 @@ const HInfo = () => {
     //       console.error("Failed to fetch hospital data", error);
     //     }
     //   };
+    //     const timeoutId = setTimeout(fetchHospitalData, 40000);
+    //     return () => clearTimeout(timeoutId);
     // }, []);
 
-    // Todo: 나중에 백 연결하고 이거 주석 풀기 - 5. 공지사항
-    // useEffect(() => {
-    // setIsLoggedIn(Auth.userIsAuthenticated());
-    //   const fetchHospitalData = async () => {
-    //     try {
-    //       const response = await axios.get(`BackAPI/hospital/${dutyID}`);
-    //       setEHospital(response.data);
-    //     } catch (error) {
-    //       console.error("Failed to fetch hospital data", error);
-    //     }
-    //   };
-    //   fetchHospitalData();
-    // }, []);  // dutyID가 변경될 때마다 백엔드 API 호출
+    // survey 띄우기
+    useEffect(() => {
+    setIsLoggedIn(Auth.userIsAuthenticated());
+      const fetchHospitalData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8080/survey`, {
+                params: {
+                    dutyId: dutyId,
+                }
 
-    if (!Ahospital && !Bhospital && !Chospital && !Dhospital && !Ehospital) {
+            });
+          setEHospital(response.data.data);
+          console.log("setEHospital");
+          console.log(response);
+          // else {setEHospital({"data" : {}});} // error 처리
+        } catch (error) {
+          console.error("Failed to fetch hospital data", error);
+        }
+      };
+      const timeoutId = setTimeout(fetchHospitalData, 5000);
+      return () => clearTimeout(timeoutId);
+    }, []);
+
+    // survey 만들기
+    const handlesurvey = async (index) => {
+        if(star == null) {
+            alert("별점을 적어주세요!");
+            return;
+        }
+        console.log(Auth.getUser().accessToken);
+        console.log(dutyId);
+        try {
+            const response = await axios.post(`http://localhost:8080/survey`, {
+
+                    dutyId: dutyId,
+                    star: Star,
+                    shortMessage: "test",
+
+            }, {
+                headers: {
+                    "Authorization" : `Bearer ${Auth.getUser().accessToken}`,
+                }
+            });
+            setID(response.data.data[0].id);
+        } catch (error) {
+            console.error("error make survey", error);
+        }
+    };
+
+    const deletesurvey = async () => {
+        if(star == null) {
+            alert("별점을 적어주세요!");
+            return;
+        }
+        console.log(ID);
+        try {
+            const response = await axios.post(`http://localhost:8080/survey/d`, {
+                dutyId: dutyId,
+                star: Star,
+                shortMessage: "test",
+            }, {
+                headers: {
+                    "Authorization" : `Bearer ${Auth.getUser().accessToken}`,
+                }
+            });
+        } catch (error) {
+            console.error("error make survey", error);
+        }
+    };
+
+    if (!Ahospital || !Bhospital || !Chospital || !Dhospital || !Ehospital) {
         return <div>병원 정보를 갱신 중입니다!</div>;
     }
 
@@ -354,35 +407,34 @@ const HInfo = () => {
                 </div>
                 </div>
 
-                <div className="HInfo-hospital-info-section HInfo-procedure-section">
-                <div className="HInfo-procedure-header">
-                <div className="HInfo-title-container">
-                <h4 className="HInfo-procedure-title">공지사항</h4>
-                <span className="HInfo-subtitle">
-                해당 정보는 60분마다 갱신됩니다.
-                </span>
-                <span className="HInfo-update-time">
-                갱신시각: {JSON.stringify(Ehospital[0].lasttime)}
-                </span>
-                </div>
-                <div className="HInfo-header-right">
-                <img src={reset} alt="Update" className="HInfo-reset-icon" />
-                </div>
-                </div>
-                <div className="HInfo-congestion-container">
-                <div className="HInfo-procedure-content">
-                <div className="HInfo-procedure-list-container">
-                <ul className="HInfo-procedure-list-left">
-            {Ehospital.map((item, index) => (
-                <li key={index} className="HInfo-procedure-item">
-            {item.emgMessage}
-                </li>
-                ))}
-                </ul>
-                </div>
-                </div>
-                </div>
-                </div>
+            {/*    <div className="HInfo-hospital-info-section HInfo-procedure-section">*/}
+            {/*    <div className="HInfo-procedure-header">*/}
+            {/*    <div className="HInfo-title-container">*/}
+            {/*    <h4 className="HInfo-procedure-title">공지사항</h4>*/}
+            {/*    <span className="HInfo-subtitle">*/}
+            {/*    해당 정보는 60분마다 갱신됩니다.*/}
+            {/*    </span>*/}
+            {/*    <span className="HInfo-update-time">*/}
+            {/*    </span>*/}
+            {/*    </div>*/}
+            {/*    <div className="HInfo-header-right">*/}
+            {/*    <img src={reset} alt="Update" className="HInfo-reset-icon" />*/}
+            {/*    </div>*/}
+            {/*    </div>*/}
+            {/*    <div className="HInfo-congestion-container">*/}
+            {/*    <div className="HInfo-procedure-content">*/}
+            {/*    <div className="HInfo-procedure-list-container">*/}
+            {/*    <ul className="HInfo-procedure-list-left">*/}
+            {/*{Ehospital.map((item, index) => (*/}
+            {/*    <li key={index} className="HInfo-procedure-item">*/}
+            {/*{item.emgMessage}*/}
+            {/*    </li>*/}
+            {/*    ))}*/}
+            {/*    </ul>*/}
+            {/*    </div>*/}
+            {/*    </div>*/}
+            {/*    </div>*/}
+            {/*    </div>*/}
 
                 <div className="HInfo-hospital-info-section HInfo-procedure-section">
             {isLoggedIn ? (
@@ -400,12 +452,28 @@ const HInfo = () => {
                 <div className="HInfo-procedure-content">
                 <div className="HInfo-procedure-list-container">
                 <ul className="HInfo-procedure-list-left">
-            {Ehospital.data.map((item, index) => (
+            {Ehospital.map((item, index) => (
                 <li key={index} className="HInfo-procedure-item">
-            {item.emgMessage}
+            {item.star}
                 </li>
                 ))}
                 </ul>
+                    <ul className="HInfo-procedure-list-left">
+                        {Ehospital.map((item, index) => (
+                            <li key={index} className="HInfo-procedure-item">
+                                {item.shortMessage}
+                                <button onClick={() => deletesurvey()}>삭제</button>
+                            </li>
+                        ))}
+                    </ul>
+                    <input
+                        type="Star"
+                        placeholder="Star"
+                        value={Star}
+                        onChange={(e) => setStar(e.target.value)}
+                        className="regist-input"
+                    />
+                    <button onClick={() => handlesurvey()}></button>
                 </div>
                 </div>
                 </div>
@@ -438,12 +506,13 @@ const HInfo = () => {
                 </div>
                 </div>
                 )}
-                </div></>)
+                </div></>
+                )
                 : (
                 <div>Loading...</div>
                 )}
         </div>
     );
-};
+}
 
 export default HInfo;

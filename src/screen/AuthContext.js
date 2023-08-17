@@ -24,10 +24,10 @@ class AuthProvider extends Component {
     user = JSON.parse(user);
 
     // if user has token expired, logout user
-    if (Date.now() > user.data.exp * 1000) {
-      this.userLogout();
-      return false;
-    }
+    // if (Date.now() > user.data.exp * 1000) {
+    //   this.userLogout();
+    //   return false;
+    // }
     return true;
   };
 

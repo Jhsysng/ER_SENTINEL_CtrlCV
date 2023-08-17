@@ -22,10 +22,6 @@ public class MariaDBAppender extends UnsynchronizedAppenderBase<ILoggingEvent> i
     @Autowired
     private LogRepository logRepository;
 
-    MariaDBAppender(LogRepository logRepository) {
-        this.logRepository = logRepository;
-    }
-
     @Override
     protected void append(ILoggingEvent eventObject){
         Log log = new Log(eventObject.getFormattedMessage());

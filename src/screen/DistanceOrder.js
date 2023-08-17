@@ -8,112 +8,70 @@ const sampleHospitals = [
   {
     id: 1,
     dutyId: "A000001",
-    name: "Hospital 1",
+    name: "중앙대학교병원",
     distance: "3.1",
-    adultpercent: "2",
-    pediatricpercent: "2",
+    adultpercent: "33",
+    pediatricpercent: "0",
   },
   {
     id: 2,
     dutyId: "A000002",
-    name: "Hospital 2",
+    name: "이화여자대학교의과대학부속목동병원",
     distance: "2.3",
-    adultpercent: "1",
-    pediatricpercent: "3",
+    adultpercent: "52",
+    pediatricpercent: "0",
   },
   {
     id: 3,
     dutyId: "A000003",
-    name: "Hospital 3",
+    name: "국립중앙의료원",
     distance: "1.7",
-    adultpercent: "4",
-    pediatricpercent: "6",
+    adultpercent: "13",
+    pediatricpercent: "0",
   },
   {
     id: 4,
     dutyId: "A000004",
-    name: "Hospital 4",
+    name: "한양대학교병원",
     distance: "5.4",
-    adultpercent: "3",
-    pediatricpercent: "4",
+    adultpercent: "22",
+    pediatricpercent: "25",
   },
   {
     id: 5,
     dutyId: "A000005",
-    name: "Hospital 5",
+    name: "가톨릭대학교은평성모병원",
     distance: "4.2",
-    adultpercent: "4",
-    pediatricpercent: "7",
+    adultpercent: "45",
+    pediatricpercent: "25",
   },
   {
     id: 6,
     dutyId: "A000006",
-    name: "Hospital 6",
+    name: "한림대학교강남성심병원",
     distance: "3.2",
-    adultpercent: "5",
-    pediatricpercent: "3",
+    adultpercent: "25",
+    pediatricpercent: "0",
   },
   {
     id: 7,
     dutyId: "A000007",
-    name: "Hospital 7",
+    name: "학교법인고려중앙학원고려대학교의과대학부속병원(안암병원)",
     distance: "5.7",
-    adultpercent: "6",
-    pediatricpercent: "2",
-  },
-  {
-    id: 8,
-    dutyId: "A000008",
-    name: "Hospital 8",
-    distance: "2.3",
-    adultpercent: "2",
-    pediatricpercent: "4",
-  },
-  {
-    id: 9,
-    dutyId: "A000009",
-    name: "Hospital 9",
-    distance: "6.7",
-    adultpercent: "7",
-    pediatricpercent: "7",
-  },
-  {
-    id: 10,
-    dutyId: "A0000010",
-    name: "Hospital 10",
-    distance: "8.2",
-    adultpercent: "8",
-    pediatricpercent: "3",
-  },
-  {
-    id: 11,
-    dutyId: "A0000011",
-    name: "Hospital 11",
-    distance: "9.1",
-    adultpercent: "2",
-    pediatricpercent: "4",
-  },
-  {
-    id: 12,
-    dutyId: "A0000012",
-    name: "Hospital 12",
-    distance: "0.5",
-    adultpercent: "1",
-    pediatricpercent: "3",
+    adultpercent: "23",
+    pediatricpercent: "0",
   },
 ];
 
 const DistanceOrder = () => {
   const [sortedHospitals, setSortedHospitals] = useState([]);
-  const [userLocation, setUserLocation] = useState("Fetching location...");
+  const [userLocation, setUserLocation] = useState("서울 종로구 종로6가 70");
   const [Latitude, setLatitude] = useState("");
   const [Longitude, setLongitude] = useState("");
   const Navigate = useNavigate();
-  // Todo: 백 API 연결하기
-  const BackAPI = "";
 
   const handleHospitalClick = (hospitalCode) => {
-    Navigate(`/HInfo/${hospitalCode}`);
+    // Navigate(`/HInfo`, {state: {dutyId: A000001}});
   };
 
   const requestPermissionAgain = () => {
@@ -184,14 +142,14 @@ const DistanceOrder = () => {
   return (
     <div className="Distance-distance-container">
       <h2 className="Distance-h2">{userLocation}</h2>
-      {userLocation === "User denied the request for Geolocation." && (
-        <div>
-          <p>Please allow location access to use this feature.</p>
-          <button onClick={requestPermissionAgain}>
-            Request Permission Again
-          </button>
-        </div>
-      )}
+      {/*{userLocation === "User denied the request for Geolocation." && (*/}
+      {/*  <div>*/}
+      {/*    <p>Please allow location access to use this feature.</p>*/}
+      {/*    <button onClick={requestPermissionAgain}>*/}
+      {/*      Request Permission Again*/}
+      {/*    </button>*/}
+      {/*  </div>*/}
+      {/*)}*/}
       <ul className="Distance-hospital-list">
         {sortedHospitals.map((hospital) => (
           <li
