@@ -209,7 +209,7 @@ const HInfo = () => {
 
                     dutyId: dutyId,
                     star: Star,
-                    shortMessage: "test",
+                    shortMessage: "저는 이 병원에 대해 이렇게 생각합니다!",
 
             }, {
                 headers: {
@@ -461,7 +461,6 @@ const HInfo = () => {
                     <ul className="HInfo-procedure-list-left">
                         {Ehospital.map((item, index) => (
                             <li key={index} className="HInfo-procedure-item">
-                                {item.shortMessage}
                                 <button onClick={() => deletesurvey()}>삭제</button>
                             </li>
                         ))}

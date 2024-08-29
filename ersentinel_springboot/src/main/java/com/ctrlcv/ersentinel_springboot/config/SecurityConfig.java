@@ -40,7 +40,7 @@ public class SecurityConfig {
                 // TODO: 잘 돌아가는지 확인해야 함
 //                .authorizeHttpRequests((authorizeHttpRequests) ->
 //                        authorizeHttpRequests
-//                                .requestMatchers("/manager").hasRole("MANAGER")
+//                                .requestMatchers("/manager").hasRole("ADMIN")
 //                                .requestMatchers("/**").hasRole("USER")
 //                )
 

@@ -29,7 +29,7 @@ public class LogManagerController {
     @GetMapping("/serverlog")
     public ResponseEntity<List<String>> getServerLog() throws IOException {
         log.info("[getServerLog] called");
-        List<String> lines = Files.readAllLines(Paths.get("/Users/alex/Library/CloudStorage/OneDrive-dongguk.edu/AssignmentProject/Project/securecode10th/ersentinel_springboot/src/main/java/com/ctrlcv/ersentinel_springboot/log/2023-08-18/server.log"));
+        List<String> lines = Files.readAllLines(Paths.get("D:\\OneDrive - dgu.ac.kr\\바탕 화면\\공부\\Spring\\ER_SENTINEL_CtrlCV\\ersentinel_springboot\\src\\main\\java\\com\\ctrlcv\\ersentinel_springboot\\log\\2023-08-18\\server.log"));
         return new ResponseEntity<>(lines, HttpStatus.OK);
     }
 }

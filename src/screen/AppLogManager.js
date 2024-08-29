@@ -10,10 +10,6 @@ import AuthContext from "./AuthContext";
 
 const AppLogManager = () => {
     useEffect(() => {
-        if (Auth.getUser().data.role !== "ADMIN") {
-            alert("Only the manager has access!!!!");
-            Navigate('/Main');
-        }
         getAllUserData();
     }, []);
 
@@ -22,9 +18,13 @@ const AppLogManager = () => {
     const [logList, setLogList] = useState([]); //
 
     const getAllUserData = async () => {
-        const response = await axios.get(`http://localhost:8080/manager/log`)
+        const response = await axios.get(`http://localhost:8080/manager/serverlog`)
             .then((result) => {
-                setLogList(result.data.data);
+                console.log(result)
+                setLogList(result.data);
+            })
+            .catch((error) => {
+                console.log(error)
             });
     }
 
@@ -44,7 +44,7 @@ const AppLogManager = () => {
                             <ul className="HInfo-procedure-list-left">
                                 {logList && logList.map((data, index) => (
                                     <li key={index} className="HInfo-procedure-item">
-                                        {JSON.stringify(data.log)}
+                                        {JSON.stringify(data)}
                                     </li>
                                 ))}
                                 <button onClick={() => getAllUserData()}>조회</button>

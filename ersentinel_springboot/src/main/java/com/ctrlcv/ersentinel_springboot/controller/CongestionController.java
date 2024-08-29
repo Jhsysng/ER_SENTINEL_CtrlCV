@@ -1,25 +1,18 @@
 package com.ctrlcv.ersentinel_springboot.controller;
 
 import com.ctrlcv.ersentinel_springboot.data.dto.CongestionDTO;
-import com.ctrlcv.ersentinel_springboot.data.dto.CongestionInfoDTO;
 import com.ctrlcv.ersentinel_springboot.data.dto.ResponseDTO;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
 import com.ctrlcv.ersentinel_springboot.data.entity.EmergencyRoom;
 import com.ctrlcv.ersentinel_springboot.service.CongestionService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.stream.Collectors;
-import java.util.Comparator;
 import java.util.HashMap;
 import lombok.extern.slf4j.Slf4j;
 
@@ -73,32 +66,49 @@ public class CongestionController {
 //    }
 
     @GetMapping("/congestionlist")
-    private ResponseEntity<?> congestionList(@RequestParam(value = "firstAddress") String firstAddress, @RequestParam(value = "secondAddress") String secondAddress, @RequestParam(value = "isadult") boolean isadult){
+    private ResponseEntity<?> congestionList(@RequestParam(value = "firstAddress", required = false) String firstAddress, @RequestParam(value = "secondAddress", required = false) String secondAddress, @RequestParam(value = "isadult") boolean isadult){
         // TODO: 은동이한테 매핑 데이터 받아서 매핑해주는 코드 구현 + 클라이언트로 부터 제대로된 요청이 왔는지 확인
         try{
-            log.info(firstAddress);
+            log.info(firstAddressQueryClassifindingHashMap.get(firstAddress));
             log.info(String.valueOf(isadult));
+
             List<Object[]> objs;
             if (firstAddressQueryClassifindingHashMap.containsKey(firstAddress)){
+                System.out.println("firstAddress");
                 objs = service.retrieveHospitalAndEmgRoomByFirstAddress(firstAddressQueryClassifindingHashMap.get(firstAddress));
-            }else if (secondAddressQueryClassifindingHashMap.containsKey(firstAddress)){
+            }
+            else if (secondAddressQueryClassifindingHashMap.containsKey(firstAddress)){
+                System.out.println("secondAddress");
                 objs = service.retrieveHospitalAndEmgRoomBySecondAddress(secondAddress); // TODO: 이거 프론트에서 잘못된 형식으로 넘겨주면 어떡함?
-            }else{
+            }
+            else {
                 // 데이터가 없다고 예외처리 한것이 아님. 애초에 대한민국 팔도에 없는 지역이 입력으로 들어옴 (혹은 팔도인데 사전에 정의되지 않은 방법으로 들어옴)
                 log.info("wrong address");
                 String error = "wrong address";
                 ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(true).build();
                 return ResponseEntity.badRequest().body(response);
             }
+
+            objs.stream().forEach(obj -> {
+                Hospital hospital = (Hospital) obj[0];
+//                EmergencyRoom emergencyRoom = (EmergencyRoom) obj[1];
+                log.info("hospital: " + hospital.getName() + " " + hospital.getDutyId() + " " + hospital.getPhoneNumber() + " " + hospital.getAddress());
+//                log.info("emergencyRoom: " + emergencyRoom.getHospital().getName() + " " +emergencyRoom.getHospital().getDutyId() + " " + emergencyRoom.getAdultAvailableBeds());
+            });
+
             if (objs == null){
                 log.info("result of query is null");
                 String error = "result of query is null";
                 ResponseDTO<CongestionDTO> response = ResponseDTO.<CongestionDTO>builder().error(true).build();
                 return ResponseEntity.badRequest().body(response);
-            }else if (objs.isEmpty()){ // 여기는 도단위로 다시 매핑해준다.
+            }
+            else if (objs.isEmpty()){ // 여기는 도단위로 다시 매핑해준다.
                 log.info("there is no hospital in location");
                 objs = service.retrieveHospitalAndEmgRoomByFirstAddress(firstAddressQueryClassifindingHashMap.get(firstAddress));
             }
+
+
+
             // 여기는 데이터가 없을때임. 가용이고 자시고 걍 병원이 없음
             // [] 가 반환됨 List.isEmpty
             ArrayList<Object[]> sortlist = new ArrayList<>();

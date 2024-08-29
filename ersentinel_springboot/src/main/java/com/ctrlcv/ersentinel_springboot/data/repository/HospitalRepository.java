@@ -1,6 +1,5 @@
 package com.ctrlcv.ersentinel_springboot.data.repository;
 
-import com.ctrlcv.ersentinel_springboot.data.entity.EmergencyRoom;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,10 +17,16 @@ public interface HospitalRepository extends JpaRepository<Hospital, String> {
 //        log.info("hospital: " + hospital.getName() + " " + hospital.getDutyId() + " " + hospital.getPhoneNumber() + " " + hospital.getAddress());
 //        log.info("emergencyRoom: " + emergencyRoom.getHospital().getName() + " " +emergencyRoom.getHospital().getDutyId() + " " + emergencyRoom.getAdultAvailableBeds());
 //    });
-    @Query("SELECT h, e FROM Hospital h JOIN EmergencyRoom e ON h.dutyId = e.hospital.dutyId WHERE h.firstAddress = :firstAddress")
+
+//    @Query("SELECT h, e FROM Hospital h JOIN EmergencyRoom e ON h.dutyId = e.hospital.dutyId WHERE h.firstAddress = :firstAddress")
+//    List<Object[]> findHospitalAndEmgRoomByFirstAddress(@Param("firstAddress") String firstAddress);
+//    @Query("SELECT h, e FROM Hospital h JOIN EmergencyRoom e ON h.dutyId = e.hospital.dutyId WHERE h.secondAddress = :secondAddress")
+//    List<Object[]> findHospitalAndEmgRoomBySecondAddress(@Param("secondAddress") String secondAddress);
+
+    @Query("SELECT h FROM Hospital h WHERE h.firstAddress = :firstAddress")
     List<Object[]> findHospitalAndEmgRoomByFirstAddress(@Param("firstAddress") String firstAddress);
 
-    @Query("SELECT h, e FROM Hospital h JOIN EmergencyRoom e ON h.dutyId = e.hospital.dutyId WHERE h.secondAddress = :secondAddress")
+    @Query("SELECT h FROM Hospital h WHERE h.secondAddress = :secondAddress")
     List<Object[]> findHospitalAndEmgRoomBySecondAddress(@Param("secondAddress") String secondAddress);
 
     Optional<Hospital> findByDutyId(String dutyId);

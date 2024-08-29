@@ -32,8 +32,6 @@ const LoginCallBackPage = () => {
 
         setIsLoggedIn(true);
 
-        alert(accessToken)
-        console.log(accessToken)
 
         window.location.href = "/Main";
     }, []);

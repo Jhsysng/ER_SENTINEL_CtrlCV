@@ -50,7 +50,8 @@ public class PublicDataApiService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    @Scheduled(cron = "0 0 0/1 * * *")
+//    @Scheduled(cron = "0 0 0/1 * * *")
+    @Scheduled(cron = "*/30 * * * * *")
     @Transactional
     public void apiRequest() {
         log.info("공공 데이터 포털 API 요청 시작");
@@ -70,9 +71,10 @@ public class PublicDataApiService {
         String url = ApiURLs.EmergencyDeptListByLonLatInfo.getDefaultUrlWithLonLat(1, numOfRows, serviceKey, lon, lat);
         Optional<String> xmlData = getXmlDataByApi(url);
 
+        System.out.println(lon + " " + lat);
         int totalCount = 0;
 
-        List<Hospital> hospitalList = new ArrayList<Hospital>();
+        List<Hospital> hospitalList = new ArrayList<>();
 
         EmergencyDeptListInfoByLatLonResponse response = null;
 
@@ -246,85 +248,84 @@ public class PublicDataApiService {
 
                 if (itemList != null && !itemList.isEmpty()) {
                     itemList.forEach(item -> {
-                        Hospital hospital = hospitalRepository.findById(item.getDutyName())
-                                .orElseThrow(() -> {
-                                    log.error("기관코드 : {} 에 해당하는 병원이 존재하지 않습니다.", item.getDutyName());
-                                    throw new EntityNotFoundException("해당 병원이 존재하지 않습니다.");
-                                });
-                        Optional<EmergencyRoomSevereCapacityInfo> isEmergencyRoomSevereCapacityInfoExist = emergencyRoomSevereCapacityInfoRepository.findByHospitalDutyId(item.getDutyName());
-                        if (isEmergencyRoomSevereCapacityInfoExist.isEmpty()) {
-                            EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo = EmergencyRoomSevereCapacityInfo.builder()
-                                    .hospital(hospital)
-                                    .myocardialInfarction(item.getMKioskTy1() != null && item.getMKioskTy1().trim().equals("Y"))
-                                    .cerebralInfarction(item.getMKioskTy2() != null && item.getMKioskTy2().trim().equals("Y"))
-                                    .subarachnoidHemorrhage(item.getMKioskTy3() != null && item.getMKioskTy3().trim().equals("Y"))
-                                    .otherBrainHemorrhage(item.getMKioskTy4() != null && item.getMKioskTy4().trim().equals("Y"))
-                                    .thoracicAorta(item.getMKioskTy5() != null && item.getMKioskTy5().trim().equals("Y"))
-                                    .abdominalAorta(item.getMKioskTy6() != null && item.getMKioskTy6().trim().equals("Y"))
-                                    .gallbladderDisease(item.getMKioskTy7() != null && item.getMKioskTy7().trim().equals("Y"))
-                                    .bileDuctDisease(item.getMKioskTy8() != null && item.getMKioskTy8().trim().equals("Y"))
-                                    .nonTraumaticAbdominalEmergency(item.getMKioskTy9() != null && item.getMKioskTy9().trim().equals("Y"))
-                                    .infantIntestinalObstruction(item.getMKioskTy10() != null && item.getMKioskTy10().trim().equals("Y"))
-                                    .emergencyGastrointestinalEndoscopy(item.getMKioskTy11() != null && item.getMKioskTy11().trim().equals("Y"))
-                                    .emergencyGastrointestinalEndoscopyForChildren(item.getMKioskTy12() != null && item.getMKioskTy12().trim().equals("Y"))
-                                    .emergencyBronchoscopy(item.getMKioskTy13() != null && item.getMKioskTy13().trim().equals("Y"))
-                                    .emergencyBronchoscopyForChildren(item.getMKioskTy14() != null && item.getMKioskTy14().trim().equals("Y"))
-                                    .lowBirthWeightInfant(item.getMKioskTy15() != null && item.getMKioskTy15().trim().equals("Y"))
-                                    .obstetricDelivery(item.getMKioskTy16() != null && item.getMKioskTy16().trim().equals("Y"))
-                                    .obstetricSurgery(item.getMKioskTy17() != null && item.getMKioskTy17().trim().equals("Y"))
-                                    .emergencyGynecologicalSurgery(item.getMKioskTy18() != null && item.getMKioskTy18().trim().equals("Y"))
-                                    .severeBurns(item.getMKioskTy19() != null && item.getMKioskTy19().trim().equals("Y"))
-                                    .limbReattachmentExtremities(item.getMKioskTy20() != null && item.getMKioskTy20().trim().equals("Y"))
-                                    .limbReattachmentOther(item.getMKioskTy21() != null && item.getMKioskTy21().trim().equals("Y"))
-                                    .emergencyDialysisHD(item.getMKioskTy22() != null && item.getMKioskTy22().trim().equals("Y"))
-                                    .emergencyDialysisCRRT(item.getMKioskTy23() != null && item.getMKioskTy23().trim().equals("Y"))
-                                    .psychiatry(item.getMKioskTy24() != null && item.getMKioskTy24().trim().equals("Y"))
-                                    .ophthalmicSurgery(item.getMKioskTy25() != null && item.getMKioskTy25().trim().equals("Y"))
-                                    .radiologyVascularIntervention(item.getMKioskTy26() != null && item.getMKioskTy26().trim().equals("Y"))
-                                    .radiologyVascularInterventionForChildren(item.getMKioskTy27() != null && item.getMKioskTy27().trim().equals("Y"))
-                                    .infantIntestinalAge(item.getMKioskTy10Msg() != null ? item.getMKioskTy10Msg() : "Not Provided")
-                                    .gastrointestinalEndoscopyAge(item.getMKioskTy12Msg() != null ? item.getMKioskTy12Msg() : "Not Provided")
-                                    .bronchoscopyAge(item.getMKioskTy14Msg() != null ? item.getMKioskTy14Msg() : "Not Provided")
-                                    .lowBirthWeightAge(item.getMKioskTy15Msg() != null ? item.getMKioskTy15Msg() : "Not Provided")
-                                    .radiologyAge(item.getMKioskTy27Msg() != null ? item.getMKioskTy27Msg() : "Not Provided")
-                                    .build();
+                        Optional<Hospital> hospital = hospitalRepository.findById(item.getHpid());
+                        if (hospital.isPresent()) {
+                            Optional<EmergencyRoomSevereCapacityInfo> isEmergencyRoomSevereCapacityInfoExist = emergencyRoomSevereCapacityInfoRepository.findByHospitalDutyId(item.getDutyName());
+                            if (isEmergencyRoomSevereCapacityInfoExist.isEmpty()) {
+                                EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo = EmergencyRoomSevereCapacityInfo.builder()
+                                        .hospital(hospital.get())
+                                        .myocardialInfarction(item.getMKioskTy1() != null && item.getMKioskTy1().trim().equals("Y"))
+                                        .cerebralInfarction(item.getMKioskTy2() != null && item.getMKioskTy2().trim().equals("Y"))
+                                        .subarachnoidHemorrhage(item.getMKioskTy3() != null && item.getMKioskTy3().trim().equals("Y"))
+                                        .otherBrainHemorrhage(item.getMKioskTy4() != null && item.getMKioskTy4().trim().equals("Y"))
+                                        .thoracicAorta(item.getMKioskTy5() != null && item.getMKioskTy5().trim().equals("Y"))
+                                        .abdominalAorta(item.getMKioskTy6() != null && item.getMKioskTy6().trim().equals("Y"))
+                                        .gallbladderDisease(item.getMKioskTy7() != null && item.getMKioskTy7().trim().equals("Y"))
+                                        .bileDuctDisease(item.getMKioskTy8() != null && item.getMKioskTy8().trim().equals("Y"))
+                                        .nonTraumaticAbdominalEmergency(item.getMKioskTy9() != null && item.getMKioskTy9().trim().equals("Y"))
+                                        .infantIntestinalObstruction(item.getMKioskTy10() != null && item.getMKioskTy10().trim().equals("Y"))
+                                        .emergencyGastrointestinalEndoscopy(item.getMKioskTy11() != null && item.getMKioskTy11().trim().equals("Y"))
+                                        .emergencyGastrointestinalEndoscopyForChildren(item.getMKioskTy12() != null && item.getMKioskTy12().trim().equals("Y"))
+                                        .emergencyBronchoscopy(item.getMKioskTy13() != null && item.getMKioskTy13().trim().equals("Y"))
+                                        .emergencyBronchoscopyForChildren(item.getMKioskTy14() != null && item.getMKioskTy14().trim().equals("Y"))
+                                        .lowBirthWeightInfant(item.getMKioskTy15() != null && item.getMKioskTy15().trim().equals("Y"))
+                                        .obstetricDelivery(item.getMKioskTy16() != null && item.getMKioskTy16().trim().equals("Y"))
+                                        .obstetricSurgery(item.getMKioskTy17() != null && item.getMKioskTy17().trim().equals("Y"))
+                                        .emergencyGynecologicalSurgery(item.getMKioskTy18() != null && item.getMKioskTy18().trim().equals("Y"))
+                                        .severeBurns(item.getMKioskTy19() != null && item.getMKioskTy19().trim().equals("Y"))
+                                        .limbReattachmentExtremities(item.getMKioskTy20() != null && item.getMKioskTy20().trim().equals("Y"))
+                                        .limbReattachmentOther(item.getMKioskTy21() != null && item.getMKioskTy21().trim().equals("Y"))
+                                        .emergencyDialysisHD(item.getMKioskTy22() != null && item.getMKioskTy22().trim().equals("Y"))
+                                        .emergencyDialysisCRRT(item.getMKioskTy23() != null && item.getMKioskTy23().trim().equals("Y"))
+                                        .psychiatry(item.getMKioskTy24() != null && item.getMKioskTy24().trim().equals("Y"))
+                                        .ophthalmicSurgery(item.getMKioskTy25() != null && item.getMKioskTy25().trim().equals("Y"))
+                                        .radiologyVascularIntervention(item.getMKioskTy26() != null && item.getMKioskTy26().trim().equals("Y"))
+                                        .radiologyVascularInterventionForChildren(item.getMKioskTy27() != null && item.getMKioskTy27().trim().equals("Y"))
+                                        .infantIntestinalAge(item.getMKioskTy10Msg() != null ? item.getMKioskTy10Msg() : "Not Provided")
+                                        .gastrointestinalEndoscopyAge(item.getMKioskTy12Msg() != null ? item.getMKioskTy12Msg() : "Not Provided")
+                                        .bronchoscopyAge(item.getMKioskTy14Msg() != null ? item.getMKioskTy14Msg() : "Not Provided")
+                                        .lowBirthWeightAge(item.getMKioskTy15Msg() != null ? item.getMKioskTy15Msg() : "Not Provided")
+                                        .radiologyAge(item.getMKioskTy27Msg() != null ? item.getMKioskTy27Msg() : "Not Provided")
+                                        .build();
 
-                            emergencyRoomSevereCapacityInfoRepository.save(emergencyRoomSevereCapacityInfo);
-                        } else {
-                            EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo = isEmergencyRoomSevereCapacityInfoExist.get();
-                            emergencyRoomSevereCapacityInfo.setMyocardialInfarction(item.getMKioskTy1() != null && item.getMKioskTy1().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setCerebralInfarction(item.getMKioskTy2() != null && item.getMKioskTy2().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setSubarachnoidHemorrhage(item.getMKioskTy3() != null && item.getMKioskTy3().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setOtherBrainHemorrhage(item.getMKioskTy4() != null && item.getMKioskTy4().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setThoracicAorta(item.getMKioskTy5() != null && item.getMKioskTy5().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setAbdominalAorta(item.getMKioskTy6() != null && item.getMKioskTy6().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setGallbladderDisease(item.getMKioskTy7() != null && item.getMKioskTy7().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setBileDuctDisease(item.getMKioskTy8() != null && item.getMKioskTy8().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setNonTraumaticAbdominalEmergency(item.getMKioskTy9() != null && item.getMKioskTy9().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setInfantIntestinalObstruction(item.getMKioskTy10() != null && item.getMKioskTy10().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyGastrointestinalEndoscopy(item.getMKioskTy11() != null && item.getMKioskTy11().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyGastrointestinalEndoscopyForChildren(item.getMKioskTy12() != null && item.getMKioskTy12().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyBronchoscopy(item.getMKioskTy13() != null && item.getMKioskTy13().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyBronchoscopyForChildren(item.getMKioskTy14() != null && item.getMKioskTy14().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setLowBirthWeightInfant(item.getMKioskTy15() != null && item.getMKioskTy15().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setObstetricDelivery(item.getMKioskTy16() != null && item.getMKioskTy16().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setObstetricSurgery(item.getMKioskTy17() != null && item.getMKioskTy17().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyGynecologicalSurgery(item.getMKioskTy18() != null && item.getMKioskTy18().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setSevereBurns(item.getMKioskTy19() != null && item.getMKioskTy19().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setLimbReattachmentExtremities(item.getMKioskTy20() != null && item.getMKioskTy20().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setLimbReattachmentOther(item.getMKioskTy21() != null && item.getMKioskTy21().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyDialysisHD(item.getMKioskTy22() != null && item.getMKioskTy22().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setEmergencyDialysisCRRT(item.getMKioskTy23() != null && item.getMKioskTy23().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setPsychiatry(item.getMKioskTy24() != null && item.getMKioskTy24().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setOphthalmicSurgery(item.getMKioskTy25() != null && item.getMKioskTy25().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setRadiologyVascularIntervention(item.getMKioskTy26() != null && item.getMKioskTy26().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setRadiologyVascularInterventionForChildren(item.getMKioskTy27() != null && item.getMKioskTy27().trim().equals("Y"));
-                            emergencyRoomSevereCapacityInfo.setInfantIntestinalAge(item.getMKioskTy10Msg() != null ? item.getMKioskTy10Msg() : "Not Provided");
-                            emergencyRoomSevereCapacityInfo.setGastrointestinalEndoscopyAge(item.getMKioskTy12Msg() != null ? item.getMKioskTy12Msg() : "Not Provided");
-                            emergencyRoomSevereCapacityInfo.setBronchoscopyAge(item.getMKioskTy14Msg() != null ? item.getMKioskTy14Msg() : "Not Provided");
-                            emergencyRoomSevereCapacityInfo.setLowBirthWeightAge(item.getMKioskTy15Msg() != null ? item.getMKioskTy15Msg() : "Not Provided");
-                            emergencyRoomSevereCapacityInfo.setRadiologyAge(item.getMKioskTy27Msg() != null ? item.getMKioskTy27Msg() : "Not Provided");
+                                emergencyRoomSevereCapacityInfoRepository.save(emergencyRoomSevereCapacityInfo);
+                            } else {
+                                EmergencyRoomSevereCapacityInfo emergencyRoomSevereCapacityInfo = isEmergencyRoomSevereCapacityInfoExist.get();
+                                emergencyRoomSevereCapacityInfo.setMyocardialInfarction(item.getMKioskTy1() != null && item.getMKioskTy1().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setCerebralInfarction(item.getMKioskTy2() != null && item.getMKioskTy2().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setSubarachnoidHemorrhage(item.getMKioskTy3() != null && item.getMKioskTy3().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setOtherBrainHemorrhage(item.getMKioskTy4() != null && item.getMKioskTy4().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setThoracicAorta(item.getMKioskTy5() != null && item.getMKioskTy5().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setAbdominalAorta(item.getMKioskTy6() != null && item.getMKioskTy6().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setGallbladderDisease(item.getMKioskTy7() != null && item.getMKioskTy7().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setBileDuctDisease(item.getMKioskTy8() != null && item.getMKioskTy8().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setNonTraumaticAbdominalEmergency(item.getMKioskTy9() != null && item.getMKioskTy9().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setInfantIntestinalObstruction(item.getMKioskTy10() != null && item.getMKioskTy10().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyGastrointestinalEndoscopy(item.getMKioskTy11() != null && item.getMKioskTy11().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyGastrointestinalEndoscopyForChildren(item.getMKioskTy12() != null && item.getMKioskTy12().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyBronchoscopy(item.getMKioskTy13() != null && item.getMKioskTy13().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyBronchoscopyForChildren(item.getMKioskTy14() != null && item.getMKioskTy14().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setLowBirthWeightInfant(item.getMKioskTy15() != null && item.getMKioskTy15().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setObstetricDelivery(item.getMKioskTy16() != null && item.getMKioskTy16().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setObstetricSurgery(item.getMKioskTy17() != null && item.getMKioskTy17().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyGynecologicalSurgery(item.getMKioskTy18() != null && item.getMKioskTy18().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setSevereBurns(item.getMKioskTy19() != null && item.getMKioskTy19().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setLimbReattachmentExtremities(item.getMKioskTy20() != null && item.getMKioskTy20().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setLimbReattachmentOther(item.getMKioskTy21() != null && item.getMKioskTy21().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyDialysisHD(item.getMKioskTy22() != null && item.getMKioskTy22().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setEmergencyDialysisCRRT(item.getMKioskTy23() != null && item.getMKioskTy23().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setPsychiatry(item.getMKioskTy24() != null && item.getMKioskTy24().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setOphthalmicSurgery(item.getMKioskTy25() != null && item.getMKioskTy25().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setRadiologyVascularIntervention(item.getMKioskTy26() != null && item.getMKioskTy26().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setRadiologyVascularInterventionForChildren(item.getMKioskTy27() != null && item.getMKioskTy27().trim().equals("Y"));
+                                emergencyRoomSevereCapacityInfo.setInfantIntestinalAge(item.getMKioskTy10Msg() != null ? item.getMKioskTy10Msg() : "Not Provided");
+                                emergencyRoomSevereCapacityInfo.setGastrointestinalEndoscopyAge(item.getMKioskTy12Msg() != null ? item.getMKioskTy12Msg() : "Not Provided");
+                                emergencyRoomSevereCapacityInfo.setBronchoscopyAge(item.getMKioskTy14Msg() != null ? item.getMKioskTy14Msg() : "Not Provided");
+                                emergencyRoomSevereCapacityInfo.setLowBirthWeightAge(item.getMKioskTy15Msg() != null ? item.getMKioskTy15Msg() : "Not Provided");
+                                emergencyRoomSevereCapacityInfo.setRadiologyAge(item.getMKioskTy27Msg() != null ? item.getMKioskTy27Msg() : "Not Provided");
+                            }
                         }
+
                     });
                 }
             } catch (UnmarshalException unmarshalException) {
@@ -393,6 +394,7 @@ public class PublicDataApiService {
                                     .CRRT(item.getHvcrrtayn() != null && item.getHvcrrtayn().trim().equals("Y"))
                                     .ECMO(item.getHvecmoayn() != null && item.getHvecmoayn().trim().equals("Y"))
                                     .build();
+
                             hospitalEquipmentRepository.save(hospitalEquipment);
                         } else {
                             HospitalEquipment hospitalEquipment = isHospitalEquipmentExist.get();

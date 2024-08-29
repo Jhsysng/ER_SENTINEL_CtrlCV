@@ -4,13 +4,11 @@ import com.ctrlcv.ersentinel_springboot.data.dto.*;
 import com.ctrlcv.ersentinel_springboot.data.entity.*;
 import com.ctrlcv.ersentinel_springboot.data.repository.SurveyRepository;
 import com.ctrlcv.ersentinel_springboot.service.SurveyService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,8 +19,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
-import java.time.LocalDateTime;
-import java.util.stream.Collectors;
 
 import lombok.extern.slf4j.Slf4j;
 

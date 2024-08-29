@@ -1,6 +1,5 @@
 package com.ctrlcv.ersentinel_springboot.service;
 
-import com.ctrlcv.ersentinel_springboot.data.dto.SurveyDTO;
 import com.ctrlcv.ersentinel_springboot.data.dto.SurveyIdDTO;
 import com.ctrlcv.ersentinel_springboot.data.entity.Survey;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
@@ -12,7 +11,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 

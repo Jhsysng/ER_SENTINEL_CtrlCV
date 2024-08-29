@@ -5,7 +5,6 @@ import com.ctrlcv.ersentinel_springboot.data.dto.manager.ESevereResponseDto;
 import com.ctrlcv.ersentinel_springboot.data.dto.manager.EquipmentResponseDto;
 import com.ctrlcv.ersentinel_springboot.data.dto.manager.MessageResponseDto;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
-import com.ctrlcv.ersentinel_springboot.service.DataManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,5 @@
 package com.ctrlcv.ersentinel_springboot.controller;
 
-import com.ctrlcv.ersentinel_springboot.data.dto.HospitalAndAvlBedDto;
-import com.ctrlcv.ersentinel_springboot.data.entity.EmergencyRoom;
 import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
 import com.ctrlcv.ersentinel_springboot.service.PublicDataApiService;
 import com.ctrlcv.ersentinel_springboot.service.SelectByDistService;
@@ -47,22 +45,24 @@ public class SelectByDistController {
      */
 
     @PostMapping("/hospital/lonlat")
-    public ResponseEntity<List<HospitalAndAvlBedDto>> getHospitalListByLatLon(@RequestBody Map<String, String> params) {
+    public ResponseEntity<List<Hospital>> getHospitalListByLatLon(@RequestBody Map<String, String> params) {
         double lon = Double.parseDouble(params.get("lon"));
         double lat = Double.parseDouble(params.get("lat"));
 
-        List<HospitalAndAvlBedDto> hospitalAndAvlBedDtoList = publicDataApiService.getEmergencyDeptListInfoByLonLat(lon, lat).stream()
-                .map(hospital -> {
-                    EmergencyRoom emergencyRoom = selectByDistService.getEmergencyRoomByHospital(hospital.getDutyId());
-                    if (emergencyRoom != null) {
-                        return new HospitalAndAvlBedDto(hospital, emergencyRoom);
-                    } else {
-                        return new HospitalAndAvlBedDto(hospital);
-                    }
-                })
-                .toList();
+//        List<HospitalAndAvlBedDto> hospitalAndAvlBedDtoList = publicDataApiService.getEmergencyDeptListInfoByLonLat(lon, lat).stream()
+//                .map(hospital -> {
+//                    EmergencyRoom emergencyRoom = selectByDistService.getEmergencyRoomByHospital(hospital.getDutyId());
+//                    if (emergencyRoom != null) {
+//                        return new HospitalAndAvlBedDto(hospital, emergencyRoom);
+//                    } else {
+//                        return new HospitalAndAvlBedDto(hospital);
+//                    }
+//                })
+//                .toList();
+
+        List<Hospital> emergencyDeptListInfoByLonLat = publicDataApiService.getEmergencyDeptListInfoByLonLat(lon, lat);
 
 
-        return new ResponseEntity<>(hospitalAndAvlBedDtoList, HttpStatus.OK);
+        return new ResponseEntity<>(emergencyDeptListInfoByLonLat, HttpStatus.OK);
     }
 }

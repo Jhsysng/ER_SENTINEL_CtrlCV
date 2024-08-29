@@ -1,6 +1,5 @@
 package com.ctrlcv.ersentinel_springboot.data.dto;
 
-import com.ctrlcv.ersentinel_springboot.data.entity.Hospital;
 import com.ctrlcv.ersentinel_springboot.data.entity.EmergencyRoom;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

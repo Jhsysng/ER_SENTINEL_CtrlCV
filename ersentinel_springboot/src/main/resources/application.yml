@@ -13,10 +13,10 @@ spring:
         enabled: false
 
   datasource:
-    url: jdbc:mariadb://localhost:3306/ersentinel?allowPublicKeyRetrieval=true&useSSL=false
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: root
-    password: 1592
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: #&33
 
   jpa:
     hibernate:
@@ -27,5 +27,3 @@ spring:
         format_sql: true
 
     show-sql: false
-logging:
-  config: classpath:logback-spring.xml
